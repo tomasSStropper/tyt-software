@@ -174,8 +174,7 @@ section{padding:110px 52px;position:relative;z-index:2;}
 
 .proj-body{padding:26px 28px;}
 .proj-tag{font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;}
-.proj-body h3{font-family:var(--font-h);font-size:1.05rem;font-weight:700;color:var(--white);margin-bottom:10px;}
-.proj-body p{font-size:.82rem;color:var(--muted);line-height:1.78;font-weight:300;}
+.proj-body h3{font-family:var(--font-h);font-size:1.05rem;font-weight:700;color:var(--white);margin-bottom:0;}
 
 /* METHODOLOGY */
 #methodology{background:var(--bg);}
