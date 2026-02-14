@@ -2,6 +2,7 @@
   const storageKey = "tyt-lang";
   const html = document.documentElement;
 
+
   const allTranslatables = () =>
     document.querySelectorAll("[data-es], [data-en], [data-es-html], [data-en-html]");
 
@@ -51,7 +52,7 @@
     });
   };
 
-  const initReveal = () => {
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -61,10 +62,7 @@
           }
         });
       },
-      { threshold: 0.15 }
-    );
 
-    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
   };
 
   const initMailtoForm = () => {
@@ -86,10 +84,6 @@
     });
   };
 
-  document.addEventListener("DOMContentLoaded", () => {
-    initLanguage();
-    initMobileMenu();
-    initReveal();
-    initMailtoForm();
+
   });
 })();
