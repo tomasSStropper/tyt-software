@@ -104,32 +104,6 @@ addEventListener('scroll',()=>{
   scrollBar.style.width=p+'%';
 },{passive:true});
 
-/* STATS COUNTER ANIMATION */
-const statObs=new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      const nums=entry.target.querySelectorAll('.stat-number[data-target]');
-      nums.forEach(num=>{
-        const target=parseInt(num.dataset.target);
-        const duration=2000;
-        const start=performance.now();
-        function update(now){
-          const elapsed=now-start;
-          const progress=Math.min(elapsed/duration,1);
-          // Ease out cubic
-          const ease=1-Math.pow(1-progress,3);
-          num.textContent=Math.round(target*ease);
-          if(progress<1)requestAnimationFrame(update);
-        }
-        requestAnimationFrame(update);
-      });
-      statObs.unobserve(entry.target);
-    }
-  });
-},{threshold:.3});
-const statsSection=document.getElementById('stats');
-if(statsSection)statObs.observe(statsSection);
-
 /* MAGNETIC BUTTONS */
 document.querySelectorAll('.magnetic').forEach(btn=>{
   btn.addEventListener('mousemove',e=>{
