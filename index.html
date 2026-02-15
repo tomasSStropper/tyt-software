@@ -6,32 +6,55 @@
 <meta name="description" content="TyT Software & Solutions — Transformamos empresas con tecnología inteligente."/>
 <title>TyT Software & Solutions</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="css/styles.css"/>
 </head>
 <body>
 
+<!-- NOISE OVERLAY -->
+<div class="noise"></div>
 <div id="cur"></div>
 <div id="cur-r"></div>
 <canvas id="bg"></canvas>
 
+<!-- GRADIENT ORBS -->
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+
 <!-- NAVBAR -->
 <nav id="nav">
-  <div class="logo">TyT<span>.</span></div>
-  <ul class="nav-links">
+  <div class="nav-inner">
+    <div class="logo">TyT<span>.</span></div>
+    <ul class="nav-links">
+      <li><a href="#about" data-es="Nosotros" data-en="About">Nosotros</a></li>
+      <li><a href="#services" data-es="Servicios" data-en="Services">Servicios</a></li>
+      <li><a href="#ideal-client" data-es="¿Eres tú?" data-en="Is this you?">¿Eres tú?</a></li>
+      <li><a href="#projects" data-es="Proyectos" data-en="Projects">Proyectos</a></li>
+      <li><a href="#cta" class="nav-cta" data-es="Agendar reunión" data-en="Book a Call">Agendar reunión</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-tog">
+        <button class="l-btn on" onclick="setLang('es')">ES</button>
+        <button class="l-btn" onclick="setLang('en')">EN</button>
+      </div>
+      <button class="menu-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu">
+  <ul>
     <li><a href="#about" data-es="Nosotros" data-en="About">Nosotros</a></li>
     <li><a href="#services" data-es="Servicios" data-en="Services">Servicios</a></li>
     <li><a href="#ideal-client" data-es="¿Eres tú?" data-en="Is this you?">¿Eres tú?</a></li>
     <li><a href="#projects" data-es="Proyectos" data-en="Projects">Proyectos</a></li>
-    <li><a href="#cta" class="nav-cta" data-es="Agendar reunión" data-en="Book a Call">Agendar reunión</a></li>
+    <li><a href="#cta" class="mob-cta" data-es="Agendar reunión" data-en="Book a Call">Agendar reunión</a></li>
   </ul>
-  <div style="display:flex;align-items:center;gap:12px;">
-    <div class="lang-tog">
-      <button class="l-btn on" onclick="setLang('es')">ES</button>
-      <button class="l-btn" onclick="setLang('en')">EN</button>
-    </div>
-  </div>
-</nav>
+</div>
 
 <!-- HERO -->
 <section id="hero">
@@ -45,8 +68,8 @@
       No hacemos páginas. Construimos tecnología estratégica para empresas que exigen resultados reales, eficiencia operativa y retorno de inversión medible.
     </p>
     <div class="h-btns">
-      <a href="#cta" class="btn-p"><span data-es="Agendar asesoría estratégica" data-en="Book a Strategic Call">Agendar asesoría estratégica</span><svg width="15" height="15" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      <a href="https://wa.me/50670427226" target="_blank" class="btn-wa"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span data-es="Escríbenos por WhatsApp" data-en="Message us on WhatsApp">Escríbenos por WhatsApp</span></a>
+      <a href="#cta" class="btn-p magnetic"><span data-es="Agendar asesoría estratégica" data-en="Book a Strategic Call">Agendar asesoría estratégica</span><svg width="15" height="15" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="https://wa.me/50670427226" target="_blank" class="btn-wa magnetic"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span data-es="Escríbenos por WhatsApp" data-en="Message us on WhatsApp">Escríbenos por WhatsApp</span></a>
     </div>
     <div class="impact-phrase">
       <p class="ip-text" data-es="Cada empresa que trabaja con nosotros <em>deja de perder tiempo</em> en procesos manuales y empieza a <span>competir con tecnología real.</span>" data-en="Every company that works with us <em>stops wasting time</em> on manual processes and starts <span>competing with real technology.</span>">
@@ -60,20 +83,52 @@
 <!-- MARQUEE -->
 <div class="mq-wrap">
   <div class="mq-track">
-    <div class="mq-item"><em>⚡</em> Desarrollo Web Estratégico</div>
-    <div class="mq-item"><em>⚙️</em> Automatización Empresarial</div>
-    <div class="mq-item"><em>📱</em> Aplicaciones Web</div>
-    <div class="mq-item"><em>🧠</em> Consultoría Digital</div>
-    <div class="mq-item"><em>🚀</em> Escalabilidad</div>
-    <div class="mq-item"><em>🔗</em> Integración de APIs</div>
-    <div class="mq-item"><em>⚡</em> Desarrollo Web Estratégico</div>
-    <div class="mq-item"><em>⚙️</em> Automatización Empresarial</div>
-    <div class="mq-item"><em>📱</em> Aplicaciones Web</div>
-    <div class="mq-item"><em>🧠</em> Consultoría Digital</div>
-    <div class="mq-item"><em>🚀</em> Escalabilidad</div>
-    <div class="mq-item"><em>🔗</em> Integración de APIs</div>
+    <div class="mq-item"><em>⚡</em> <span data-es="Desarrollo Web Estratégico" data-en="Strategic Web Development">Desarrollo Web Estratégico</span></div>
+    <div class="mq-item"><em>⚙️</em> <span data-es="Automatización Empresarial" data-en="Business Automation">Automatización Empresarial</span></div>
+    <div class="mq-item"><em>📱</em> <span data-es="Aplicaciones Web" data-en="Web Applications">Aplicaciones Web</span></div>
+    <div class="mq-item"><em>🧠</em> <span data-es="Consultoría Digital" data-en="Digital Consulting">Consultoría Digital</span></div>
+    <div class="mq-item"><em>🚀</em> <span data-es="Escalabilidad" data-en="Scalability">Escalabilidad</span></div>
+    <div class="mq-item"><em>🔗</em> <span data-es="Integración de APIs" data-en="API Integration">Integración de APIs</span></div>
+    <div class="mq-item"><em>⚡</em> <span data-es="Desarrollo Web Estratégico" data-en="Strategic Web Development">Desarrollo Web Estratégico</span></div>
+    <div class="mq-item"><em>⚙️</em> <span data-es="Automatización Empresarial" data-en="Business Automation">Automatización Empresarial</span></div>
+    <div class="mq-item"><em>📱</em> <span data-es="Aplicaciones Web" data-en="Web Applications">Aplicaciones Web</span></div>
+    <div class="mq-item"><em>🧠</em> <span data-es="Consultoría Digital" data-en="Digital Consulting">Consultoría Digital</span></div>
+    <div class="mq-item"><em>🚀</em> <span data-es="Escalabilidad" data-en="Scalability">Escalabilidad</span></div>
+    <div class="mq-item"><em>🔗</em> <span data-es="Integración de APIs" data-en="API Integration">Integración de APIs</span></div>
   </div>
 </div>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="si">
+    <div class="stats-grid">
+      <div class="stat-card reveal">
+        <div class="stat-number" data-target="15">0</div>
+        <div class="stat-suffix">+</div>
+        <div class="stat-label" data-es="Proyectos Entregados" data-en="Projects Delivered">Proyectos Entregados</div>
+        <div class="stat-line"></div>
+      </div>
+      <div class="stat-card reveal d1">
+        <div class="stat-number" data-target="60">0</div>
+        <div class="stat-suffix">%</div>
+        <div class="stat-label" data-es="Menos Tiempo Operativo" data-en="Less Operational Time">Menos Tiempo Operativo</div>
+        <div class="stat-line"></div>
+      </div>
+      <div class="stat-card reveal d2">
+        <div class="stat-number" data-target="100">0</div>
+        <div class="stat-suffix">%</div>
+        <div class="stat-label" data-es="Clientes Satisfechos" data-en="Satisfied Clients">Clientes Satisfechos</div>
+        <div class="stat-line"></div>
+      </div>
+      <div class="stat-card reveal d3">
+        <div class="stat-number" data-target="24">0</div>
+        <div class="stat-suffix">/7</div>
+        <div class="stat-label" data-es="Soporte Continuo" data-en="Continuous Support">Soporte Continuo</div>
+        <div class="stat-line"></div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ABOUT -->
 <section id="about">
@@ -83,8 +138,8 @@
       <h2 class="s-title" data-es="No hacemos páginas.<br>Construimos activos digitales." data-en="We don't build pages.<br>We build digital assets.">No hacemos páginas.<br>Construimos activos digitales.</h2>
       <div class="about-grid" style="margin-top:40px;">
         <div>
-          <p style="color:var(--muted);font-size:.95rem;line-height:1.88;font-weight:300;margin-bottom:14px;" data-es="TyT Software & Solutions es una firma tecnológica especializada en transformación digital empresarial. Trabajamos con empresas que necesitan tecnología estratégica — no decorativa." data-en="TyT Software & Solutions is a technology firm specializing in enterprise digital transformation. We work with companies that need strategic technology — not decorative.">TyT Software & Solutions es una firma tecnológica especializada en transformación digital empresarial. Trabajamos con empresas que necesitan tecnología estratégica — no decorativa.</p>
-          <p style="color:var(--muted);font-size:.95rem;line-height:1.88;font-weight:300;" data-es="Cada proyecto responde una pregunta clave: ¿qué problema resuelve, qué tiempo ahorra y qué retorno genera?" data-en="Each project answers a key question: what problem does it solve, what time does it save, and what return does it generate?">Cada proyecto responde una pregunta clave: ¿qué problema resuelve, qué tiempo ahorra y qué retorno genera?</p>
+          <p class="about-text" data-es="TyT Software & Solutions es una firma tecnológica especializada en transformación digital empresarial. Trabajamos con empresas que necesitan tecnología estratégica — no decorativa." data-en="TyT Software & Solutions is a technology firm specializing in enterprise digital transformation. We work with companies that need strategic technology — not decorative.">TyT Software & Solutions es una firma tecnológica especializada en transformación digital empresarial. Trabajamos con empresas que necesitan tecnología estratégica — no decorativa.</p>
+          <p class="about-text" data-es="Cada proyecto responde una pregunta clave: ¿qué problema resuelve, qué tiempo ahorra y qué retorno genera?" data-en="Each project answers a key question: what problem does it solve, what time does it save, and what return does it generate?">Cada proyecto responde una pregunta clave: ¿qué problema resuelve, qué tiempo ahorra y qué retorno genera?</p>
         </div>
         <div>
           <ul class="about-list">
@@ -106,11 +161,11 @@
       <div><div class="s-tag reveal" data-es="Nuestros Servicios" data-en="Our Services">Nuestros Servicios</div><h2 class="s-title reveal" data-es="Soluciones que generan<br>resultados reales." data-en="Solutions that generate<br>real results.">Soluciones que generan<br>resultados reales.</h2></div>
       <p class="s-desc reveal d2" style="max-width:360px" data-es="Cuatro servicios core. Cada uno resuelve un problema específico y genera valor medible." data-en="Four core services. Each one solves a specific problem and generates measurable value.">Cuatro servicios core. Cada uno resuelve un problema específico y genera valor medible.</p>
     </div>
-    <div class="srv-grid reveal">
-      <div class="sc"><div class="sc-glow"></div><div class="sc-icon">🌐</div><div class="sc-prob" data-es="Presencia digital débil" data-en="Weak digital presence">Presencia digital débil</div><h3 data-es="Desarrollo Web Corporativo" data-en="Corporate Web Development">Desarrollo Web Corporativo</h3><p data-es="Sitios empresariales de alto rendimiento, landing pages para conversión, portales internos y diseño UX/UI estratégico. SEO y Core Web Vitals incluidos." data-en="High-performance business sites, conversion landing pages, internal portals and strategic UX/UI design. SEO and Core Web Vitals included.">Sitios empresariales de alto rendimiento, landing pages para conversión, portales internos y diseño UX/UI estratégico. SEO y Core Web Vitals incluidos.</p><div class="sc-res"><div class="sc-dot"></div><span data-es="Mayor visibilidad + leads calificados" data-en="Greater visibility + qualified leads">Mayor visibilidad + leads calificados</span></div></div>
-      <div class="sc"><div class="sc-glow"></div><div class="sc-icon">⚙️</div><div class="sc-prob" data-es="Procesos manuales y lentos" data-en="Slow manual processes">Procesos manuales y lentos</div><h3 data-es="Automatización Empresarial" data-en="Business Automation">Automatización Empresarial</h3><p data-es="Automatización interna, integraciones API, CRMs personalizados, flujos email/WhatsApp y dashboards en tiempo real. Eliminamos el trabajo manual." data-en="Internal automation, API integrations, custom CRMs, email/WhatsApp flows and real-time dashboards. We eliminate manual work.">Automatización interna, integraciones API, CRMs personalizados, flujos email/WhatsApp y dashboards en tiempo real. Eliminamos el trabajo manual.</p><div class="sc-res"><div class="sc-dot"></div><span data-es="Hasta 60% menos tiempo operativo" data-en="Up to 60% less operational time">Hasta 60% menos tiempo operativo</span></div></div>
-      <div class="sc"><div class="sc-glow"></div><div class="sc-icon">🖥️</div><div class="sc-prob" data-es="Sin herramientas internas propias" data-en="No internal tools">Sin herramientas internas propias</div><h3 data-es="Aplicaciones Web" data-en="Web Applications">Aplicaciones Web</h3><p data-es="Plataformas multiusuario con roles (Admin, Comercial, Afiliado), dashboards, control de usuarios y gestión de datos. Escalable desde el día uno." data-en="Multi-user platforms with roles (Admin, Sales, Affiliate), dashboards, user control and data management. Scalable from day one.">Plataformas multiusuario con roles (Admin, Comercial, Afiliado), dashboards, control de usuarios y gestión de datos. Escalable desde el día uno.</p><div class="sc-res"><div class="sc-dot"></div><span data-es="Control total de operaciones internas" data-en="Total control of internal operations">Control total de operaciones internas</span></div></div>
-      <div class="sc"><div class="sc-glow"></div><div class="sc-icon">🧠</div><div class="sc-prob" data-es="Sin rumbo tecnológico claro" data-en="No clear technology roadmap">Sin rumbo tecnológico claro</div><h3 data-es="Consultoría Digital Estratégica" data-en="Strategic Digital Consulting">Consultoría Digital Estratégica</h3><p data-es="Diagnóstico tecnológico, plan de transformación digital, optimización de procesos y estrategia de escalabilidad. Tecnología alineada con tu negocio." data-en="Technology diagnosis, digital transformation plan, process optimization and scalability strategy. Technology aligned with your business.">Diagnóstico tecnológico, plan de transformación digital, optimización de procesos y estrategia de escalabilidad. Tecnología alineada con tu negocio.</p><div class="sc-res"><div class="sc-dot"></div><span data-es="Hoja de ruta clara y ejecutable" data-en="Clear and executable roadmap">Hoja de ruta clara y ejecutable</span></div></div>
+    <div class="srv-grid">
+      <div class="sc reveal"><div class="sc-border"></div><div class="sc-glow"></div><div class="sc-icon">🌐</div><div class="sc-prob" data-es="Presencia digital débil" data-en="Weak digital presence">Presencia digital débil</div><h3 data-es="Desarrollo Web Corporativo" data-en="Corporate Web Development">Desarrollo Web Corporativo</h3><p data-es="Sitios empresariales de alto rendimiento, landing pages para conversión, portales internos y diseño UX/UI estratégico. SEO y Core Web Vitals incluidos." data-en="High-performance business sites, conversion landing pages, internal portals and strategic UX/UI design. SEO and Core Web Vitals included.">Sitios empresariales de alto rendimiento, landing pages para conversión, portales internos y diseño UX/UI estratégico. SEO y Core Web Vitals incluidos.</p><div class="sc-res"><div class="sc-dot"></div><span data-es="Mayor visibilidad + leads calificados" data-en="Greater visibility + qualified leads">Mayor visibilidad + leads calificados</span></div></div>
+      <div class="sc reveal d1"><div class="sc-border"></div><div class="sc-glow"></div><div class="sc-icon">⚙️</div><div class="sc-prob" data-es="Procesos manuales y lentos" data-en="Slow manual processes">Procesos manuales y lentos</div><h3 data-es="Automatización Empresarial" data-en="Business Automation">Automatización Empresarial</h3><p data-es="Automatización interna, integraciones API, CRMs personalizados, flujos email/WhatsApp y dashboards en tiempo real. Eliminamos el trabajo manual." data-en="Internal automation, API integrations, custom CRMs, email/WhatsApp flows and real-time dashboards. We eliminate manual work.">Automatización interna, integraciones API, CRMs personalizados, flujos email/WhatsApp y dashboards en tiempo real. Eliminamos el trabajo manual.</p><div class="sc-res"><div class="sc-dot"></div><span data-es="Hasta 60% menos tiempo operativo" data-en="Up to 60% less operational time">Hasta 60% menos tiempo operativo</span></div></div>
+      <div class="sc reveal d2"><div class="sc-border"></div><div class="sc-glow"></div><div class="sc-icon">🖥️</div><div class="sc-prob" data-es="Sin herramientas internas propias" data-en="No internal tools">Sin herramientas internas propias</div><h3 data-es="Aplicaciones Web" data-en="Web Applications">Aplicaciones Web</h3><p data-es="Plataformas multiusuario con roles (Admin, Comercial, Afiliado), dashboards, control de usuarios y gestión de datos. Escalable desde el día uno." data-en="Multi-user platforms with roles (Admin, Sales, Affiliate), dashboards, user control and data management. Scalable from day one.">Plataformas multiusuario con roles (Admin, Comercial, Afiliado), dashboards, control de usuarios y gestión de datos. Escalable desde el día uno.</p><div class="sc-res"><div class="sc-dot"></div><span data-es="Control total de operaciones internas" data-en="Total control of internal operations">Control total de operaciones internas</span></div></div>
+      <div class="sc reveal d3"><div class="sc-border"></div><div class="sc-glow"></div><div class="sc-icon">🧠</div><div class="sc-prob" data-es="Sin rumbo tecnológico claro" data-en="No clear technology roadmap">Sin rumbo tecnológico claro</div><h3 data-es="Consultoría Digital Estratégica" data-en="Strategic Digital Consulting">Consultoría Digital Estratégica</h3><p data-es="Diagnóstico tecnológico, plan de transformación digital, optimización de procesos y estrategia de escalabilidad. Tecnología alineada con tu negocio." data-en="Technology diagnosis, digital transformation plan, process optimization and scalability strategy. Technology aligned with your business.">Diagnóstico tecnológico, plan de transformación digital, optimización de procesos y estrategia de escalabilidad. Tecnología alineada con tu negocio.</p><div class="sc-res"><div class="sc-dot"></div><span data-es="Hoja de ruta clara y ejecutable" data-en="Clear and executable roadmap">Hoja de ruta clara y ejecutable</span></div></div>
     </div>
   </div>
 </section>
@@ -125,6 +180,7 @@
     </div>
     <div class="ic-grid">
       <div class="ic-card reveal">
+        <div class="ic-card-glow"></div>
         <span class="ic-emoji">🏢</span>
         <h3 data-es="La empresa que quiere modernizarse" data-en="The company that wants to modernize">La empresa que quiere modernizarse</h3>
         <p data-es="Llevas años operando bien, pero sabes que tus procesos actuales te están costando tiempo y dinero que no ves." data-en="You've been operating well for years, but you know your current processes are costing you time and money you don't see.">Llevas años operando bien, pero sabes que tus procesos actuales te están costando tiempo y dinero que no ves.</p>
@@ -133,9 +189,10 @@
           <li data-es="Información dispersa sin un sistema central" data-en="Scattered information without a central system">Información dispersa sin un sistema central</li>
           <li data-es="Web que no convierte ni posiciona" data-en="Website that doesn't convert or rank">Web que no convierte ni posiciona</li>
         </ul>
-        <div class="ic-cta" data-es="Esto es para ti →" data-en="This is for you →">Esto es para ti →</div>
+        <a href="#cta" class="ic-cta" data-es="Esto es para ti →" data-en="This is for you →">Esto es para ti →</a>
       </div>
       <div class="ic-card reveal d2">
+        <div class="ic-card-glow"></div>
         <span class="ic-emoji">🚀</span>
         <h3 data-es="El negocio que está escalando" data-en="The business that is scaling">El negocio que está escalando</h3>
         <p data-es="Tu empresa creció y los sistemas que funcionaban antes ya no aguantan el volumen actual. Necesitas infraestructura que crezca contigo." data-en="Your company grew and the systems that worked before can no longer handle the current volume. You need infrastructure that grows with you.">Tu empresa creció y los sistemas que funcionaban antes ya no aguantan el volumen actual. Necesitas infraestructura que crezca contigo.</p>
@@ -144,9 +201,10 @@
           <li data-es="Equipo que pierde tiempo en tareas repetitivas" data-en="Team wasting time on repetitive tasks">Equipo que pierde tiempo en tareas repetitivas</li>
           <li data-es="Sin visibilidad en tiempo real del negocio" data-en="No real-time business visibility">Sin visibilidad en tiempo real del negocio</li>
         </ul>
-        <div class="ic-cta" data-es="Esto es para ti →" data-en="This is for you →">Esto es para ti →</div>
+        <a href="#cta" class="ic-cta" data-es="Esto es para ti →" data-en="This is for you →">Esto es para ti →</a>
       </div>
       <div class="ic-card reveal d3">
+        <div class="ic-card-glow"></div>
         <span class="ic-emoji">🎯</span>
         <h3 data-es="El líder que quiere resultados" data-en="The leader who wants results">El líder que quiere resultados</h3>
         <p data-es="Ya probaste otras soluciones que prometieron mucho y entregaron poco. Ahora buscas un socio tecnológico que entienda tu negocio antes de escribir código." data-en="You've tried other solutions that promised a lot and delivered little. Now you're looking for a technology partner that understands your business before writing code.">Ya probaste otras soluciones que prometieron mucho y entregaron poco. Ahora buscas un socio tecnológico que entienda tu negocio antes de escribir código.</p>
@@ -155,7 +213,7 @@
           <li data-es="Proyectos que se entregan tarde o incompletos" data-en="Projects delivered late or incomplete">Proyectos que se entregan tarde o incompletos</li>
           <li data-es="Tecnología que no resuelve el problema real" data-en="Technology that doesn't solve the real problem">Tecnología que no resuelve el problema real</li>
         </ul>
-        <div class="ic-cta" data-es="Esto es para ti →" data-en="This is for you →">Esto es para ti →</div>
+        <a href="#cta" class="ic-cta" data-es="Esto es para ti →" data-en="This is for you →">Esto es para ti →</a>
       </div>
     </div>
   </div>
@@ -193,6 +251,9 @@
       <div class="proj-card reveal">
         <div class="proj-vis">
           <img src="assets/img/humanamente.png" alt="HumanaMente — Consultorio Psicológico" loading="lazy"/>
+          <div class="proj-overlay">
+            <span class="proj-view" data-es="Ver proyecto" data-en="View project">Ver proyecto</span>
+          </div>
         </div>
         <div class="proj-body">
           <div class="proj-tag" data-es="Presencia Digital" data-en="Digital Presence">Presencia Digital</div>
@@ -202,15 +263,21 @@
       <div class="proj-card reveal d1">
         <div class="proj-vis">
           <img src="assets/img/savia.png" alt="Savia — Sustainability Advisors" loading="lazy"/>
+          <div class="proj-overlay">
+            <span class="proj-view" data-es="Ver proyecto" data-en="View project">Ver proyecto</span>
+          </div>
         </div>
         <div class="proj-body">
           <div class="proj-tag" data-es="Demo Web Corporativa" data-en="Corporate Web Demo">Demo Web Corporativa</div>
           <h3>Savia Sustainability</h3>
         </div>
       </div>
-      <div class="proj-card reveal d2">
+      <div class="proj-card proj-card-wide reveal d2">
         <div class="proj-vis">
           <img src="assets/img/az-inmuebles.png" alt="AZ Inmuebles — Coto Brus, Costa Rica" loading="lazy"/>
+          <div class="proj-overlay">
+            <span class="proj-view" data-es="Ver proyecto" data-en="View project">Ver proyecto</span>
+          </div>
         </div>
         <div class="proj-body">
           <div class="proj-tag" data-es="Plataforma Inmobiliaria" data-en="Real Estate Platform">Plataforma Inmobiliaria</div>
@@ -229,7 +296,7 @@
       <h2 class="s-title reveal" style="text-align:center;" data-es="Un proceso probado para<br>resultados concretos." data-en="A proven process for<br>concrete results.">Un proceso probado para<br>resultados concretos.</h2>
     </div>
     <div class="meth-wrap reveal">
-      <div class="meth-line"></div>
+      <div class="meth-line"><div class="meth-line-fill"></div></div>
       <div class="meth-steps">
         <div class="ms"><div class="ms-num">01</div><div class="ms-ico">🔍</div><div class="ms-nm" data-es="Diagnóstico" data-en="Diagnosis">Diagnóstico</div><div class="ms-ds" data-es="Analizamos tu empresa, procesos y objetivos en profundidad." data-en="We deeply analyze your company, processes and objectives.">Analizamos tu empresa, procesos y objetivos en profundidad.</div></div>
         <div class="ms"><div class="ms-num">02</div><div class="ms-ico">🗺️</div><div class="ms-nm" data-es="Estrategia" data-en="Strategy">Estrategia</div><div class="ms-ds" data-es="Plan tecnológico alineado a tus metas y presupuesto." data-en="Tech plan aligned with your goals and budget.">Plan tecnológico alineado a tus metas y presupuesto.</div></div>
@@ -243,14 +310,15 @@
 
 <!-- CTA -->
 <section id="cta">
+  <div class="cta-bg-anim"></div>
   <div class="cta-glow"></div>
   <div class="cta-inner">
     <div class="cta-tag reveal" data-es="El siguiente paso es tuyo" data-en="The next step is yours">El siguiente paso es tuyo</div>
     <h2 class="cta-t reveal" data-es="¿Tu empresa está lista para<br>competir con tecnología real?" data-en="Is your company ready to<br>compete with real technology?">¿Tu empresa está lista para<br>competir con tecnología real?</h2>
     <p class="cta-d reveal" data-es="Agenda una asesoría estratégica gratuita. En 30 minutos analizamos tu empresa y te mostramos exactamente qué tecnología necesitas y qué retorno puedes esperar." data-en="Schedule a free strategic consultation. In 30 minutes we analyze your company and show you exactly what technology you need and what return to expect.">Agenda una asesoría estratégica gratuita. En 30 minutos analizamos tu empresa y te mostramos exactamente qué tecnología necesitas y qué retorno puedes esperar.</p>
     <div class="cta-btns reveal">
-      <a href="https://wa.me/50670427226" target="_blank" class="btn-p"><span data-es="Agendar asesoría estratégica" data-en="Book Strategic Consultation">Agendar asesoría estratégica</span><svg width="15" height="15" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      <a href="mailto:tytsoftware.business@gmail.com" class="btn-g" data-es="Escribir un correo" data-en="Send an Email">Escribir un correo</a>
+      <a href="https://wa.me/50670427226" target="_blank" class="btn-p magnetic"><span data-es="Agendar asesoría estratégica" data-en="Book Strategic Consultation">Agendar asesoría estratégica</span><svg width="15" height="15" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="mailto:tytsoftware.business@gmail.com" class="btn-g magnetic" data-es="Escribir un correo" data-en="Send an Email">Escribir un correo</a>
     </div>
     <p class="cta-note reveal" data-es="O escríbenos a " data-en="Or email us at ">O escríbenos a <a href="mailto:tytsoftware.business@gmail.com">tytsoftware.business@gmail.com</a></p>
   </div>
@@ -260,7 +328,19 @@
 <footer>
   <div class="fi">
     <div class="ft">
-      <div><div class="fl">TyT<span>.</span></div><p class="ftag" data-es="Transformamos empresas con tecnología inteligente. Desarrollo estratégico y automatización para compañías que exigen resultados reales." data-en="We transform companies with intelligent technology. Strategic development and automation for companies that demand real results.">Transformamos empresas con tecnología inteligente. Desarrollo estratégico y automatización para compañías que exigen resultados reales.</p></div>
+      <div><div class="fl">TyT<span>.</span></div><p class="ftag" data-es="Transformamos empresas con tecnología inteligente. Desarrollo estratégico y automatización para compañías que exigen resultados reales." data-en="We transform companies with intelligent technology. Strategic development and automation for companies that demand real results.">Transformamos empresas con tecnología inteligente. Desarrollo estratégico y automatización para compañías que exigen resultados reales.</p>
+        <div class="f-social">
+          <a href="https://www.instagram.com/tytsoftware/" target="_blank" aria-label="Instagram" class="f-social-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://wa.me/50670427226" target="_blank" aria-label="WhatsApp" class="f-social-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+          <a href="mailto:tytsoftware.business@gmail.com" aria-label="Email" class="f-social-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="M22 7l-10 7L2 7"/></svg>
+          </a>
+        </div>
+      </div>
       <div class="fc"><h4 data-es="Servicios" data-en="Services">Servicios</h4><ul><li><a href="#services" data-es="Desarrollo Web" data-en="Web Dev">Desarrollo Web</a></li><li><a href="#services" data-es="Automatización" data-en="Automation">Automatización</a></li><li><a href="#services" data-es="Apps Web" data-en="Web Apps">Apps Web</a></li><li><a href="#services" data-es="Consultoría" data-en="Consulting">Consultoría</a></li></ul></div>
       <div class="fc"><h4 data-es="Empresa" data-en="Company">Empresa</h4><ul><li><a href="#about" data-es="Nosotros" data-en="About">Nosotros</a></li><li><a href="#projects" data-es="Proyectos" data-en="Projects">Proyectos</a></li><li><a href="#ideal-client" data-es="¿Eres tú?" data-en="Is this you?">¿Eres tú?</a></li></ul></div>
       <div class="fc"><h4 data-es="Contacto" data-en="Contact">Contacto</h4><ul><li><a href="mailto:tytsoftware.business@gmail.com">tytsoftware.business@gmail.com</a></li><li><a href="https://wa.me/50670427226" target="_blank">+506 7042 7226</a></li><li><a href="https://www.instagram.com/tytsoftware/" target="_blank">@tytsoftware</a></li><li><a href="#cta" data-es="Agendar reunión" data-en="Book a call">Agendar reunión</a></li></ul></div>
