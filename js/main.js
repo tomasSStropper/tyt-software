@@ -151,3 +151,13 @@ const methObs=new IntersectionObserver(entries=>{
 },{threshold:.2});
 const methWrap=document.querySelector('.meth-wrap');
 if(methWrap)methObs.observe(methWrap);
+
+const revealElements = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.15 });
+revealElements.forEach(el => revealObserver.observe(el));
