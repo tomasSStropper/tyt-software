@@ -375,3 +375,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:72px 56px
 .reveal.visible { opacity:1; transform:translateY(0); }
 .d2 { transition-delay:0.1s; }
 .d3 { transition-delay:0.2s; }
+/* IC-CARD BACKGROUND */
+.ic-card { background: rgba(255,255,255,0.04) !important; border: 1px solid rgba(255,255,255,0.08); }
+.ic-card:hover { border-color: rgba(59,130,246,0.5) !important; }
