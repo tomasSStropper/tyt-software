@@ -346,3 +346,32 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:72px 56px
   .orb{display:none}
   .fb{flex-direction:column;align-items:center;text-align:center;gap:6px}
 }
+
+/* PREMIUM UPGRADES — SERVICES */
+.sc { transition: transform 0.3s ease, box-shadow 0.3s ease; position: relative; overflow: hidden; }
+.sc:hover { transform: translateY(-10px); box-shadow: 0 20px 60px rgba(59,130,246,0.15); }
+.sc-border { background: linear-gradient(135deg,#3b82f6,#06b6d4); opacity:0; transition:opacity 0.3s ease; }
+.sc:hover .sc-border { opacity:1; }
+.sc-glow { background: radial-gradient(circle at 50% 0%,rgba(59,130,246,0.12),transparent 70%); transition:opacity 0.3s ease; }
+.sc:hover .sc-glow { opacity:1; }
+.sc-icon { background:linear-gradient(135deg,#1e3a5f,#164e63); border-radius:12px; padding:12px; display:inline-flex; align-items:center; justify-content:center; transition:transform 0.3s ease; }
+.sc:hover .sc-icon { transform:scale(1.1); }
+.sc-res { transition:background 0.3s ease,color 0.3s ease; }
+.sc:hover .sc-res { background:linear-gradient(135deg,rgba(59,130,246,0.15),rgba(6,182,212,0.15)); border-color:rgba(59,130,246,0.4); }
+.sc-dot { transition:transform 0.3s ease; }
+.sc:hover .sc-dot { transform:translateX(4px); }
+/* PREMIUM UPGRADES — IDEAL CLIENT */
+.ic-card { transition:transform 0.3s ease,box-shadow 0.3s ease,border-color 0.3s ease; border-left:3px solid transparent; position:relative; }
+.ic-card:hover { transform:translateY(-8px); box-shadow:0 20px 50px rgba(59,130,246,0.12); border-left:3px solid #3b82f6; }
+.ic-card-glow { background:radial-gradient(circle at 30% 50%,rgba(59,130,246,0.08),transparent 70%); transition:opacity 0.3s ease; opacity:0; }
+.ic-card:hover .ic-card-glow { opacity:1; }
+.ic-emoji { width:48px; height:48px; border-radius:50%; border:1.5px solid rgba(59,130,246,0.4); display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg,rgba(59,130,246,0.1),rgba(6,182,212,0.1)); transition:border-color 0.3s ease,transform 0.3s ease; }
+.ic-card:hover .ic-emoji { border-color:#06b6d4; transform:scale(1.08); }
+.ic-pains li::before { content:"✓"; color:#06b6d4; font-weight:700; margin-right:8px; }
+.ic-cta { transition:gap 0.3s ease,color 0.3s ease; display:inline-flex; align-items:center; gap:4px; }
+.ic-card:hover .ic-cta { gap:8px; color:#06b6d4; }
+/* SCROLL REVEAL */
+.reveal { opacity:0; transform:translateY(30px); transition:opacity 0.6s ease,transform 0.6s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+.d2 { transition-delay:0.1s; }
+.d3 { transition-delay:0.2s; }
