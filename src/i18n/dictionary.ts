@@ -70,9 +70,11 @@ const es = {
   projects: {
     label: 'Proyectos',
     title: 'Trabajo real, en producción.',
-    hint: 'Cinco encargos reales. Cero plantillas.',
+    hint: 'Cinco encargos reales. Recorre la lista con el cursor.',
     visit: 'Visitar sitio',
     live: 'En línea',
+    diskAlt: 'Disquete vintage con etiqueta roja — el archivo de proyectos de TyT',
+    construction: { title: 'En construcción', note: 'Próximamente' },
     items: [
       {
         name: 'Savia',
@@ -217,9 +219,11 @@ const en: Dict = {
   projects: {
     label: 'Work',
     title: 'Real work, in production.',
-    hint: 'Five real commissions. Zero templates.',
+    hint: 'Five real commissions. Sweep the list with your cursor.',
     visit: 'Visit site',
     live: 'Live',
+    diskAlt: 'Vintage floppy disk with a red label — the TyT project archive',
+    construction: { title: 'In progress', note: 'Coming soon' },
     items: [
       {
         name: 'Savia',
@@ -304,9 +308,9 @@ export const CONTACT = {
 } as const
 
 export const PROJECT_META = [
-  { url: 'https://saviasacr.com', image: '/projects/savia.png' },
-  { url: 'https://jctourscr.com', image: null },
-  { url: null, image: null },
-  { url: 'https://azinmueblescr.com', image: '/projects/az-inmuebles.png' },
-  { url: null, image: '/projects/humanamente.png' },
-] as const
+  { url: 'https://saviasacr.com', kind: 'web', image: '/projects/savia-hero-foto1.webp' },
+  { url: 'https://jctourscr.com', kind: 'web', image: '/projects/jc-hero-foto1.webp' },
+  { url: null, kind: 'panel', image: null },
+  { url: 'https://azinmueblescr.com', kind: 'web', image: '/projects/az-hero-foto1.webp' },
+  { url: null, kind: 'construction', image: null },
+] as const satisfies readonly { url: string | null; kind: 'web' | 'panel' | 'construction'; image: string | null }[]
