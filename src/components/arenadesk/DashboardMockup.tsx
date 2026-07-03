@@ -58,7 +58,8 @@ export function DashboardMockup({ ariaLabel }: { ariaLabel: string }) {
 
   return (
     <div ref={wrapRef} role="img" aria-label={ariaLabel} className="w-full">
-      <div style={{ height: DESIGN.height * scale }}>
+      {/* aspect-ratio fija el alto desde el primer paint: sin saltos de layout */}
+      <div style={{ aspectRatio: `${DESIGN.width} / ${DESIGN.height}` }}>
         <div
           className="origin-top-left overflow-hidden rounded-lg border border-coal-line shadow-[0_30px_80px_-30px_rgba(0,0,0,0.7)]"
           style={{ width: DESIGN.width, transform: `scale(${scale})` }}
