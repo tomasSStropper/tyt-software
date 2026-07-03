@@ -84,7 +84,7 @@ export function Nav() {
           <LangToggle />
           <a
             href="#contacto"
-            className="mono-label hidden border border-ink px-4 py-2 text-ink transition-colors duration-200 hover:border-red hover:bg-red hover:text-paper lg:inline-block"
+            className="mono-label hidden border border-ink px-4 py-2 text-ink transition-colors duration-200 hover:border-red hover:bg-red hover:text-paper-lift lg:inline-block"
           >
             {t.nav.cta}
           </a>

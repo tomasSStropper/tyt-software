@@ -17,7 +17,7 @@ export function ArenaDesk() {
               <p className="text-coal-text/80">{t.arenadesk.copy}</p>
               <a
                 href="#contacto"
-                className="group mono-label mt-5 inline-flex items-center gap-2 border border-red bg-red px-5 py-3 text-paper transition-colors duration-200 hover:border-red-bright hover:bg-red-bright"
+                className="group mono-label mt-5 inline-flex items-center gap-2 border border-red bg-red px-5 py-3 text-paper-lift transition-colors duration-200 hover:border-red-bright hover:bg-red-bright"
               >
                 {t.arenadesk.cta}
                 <ArrowRight

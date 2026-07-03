@@ -4,34 +4,33 @@ import { useReducedMotion } from '../../hooks/useReducedMotion'
 
 /**
  * Constantes de ajuste fino de las pupilas — % relativos a la caja de la imagen.
- * La imagen (public/hero-computer.jpg, 1:1) ya trae el resplandor de los ojos;
- * aquí solo se dibujan las pupilas móviles sobre ese resplandor.
+ * La imagen (public/tyt-avatar.webp, 1:1, fondo transparente) ya trae el
+ * resplandor de los ojos; aquí solo se dibujan las pupilas móviles encima.
  */
 export const EYES = {
-  left: { x: 43.7, y: 15.0 },
-  right: { x: 53.3, y: 14.9 },
+  left: { x: 43.6, y: 13.8 },
+  right: { x: 53.2, y: 13.9 },
   /** diámetro de la pupila, % del ancho de la caja */
-  size: 3.2,
+  size: 3.4,
   /** desplazamiento máximo hacia el cursor, % del ancho de la caja */
   travel: 0.9,
   /** suavizado del lerp por frame (0–1) */
   ease: 0.09,
 } as const
 
-/** Placeholder con la misma relación de aspecto (1:1) por si falta la imagen real. */
+/** Placeholder transparente con la misma proporción por si falta la imagen real. */
 const PLACEHOLDER =
   'data:image/svg+xml;utf8,' +
   encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
-  <rect width="400" height="400" fill="#ddd3bd"/>
-  <path d="M120 400v-60c0-45 35-75 80-75s80 30 80 75v60z" fill="#4a443a"/>
-  <path d="M185 268h30l-7 40h-16z" fill="#e8e0cd"/>
-  <path d="M198 272h6l4 30-7 10-7-10z" fill="#5c544a"/>
-  <rect x="140" y="18" width="120" height="105" rx="10" fill="#c9bda1"/>
-  <rect x="152" y="30" width="96" height="68" rx="5" fill="#2b2620"/>
-  <rect x="160" y="108" width="60" height="6" rx="3" fill="#b5a98c"/>
-  <circle cx="174.8" cy="60" r="9" fill="#e8b088" opacity=".55"/>
-  <circle cx="213.2" cy="59.6" r="9" fill="#e8b088" opacity=".55"/>
-  <rect x="188" y="123" width="24" height="22" fill="#cfc4aa"/>
+  <path d="M120 400v-52c0-45 35-75 80-75s80 30 80 75v52z" fill="#4a443a"/>
+  <path d="M185 276h30l-7 40h-16z" fill="#e8e0cd"/>
+  <path d="M198 280h6l4 30-7 10-7-10z" fill="#5c544a"/>
+  <rect x="140" y="14" width="120" height="108" rx="10" fill="#c9bda1"/>
+  <rect x="152" y="26" width="96" height="66" rx="5" fill="#2b2620"/>
+  <rect x="160" y="104" width="60" height="6" rx="3" fill="#b5a98c"/>
+  <circle cx="174.4" cy="55" r="9" fill="#e8b088" opacity=".55"/>
+  <circle cx="212.8" cy="55.5" r="9" fill="#e8b088" opacity=".55"/>
+  <rect x="188" y="122" width="24" height="24" fill="#cfc4aa"/>
 </svg>`)
 
 export function Avatar() {
@@ -112,20 +111,26 @@ export function Avatar() {
 
   return (
     <figure className="relative mx-auto w-full max-w-105">
-      {/* anillos de semitono tras la figura */}
-      <div className="halftone absolute -inset-8 -z-10" aria-hidden="true" />
-
+      {/* anillos de semitono: asientan la figura en el papel */}
+      <div className="halftone absolute -inset-10 -z-10" aria-hidden="true" />
+      {/* sombra cálida bajo la figura, sin caja ni marco */}
       <div
-        ref={boxRef}
-        className="relative aspect-square overflow-hidden border border-ink/25 bg-paper-deep shadow-[0_2px_0_rgba(42,37,30,0.25),0_24px_60px_-24px_rgba(42,37,30,0.45)]"
-      >
+        className="absolute inset-x-8 bottom-0 -z-10 h-2/5"
+        style={{
+          background: 'radial-gradient(55% 65% at 50% 78%, rgba(42, 36, 27, 0.22), transparent 70%)',
+        }}
+        aria-hidden="true"
+      />
+
+      <div ref={boxRef} className="relative aspect-square">
         <img
-          src={failed ? PLACEHOLDER : '/hero-computer.jpg'}
+          src={failed ? PLACEHOLDER : '/tyt-avatar.webp'}
           onError={() => setFailed(true)}
           alt={t.hero.avatarAlt}
-          width={1024}
-          height={1024}
-          className="h-full w-full object-cover"
+          width={500}
+          height={500}
+          className="h-full w-full object-contain"
+          style={{ filter: 'drop-shadow(0 18px 28px rgba(42, 36, 27, 0.28))' }}
           fetchPriority="high"
         />
         {/* pupilas — se mueven dentro del resplandor impreso en la imagen */}
