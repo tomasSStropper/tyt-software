@@ -38,12 +38,30 @@ export function Nav() {
   const { t } = useLang()
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const [active, setActive] = useState('')
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  // scroll-spy: la sección visible marca su enlace en rojo
+  useEffect(() => {
+    const sections = LINKS.map(({ href }) => document.getElementById(href.slice(1))).filter(
+      (el): el is HTMLElement => el !== null,
+    )
+    const obs = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) setActive(`#${entry.target.id}`)
+        }
+      },
+      { rootMargin: '-35% 0px -55% 0px' },
+    )
+    sections.forEach((el) => obs.observe(el))
+    return () => obs.disconnect()
   }, [])
 
   useEffect(() => {
@@ -72,7 +90,10 @@ export function Nav() {
             <li key={key}>
               <a
                 href={href}
-                className="mono-label nav-link text-ink-soft transition-colors duration-200 hover:text-red"
+                aria-current={active === href ? 'true' : undefined}
+                className={`mono-label nav-link transition-colors duration-200 hover:text-red ${
+                  active === href ? 'text-red' : 'text-ink-soft'
+                }`}
               >
                 {t.nav[key]}
               </a>
@@ -103,13 +124,14 @@ export function Nav() {
       {open && (
         <div className="border-t border-line bg-paper lg:hidden">
           <ul className="flex flex-col px-5 py-4">
-            {LINKS.map(({ href, key }) => (
+            {LINKS.map(({ href, key }, i) => (
               <li key={key} className="border-b border-line/60 last:border-0">
                 <a
                   href={href}
                   onClick={() => setOpen(false)}
-                  className="display block py-4 text-2xl text-ink transition-colors duration-200 hover:text-red"
+                  className="display flex items-baseline gap-4 py-4 text-2xl text-ink transition-colors duration-200 hover:text-red"
                 >
+                  <span className="mono-label text-red">0{i + 1}</span>
                   {t.nav[key]}
                 </a>
               </li>
