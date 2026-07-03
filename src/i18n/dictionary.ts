@@ -74,7 +74,7 @@ const es = {
   projects: {
     label: 'Proyectos',
     title: 'Trabajo real, en producción.',
-    hint: 'Cinco encargos reales. Recorre la lista con el cursor.',
+    hint: 'Cinco encargos reales. Cero plantillas.',
     visit: 'Visitar sitio',
     live: 'En línea',
     diskAlt: 'Disquete vintage con etiqueta roja — el archivo de proyectos de TyT',
@@ -228,7 +228,7 @@ const en: Dict = {
   projects: {
     label: 'Work',
     title: 'Real work, in production.',
-    hint: 'Five real commissions. Sweep the list with your cursor.',
+    hint: 'Five real commissions. Zero templates.',
     visit: 'Visit site',
     live: 'Live',
     diskAlt: 'Vintage floppy disk with a red label — the TyT project archive',
