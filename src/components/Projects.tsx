@@ -106,7 +106,7 @@ function RevealPanel({
         className="flex h-full w-full flex-col items-center justify-center gap-2 bg-paper-deep"
         style={{
           backgroundImage:
-            'repeating-linear-gradient(-45deg, rgba(42,36,27,0.12) 0 10px, transparent 10px 26px)',
+            'repeating-linear-gradient(-45deg, rgba(31,29,26,0.12) 0 10px, transparent 10px 26px)',
         }}
       >
         <span className="stamp bg-paper-lift/80 text-sm sm:text-base">{construction.title}</span>
@@ -258,7 +258,7 @@ export function Projects() {
             height={346}
             loading="lazy"
             decoding="async"
-            className="h-36 w-auto rotate-6 drop-shadow-[0_12px_18px_rgba(42,36,27,0.3)] transition-transform duration-300 hover:-rotate-3"
+            className="h-36 w-auto rotate-6 drop-shadow-[0_12px_18px_rgba(31,29,26,0.3)] transition-transform duration-300 hover:-rotate-3"
           />
         </Reveal>
       </div>

@@ -36,7 +36,7 @@ export function Services() {
                   height={CHARACTERS[i].h}
                   loading="lazy"
                   decoding="async"
-                  className="max-h-full w-auto max-w-full drop-shadow-[0_14px_22px_rgba(42,36,27,0.3)] transition-transform duration-300 group-hover:-translate-y-1.5"
+                  className="max-h-full w-auto max-w-full drop-shadow-[0_14px_22px_rgba(31,29,26,0.3)] transition-transform duration-300 group-hover:-translate-y-1.5"
                 />
               </div>
               <span className="mono-label text-red-ink">0{i + 1}</span>

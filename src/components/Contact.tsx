@@ -58,7 +58,7 @@ export function Contact() {
             height={472}
             loading="lazy"
             decoding="async"
-            className="h-44 w-auto drop-shadow-[0_16px_26px_rgba(42,36,27,0.32)] transition-transform duration-300 hover:-rotate-2 sm:h-56"
+            className="h-44 w-auto drop-shadow-[0_16px_26px_rgba(31,29,26,0.32)] transition-transform duration-300 hover:-rotate-2 sm:h-56"
           />
         </div>
 
