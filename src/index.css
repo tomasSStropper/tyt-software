@@ -27,30 +27,30 @@
 }
 
 @theme {
-  /* Papel frío gris-hueso — plateado neutro, nunca crema cálida */
-  --color-paper: #e5e3de;
-  --color-paper-deep: #d9d6cf;
-  --color-paper-lift: #efeee9;
-  --color-ink: #252320;
-  --color-ink-soft: #4f4b44;
-  --color-mist: #5d5950;
-  --color-line: #c4c1b8;
-  /* Rojo de marca: bermellón vivo. Jerarquía AA:
-     red      #d32f2f → gráficos, fondos de CTA, texto grande (≥3:1 sobre papel)
-     red-ink  #a33125 → texto rojo pequeño sobre papel (4.97:1)
-     on-red   #fff6e6 → texto sobre rellenos rojos (4.64:1)
-     red-soft #ff7f6b → texto rojo pequeño sobre carbón (6.78:1)
+  /* Papel gris neutro puro — cero beige, cero crema */
+  --color-paper: #e3e2e0;
+  --color-paper-deep: #d7d6d3;
+  --color-paper-lift: #eeedeb;
+  --color-ink: #222120;
+  --color-ink-soft: #4c4a47;
+  --color-mist: #5b5955;
+  --color-line: #c3c1bd;
+  /* Rojo de marca: ROJO puro de señal, sin coral ni terracota. Jerarquía AA:
+     red      #e10600 → gráficos, fondos de CTA, texto grande (3.84:1 sobre papel)
+     red-ink  #b30500 → texto rojo pequeño sobre papel (5.52:1)
+     on-red   #ffffff → texto sobre rellenos rojos (4.97:1)
+     red-soft #ff5a4d → texto rojo pequeño sobre carbón (5.47:1)
      red-bright        → brillos (ojos, caret) */
-  --color-red: #d32f2f;
-  --color-red-ink: #a33125;
-  --color-on-red: #fff6e6;
-  --color-red-bright: #e03e2d;
-  --color-red-soft: #ff7f6b;
+  --color-red: #e10600;
+  --color-red-ink: #b30500;
+  --color-on-red: #ffffff;
+  --color-red-bright: #ff1e0e;
+  --color-red-soft: #ff5a4d;
   /* Superficie oscura (ArenaDesk, tiles) — carbón neutro */
-  --color-coal: #201e1a;
-  --color-coal-lift: #2b2924;
-  --color-coal-line: #3c3933;
-  --color-coal-text: #d9d6cc;
+  --color-coal: #1e1d1b;
+  --color-coal-lift: #292826;
+  --color-coal-line: #3a3936;
+  --color-coal-text: #d8d6d2;
 
   --font-display: "Bricolage Grotesque", system-ui, sans-serif;
   --font-body: "Archivo", system-ui, sans-serif;
@@ -292,8 +292,8 @@ body {
 .eye {
   position: absolute;
   border-radius: 9999px;
-  background: radial-gradient(circle, #fff6e8 0%, #ffc490 34%, rgba(224, 62, 45, 0.55) 58%, rgba(224, 62, 45, 0) 78%);
-  filter: drop-shadow(0 0 5px rgba(255, 180, 120, 0.85));
+  background: radial-gradient(circle, #fff3ee 0%, #ffab9e 34%, rgba(255, 30, 14, 0.55) 58%, rgba(255, 30, 14, 0) 78%);
+  filter: drop-shadow(0 0 5px rgba(255, 90, 70, 0.85));
   will-change: transform;
 }
 /* Foco visible — accesibilidad AA */

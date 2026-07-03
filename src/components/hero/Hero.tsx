@@ -24,7 +24,7 @@ export function Hero() {
         <div>
           <p className="mono-label blur-in flex items-center gap-2.5 text-ink-soft">
             <span
-              className="inline-flex h-2 w-2 rounded-full bg-red-bright shadow-[0_0_8px_rgba(224,62,45,0.8)]"
+              className="inline-flex h-2 w-2 rounded-full bg-red-bright shadow-[0_0_8px_rgba(225,6,0,0.8)]"
               aria-hidden="true"
             />
             {t.hero.status}
