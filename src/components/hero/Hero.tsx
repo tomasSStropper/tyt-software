@@ -24,7 +24,7 @@ export function Hero() {
         <div>
           <p className="mono-label blur-in flex items-center gap-2.5 text-ink-soft">
             <span
-              className="inline-flex h-2 w-2 rounded-full bg-red-bright shadow-[0_0_8px_rgba(224,62,45,0.8)]"
+              className="inline-flex h-2 w-2 rounded-full bg-red-bright shadow-[0_0_8px_rgba(225,6,0,0.8)]"
               aria-hidden="true"
             />
             {t.hero.status}
@@ -60,7 +60,7 @@ export function Hero() {
                 <a
                   href={pill.href}
                   {...(pill.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                  className={`mono-label inline-block rounded-full border px-5 py-2.5 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_4px_12px_-4px_rgba(42,37,30,0.4)] ${
+                  className={`mono-label inline-block rounded-full border px-5 py-2.5 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_4px_12px_-4px_rgba(31,29,26,0.4)] ${
                     pill.primary
                       ? 'border-red bg-red text-on-red hover:bg-red-bright hover:border-red-bright'
                       : 'border-ink/40 text-ink hover:border-ink hover:bg-ink hover:text-paper'

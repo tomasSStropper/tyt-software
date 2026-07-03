@@ -117,7 +117,7 @@ export function Avatar() {
       <div
         className="absolute inset-x-8 bottom-0 -z-10 h-2/5"
         style={{
-          background: 'radial-gradient(55% 65% at 50% 78%, rgba(42, 36, 27, 0.22), transparent 70%)',
+          background: 'radial-gradient(55% 65% at 50% 78%, rgba(31, 29, 26, 0.22), transparent 70%)',
         }}
         aria-hidden="true"
       />
@@ -130,7 +130,7 @@ export function Avatar() {
           width={500}
           height={500}
           className="h-full w-full object-contain"
-          style={{ filter: 'drop-shadow(0 18px 28px rgba(42, 36, 27, 0.28))' }}
+          style={{ filter: 'drop-shadow(0 18px 28px rgba(31, 29, 26, 0.28))' }}
           fetchPriority="high"
         />
         {/* pupilas — se mueven dentro del resplandor impreso en la imagen */}
