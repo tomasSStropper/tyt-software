@@ -59,6 +59,17 @@
   --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* ── Textura: constantes de calibración ─────────────────────
+   --grain-opacity   fuerza global del grano de película (0–1)
+   --grain-center    fuerza del grano sobre la columna de lectura (0–1);
+                     más bajo = texto más limpio, bordes más granulados
+   --vignette-strength  oscurecimiento de esquinas (0–1) */
+:root {
+  --grain-opacity: 0.68;
+  --grain-center: 0.42;
+  --vignette-strength: 0.22;
+}
+
 ::selection {
   background: var(--color-red);
   color: var(--color-on-red);
@@ -72,9 +83,11 @@ html {
 body {
   font-family: var(--font-body);
   background-color: var(--color-paper);
-  /* manchas suaves de papel viejo — turbulencia de baja frecuencia */
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='700' height='700'%3E%3Cfilter id='m'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.012' numOctaves='3' stitchTiles='stitch' seed='7'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.35 0 0 0 0 0.28 0 0 0 0 0.16 0 0 0 0.16 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23m)'/%3E%3C/svg%3E");
-  background-size: 700px 700px;
+  /* dos capas: manchas de papel viejo (baja frecuencia) + fibra fina anisótropa */
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='700' height='700'%3E%3Cfilter id='m'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.012' numOctaves='3' stitchTiles='stitch' seed='7'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.35 0 0 0 0 0.28 0 0 0 0 0.16 0 0 0 0.22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23m)'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='520' height='520'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.006 0.35' numOctaves='2' stitchTiles='stitch' seed='11'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.3 0 0 0 0 0.24 0 0 0 0 0.14 0 0 0 0.07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
+  background-size: 700px 700px, 520px 520px;
   color: var(--color-ink);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
@@ -87,10 +100,23 @@ body {
   inset: 0;
   z-index: 80;
   pointer-events: none;
-  opacity: 0.5;
+  opacity: var(--grain-opacity);
   mix-blend-mode: multiply;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 240'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.16 0 0 0 0 0.14 0 0 0 0 0.11 0 0 0 0.6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 240'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.16 0 0 0 0 0.14 0 0 0 0 0.11 0 0 0 0.7 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
   background-size: 240px 240px;
+  /* relieve central: el grano cede sobre la columna de lectura */
+  mask-image: radial-gradient(
+    110% 90% at 50% 44%,
+    rgb(0 0 0 / var(--grain-center)) 0%,
+    rgb(0 0 0 / var(--grain-center)) 38%,
+    black 82%
+  );
+  -webkit-mask-image: radial-gradient(
+    110% 90% at 50% 44%,
+    rgb(0 0 0 / var(--grain-center)) 0%,
+    rgb(0 0 0 / var(--grain-center)) 38%,
+    black 82%
+  );
 }
 
 /* Viñeta — desgaste de impresión en los bordes, presente sin ensuciar */
@@ -101,7 +127,7 @@ body {
   z-index: 79;
   pointer-events: none;
   background:
-    radial-gradient(115% 115% at 50% 44%, transparent 58%, rgba(42, 36, 27, 0.16) 100%);
+    radial-gradient(115% 115% at 50% 44%, transparent 55%, rgb(42 36 27 / var(--vignette-strength)) 100%);
 }
 
 /* ── Tipografía editorial ──────────────────────────────────── */
