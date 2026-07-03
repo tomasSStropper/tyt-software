@@ -1,4 +1,5 @@
 import { ArrowRight } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import { useLang } from '../../i18n/LanguageContext'
 import { SectionHeading } from '../SectionHeading'
 import { Reveal } from '../Reveal'
@@ -15,24 +16,36 @@ export function ArenaDesk() {
           <Reveal delay={100}>
             <div className="max-w-sm lg:pb-2 lg:text-right">
               <p className="text-coal-text/80">{t.arenadesk.copy}</p>
-              <a
-                href="#contacto"
+              <Link
+                to="/arenadesk"
                 className="group mono-label mt-5 inline-flex items-center gap-2 border border-red bg-red px-5 py-3 text-paper-lift transition-colors duration-200 hover:border-red-bright hover:bg-red-bright"
               >
-                {t.arenadesk.cta}
+                {t.arenadesk.learnMore}
                 <ArrowRight
                   size={14}
                   className="transition-transform duration-200 group-hover:translate-x-1"
                   aria-hidden="true"
                 />
-              </a>
+              </Link>
             </div>
           </Reveal>
         </div>
 
         <Reveal delay={150} className="mt-14">
-          <DashboardMockup ariaLabel={`ArenaDesk — ${t.arenadesk.copy}`} />
-          <p className="mono-label mt-4 text-center text-coal-text/60">{t.arenadesk.note}</p>
+          {/* el mockup completo también entra al producto */}
+          <Link
+            to="/arenadesk"
+            aria-label={`ArenaDesk — ${t.arenadesk.learnMore}`}
+            className="group block transition-transform duration-300 hover:-translate-y-1"
+          >
+            <DashboardMockup ariaLabel={`ArenaDesk — ${t.arenadesk.copy}`} />
+            <p className="mono-label mt-4 text-center text-coal-text/60">
+              {t.arenadesk.note}
+              <span className="ml-3 inline-flex items-center gap-1 text-red-soft opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+                {t.arenadesk.learnMore} <span aria-hidden="true">→</span>
+              </span>
+            </p>
+          </Link>
         </Reveal>
       </div>
     </section>
