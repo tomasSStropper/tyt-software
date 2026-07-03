@@ -99,7 +99,7 @@ export function DashboardMockup({ ariaLabel }: { ariaLabel: string }) {
                 ))}
               </nav>
               <div className="mono-label mt-auto text-coal-text/35">
-                GYM CENTRAL — CR
+                Gimnasio Atlas — Escazú
               </div>
             </aside>
 

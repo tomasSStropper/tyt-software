@@ -1,6 +1,7 @@
 import { useLang } from '../i18n/LanguageContext'
 import { useInView } from '../hooks/useInView'
 import { SectionHeading } from './SectionHeading'
+import { Reveal } from './Reveal'
 
 export function Process() {
   const { t } = useLang()
@@ -30,6 +31,14 @@ export function Process() {
             </li>
           ))}
         </ol>
+
+        {/* El manifiesto: la esencia de la agencia, en una línea */}
+        <Reveal delay={200}>
+          <p className="display mt-20 max-w-3xl text-2xl text-ink sm:text-3xl lg:text-4xl">
+            {t.process.manifesto.split('.')[0]}.
+            <span className="text-red"> {t.process.manifesto.split('. ')[1]}</span>
+          </p>
+        </Reveal>
       </div>
     </section>
   )
