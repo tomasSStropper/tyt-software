@@ -79,7 +79,7 @@ export function Nav() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-90 transition-all duration-300 ${
-        solid ? 'border-b border-line/70 bg-paper/85 backdrop-blur-md' : 'bg-transparent'
+        solid ? 'border-b border-line/70 bg-paper' : 'bg-transparent'
       }`}
     >
       <nav

@@ -72,17 +72,17 @@ export function DashboardMockup({ ariaLabel }: { ariaLabel: string }) {
               <span className="h-2.5 w-2.5 rounded-full bg-coal-text/25" />
               <span className="h-2.5 w-2.5 rounded-full bg-coal-text/25" />
             </div>
-            <div className="mono-label flex-1 rounded-sm bg-coal px-3 py-1 text-center text-coal-text/50 normal-case tracking-normal">
+            <div className="mono-label flex-1 rounded-sm bg-coal px-3 py-1 text-center text-coal-text/70 normal-case tracking-normal">
               app.arenadesk.io
             </div>
-            <span className="mono-label text-coal-text/35">v2.4</span>
+            <span className="mono-label text-coal-text/70">v2.4</span>
           </div>
 
           <div className="flex bg-coal" style={{ height: DESIGN.height - 42 }}>
             {/* Sidebar */}
             <aside className="flex w-48 shrink-0 flex-col border-r border-coal-line px-4 py-5">
               <p className="display text-lg text-paper">
-                Arena<span className="text-red-bright">Desk</span>
+                Arena<span className="text-red-soft">Desk</span>
               </p>
               <nav className="mt-6 space-y-1">
                 {NAV.map(({ icon: Icon, label, active }) => (
@@ -91,7 +91,7 @@ export function DashboardMockup({ ariaLabel }: { ariaLabel: string }) {
                     className={`flex items-center gap-2.5 rounded-sm px-2.5 py-2 text-sm ${
                       active
                         ? 'bg-coal-lift text-paper shadow-[inset_2px_0_0_0_var(--color-red-bright)]'
-                        : 'text-coal-text/60'
+                        : 'text-coal-text/70'
                     }`}
                   >
                     <Icon size={15} />
@@ -99,7 +99,7 @@ export function DashboardMockup({ ariaLabel }: { ariaLabel: string }) {
                   </div>
                 ))}
               </nav>
-              <div className="mono-label mt-auto text-coal-text/35">
+              <div className="mono-label mt-auto text-coal-text/70">
                 Gimnasio Atlas — Escazú
               </div>
             </aside>
@@ -108,17 +108,17 @@ export function DashboardMockup({ ariaLabel }: { ariaLabel: string }) {
             <main className="flex-1 space-y-5 overflow-hidden p-6">
               <div className="flex items-baseline justify-between">
                 <h3 className="display text-2xl text-paper">Buenos días, Andrés</h3>
-                <span className="mono-label text-coal-text/45">MIÉ 03 JUL — 6:14 PM</span>
+                <span className="mono-label text-coal-text/65">MIÉ 03 JUL — 6:14 PM</span>
               </div>
 
               <div className="grid grid-cols-4 gap-4">
                 {STATS.map((s) => (
                   <div key={s.label} className="rounded-md border border-coal-line bg-coal-lift p-4">
-                    <p className="mono-label text-coal-text/50">{s.label}</p>
+                    <p className="mono-label text-coal-text/70">{s.label}</p>
                     <p className={`display mt-2 text-3xl whitespace-nowrap ${s.red ? 'text-red-bright' : 'text-paper'}`}>
                       {s.value}
                     </p>
-                    <p className="mt-1 text-xs text-coal-text/55">{s.delta}</p>
+                    <p className="mt-1 text-xs text-coal-text/70">{s.delta}</p>
                   </div>
                 ))}
               </div>
@@ -126,7 +126,7 @@ export function DashboardMockup({ ariaLabel }: { ariaLabel: string }) {
               <div className="grid grid-cols-5 gap-4">
                 {/* Asistencia semanal */}
                 <div className="col-span-3 rounded-md border border-coal-line bg-coal-lift p-4">
-                  <p className="mono-label text-coal-text/50">Asistencia esta semana</p>
+                  <p className="mono-label text-coal-text/70">Asistencia esta semana</p>
                   <div className="mt-4 flex h-36 items-end gap-3">
                     {WEEK.map((d) => (
                       <div key={d.day} className="flex flex-1 flex-col items-center gap-2">
@@ -134,7 +134,7 @@ export function DashboardMockup({ ariaLabel }: { ariaLabel: string }) {
                           className={`w-full rounded-sm ${d.v >= 90 ? 'bg-red-bright' : 'bg-coal-text/30'}`}
                           style={{ height: `${d.v}%` }}
                         />
-                        <span className="mono-label text-coal-text/45">{d.day}</span>
+                        <span className="mono-label text-coal-text/65">{d.day}</span>
                       </div>
                     ))}
                   </div>
@@ -142,13 +142,13 @@ export function DashboardMockup({ ariaLabel }: { ariaLabel: string }) {
 
                 {/* Últimos check-ins */}
                 <div className="col-span-2 rounded-md border border-coal-line bg-coal-lift p-4">
-                  <p className="mono-label text-coal-text/50">Últimos check-ins</p>
+                  <p className="mono-label text-coal-text/70">Últimos check-ins</p>
                   <ul className="mt-3 divide-y divide-coal-line">
                     {MEMBERS.map((m) => (
                       <li key={m.name} className="flex items-center justify-between py-2.5 text-sm">
                         <span className="text-paper">{m.name}</span>
-                        <span className="text-coal-text/50">{m.plan}</span>
-                        <span className="mono-label text-coal-text/45">{m.time}</span>
+                        <span className="text-coal-text/70">{m.plan}</span>
+                        <span className="mono-label text-coal-text/65">{m.time}</span>
                       </li>
                     ))}
                   </ul>
