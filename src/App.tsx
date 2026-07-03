@@ -15,7 +15,7 @@ function Shell() {
     <div className="grain vignette">
       <a
         href="#servicios"
-        className="mono-label sr-only rounded-none bg-red px-4 py-3 text-paper focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-100"
+        className="mono-label sr-only rounded-none bg-red px-4 py-3 text-paper-lift focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-100"
       >
         {t.a11y.skip}
       </a>

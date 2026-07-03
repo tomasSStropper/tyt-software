@@ -129,7 +129,7 @@ export function Contact() {
                 <button
                   type="submit"
                   disabled={status === 'sending'}
-                  className="mono-label cursor-pointer border border-red bg-red px-7 py-3.5 text-paper transition-colors duration-200 hover:border-red-bright hover:bg-red-bright disabled:cursor-wait disabled:opacity-60"
+                  className="mono-label cursor-pointer border border-red bg-red px-7 py-3.5 text-paper-lift transition-colors duration-200 hover:border-red-bright hover:bg-red-bright disabled:cursor-wait disabled:opacity-60"
                 >
                   {status === 'sending' ? t.contact.sending : t.contact.send}
                 </button>

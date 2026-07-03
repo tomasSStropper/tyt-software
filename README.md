@@ -12,11 +12,12 @@ npm run build    # typecheck + build a dist/
 
 Deploy: Vercel conectado a `main` (`vercel.json` define build y `dist`).
 
-## Imagen del héroe
+## Assets
 
-La imagen del personaje vive en `public/hero-computer.jpg` (1:1).
-Si falta, el sitio usa un placeholder con la misma proporción. La posición de
-los ojos se ajusta en las constantes `EYES` de `src/components/hero/Avatar.tsx`.
+- `public/tyt-avatar.webp` — personaje transparente del héroe (1:1; `tyt-avatar.png` es el original).
+- `public/tyt-terrain.webp` — artwork de la sección spotlight (`tyt-terrain.jpg` es el original).
+- Las pupilas se afinan en las constantes `EYES` de `src/components/hero/Avatar.tsx`;
+  el haz del spotlight, en `SPOT` de `src/components/Spotlight.tsx`.
 
 ## Formulario de leads
 
