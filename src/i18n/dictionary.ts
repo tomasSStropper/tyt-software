@@ -135,7 +135,6 @@ const es = {
   footer: {
     tagline: 'Software a la medida, hecho en San Vito, Costa Rica.',
     location: 'San Vito, Costa Rica',
-    coords: '8.8203° N, 82.9708° W',
     localTime: 'Hora local',
     nav: 'Índice',
     reach: 'Contacto',
@@ -283,7 +282,6 @@ const en: Dict = {
   footer: {
     tagline: 'Custom software, made in San Vito, Costa Rica.',
     location: 'San Vito, Costa Rica',
-    coords: '8.8203° N, 82.9708° W',
     localTime: 'Local time',
     nav: 'Index',
     reach: 'Contact',

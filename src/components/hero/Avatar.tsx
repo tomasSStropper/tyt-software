@@ -132,12 +132,6 @@ export function Avatar() {
         <div ref={leftRef} className="eye" style={eyeStyle(EYES.left)} aria-hidden="true" />
         <div ref={rightRef} className="eye" style={eyeStyle(EYES.right)} aria-hidden="true" />
       </div>
-
-      {/* placa de museo */}
-      <figcaption className="mono-label mt-3 flex items-center justify-between text-mist">
-        <span>FIG. 01 — TyT/OS</span>
-        <span aria-hidden="true">8.8203° N — 82.9708° W</span>
-      </figcaption>
     </figure>
   )
 }

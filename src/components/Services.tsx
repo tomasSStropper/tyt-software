@@ -20,12 +20,7 @@ export function Services() {
           <Reveal key={item.name} delay={i * 80}>
             {/* group: al pasar el cursor, la pluma roja tacha el problema */}
             <article className="group border-t-2 border-ink/70 pt-5">
-              <div className="mono-label flex items-baseline justify-between text-mist">
-                <span>
-                  S.<span className="text-red">0{i + 1}</span>
-                </span>
-                <span aria-hidden="true">{'/'.repeat(i + 1)}</span>
-              </div>
+              <span className="mono-label text-red">0{i + 1}</span>
               <h3 className="display mt-3 text-2xl text-ink sm:text-3xl">{item.name}</h3>
               <p className="mt-4 text-lg text-ink-soft">
                 <span className="strike-wrap">{item.problem}</span>
