@@ -60,10 +60,6 @@ const es = {
       },
     ],
   },
-  spotlight: {
-    title: 'Construimos cosas que aguantan.',
-    alt: 'Formación rocosa oscura con vetas incandescentes, revelada por un haz de luz',
-  },
   arenadesk: {
     label: 'Producto',
     title: 'ArenaDesk. Tu gimnasio, bajo control.',
@@ -210,10 +206,6 @@ const en: Dict = {
         result: 'Decisions with technical judgment.',
       },
     ],
-  },
-  spotlight: {
-    title: 'We build things that hold.',
-    alt: 'Dark rock formation with glowing ember veins, revealed by a beam of light',
   },
   arenadesk: {
     label: 'Product',

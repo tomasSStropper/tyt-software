@@ -2,7 +2,6 @@ import { LanguageProvider, useLang } from './i18n/LanguageContext'
 import { Nav } from './components/Nav'
 import { Hero } from './components/hero/Hero'
 import { Services } from './components/Services'
-import { Spotlight } from './components/Spotlight'
 import { ArenaDesk } from './components/arenadesk/ArenaDesk'
 import { Projects } from './components/Projects'
 import { Process } from './components/Process'
@@ -23,7 +22,6 @@ function Shell() {
       <main>
         <Hero />
         <Services />
-        <Spotlight />
         <ArenaDesk />
         <Projects />
         <Process />
