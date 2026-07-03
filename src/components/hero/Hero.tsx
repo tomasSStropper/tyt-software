@@ -30,8 +30,12 @@ export function Hero() {
             {t.hero.status}
           </p>
 
-          <h1 className="display blur-in mt-6 text-6xl text-ink sm:text-7xl lg:text-8xl" style={{ animationDelay: '150ms' }}>
-            {t.hero.title}
+          <h1
+            className="display blur-in mt-6 max-w-[14ch] text-4xl text-ink sm:text-5xl lg:text-6xl"
+            style={{ animationDelay: '150ms' }}
+          >
+            {t.hero.title.replace(/\.$/, '')}
+            <span className="text-red">.</span>
           </h1>
 
           {/* El span invisible reserva el alto final: cero layout shift al tipear */}

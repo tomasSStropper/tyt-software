@@ -14,9 +14,9 @@ const es = {
   },
   hero: {
     status: 'EN LÍNEA — SAN VITO, COSTA RICA',
-    title: 'Hola, humano.',
+    title: 'Sitios, sistemas y automatización para tu empresa.',
     typed:
-      'Soy la interfaz de TyT. Detrás de mí hay personas reales que construyen sitios, sistemas y automatización para empresas como la tuya. Dime qué necesitas — o empieza por aquí.',
+      'Hola, humano. Soy la interfaz de TyT. Las personas detrás de mí construyen cada proyecto a la medida, desde Costa Rica. Dime qué necesitas — o empieza por aquí.',
     avatarAlt:
       'Asistente de TyT: figura de traje con un monitor vintage por cabeza y dos ojos rojos brillantes en la pantalla',
     pills: {
@@ -168,9 +168,9 @@ const en: Dict = {
   },
   hero: {
     status: 'ONLINE — SAN VITO, COSTA RICA',
-    title: 'Hello, human.',
+    title: 'Websites, systems and automation for your business.',
     typed:
-      "I'm TyT's interface. Behind me there are real people building websites, systems and automation for companies like yours. Tell me what you need — or start here.",
+      "Hello, human. I'm TyT's interface. The people behind me build every project custom, from Costa Rica. Tell me what you need — or start here.",
     avatarAlt:
       'TyT assistant: a suited figure with a vintage monitor for a head and two glowing red eyes on the screen',
     pills: {
