@@ -36,33 +36,33 @@ const es = {
     items: [
       {
         name: 'Desarrollo web',
+        characterAlt: 'Monitor vintage mostrando el esqueleto de un sitio web en rojo, con manos tecleando',
         problem: 'Tu web actual no genera nada.',
         build: 'Un sitio rápido, claro y hecho para convertir.',
         result: 'Consultas que llegan solas.',
       },
       {
         name: 'Automatización',
+        characterAlt: 'Robot de hojalata sellando documentos en un escritorio, con el sello encendido en rojo',
         problem: 'Tu equipo pierde horas en tareas repetitivas.',
         build: 'Flujos que conectan tus herramientas y trabajan solos.',
         result: 'Horas recuperadas cada semana.',
       },
       {
         name: 'Sistemas internos',
+        characterAlt: 'Archivador de madera con decenas de gavetas y una sola gaveta abierta brillando en rojo',
         problem: 'Tu operación vive en hojas de cálculo.',
         build: 'Plataformas con roles, datos y control de verdad.',
         result: 'Una sola fuente de verdad.',
       },
       {
         name: 'Consultoría técnica',
+        characterAlt: 'Figura de traje con una radio vintage por cabeza hablando ante un micrófono de podio',
         problem: 'Tecnología comprada sin rumbo.',
         build: 'Un diagnóstico honesto y una hoja de ruta ejecutable.',
         result: 'Decisiones con criterio técnico.',
       },
     ],
-  },
-  spotlight: {
-    title: 'Construimos cosas que aguantan.',
-    alt: 'Formación rocosa oscura con vetas incandescentes, revelada por un haz de luz',
   },
   arenadesk: {
     label: 'Producto',
@@ -77,6 +77,8 @@ const es = {
     hint: 'Cinco encargos reales. Cero plantillas.',
     visit: 'Visitar sitio',
     live: 'En línea',
+    diskAlt: 'Disquete vintage con etiqueta roja — el archivo de proyectos de TyT',
+    construction: { title: 'En construcción', note: 'Próximamente' },
     items: [
       {
         name: 'Savia',
@@ -121,6 +123,7 @@ const es = {
     label: 'Contacto',
     title: 'Cuéntanos qué necesitas.',
     pitch: 'Hablas directo con quien construye. Respuesta en menos de 24 horas, sin compromiso y sin jerga.',
+    phoneAlt: 'Mano en traje ofreciendo un auricular de teléfono rojo vintage con cable en espiral',
     name: 'Nombre',
     namePh: 'Tu nombre',
     reach: 'Email o WhatsApp',
@@ -187,33 +190,33 @@ const en: Dict = {
     items: [
       {
         name: 'Web development',
+        characterAlt: 'Vintage monitor showing a website skeleton in red, with hands typing',
         problem: "Your current site generates nothing.",
         build: 'A fast, clear site built to convert.',
         result: 'Inquiries that arrive on their own.',
       },
       {
         name: 'Automation',
+        characterAlt: 'Tin robot stamping documents at a desk, its stamp glowing red',
         problem: 'Your team loses hours to repetitive tasks.',
         build: 'Flows that connect your tools and work alone.',
         result: 'Hours recovered every week.',
       },
       {
         name: 'Internal systems',
+        characterAlt: 'Wooden card cabinet with dozens of drawers, a single open drawer glowing red',
         problem: 'Your operation lives in spreadsheets.',
         build: 'Platforms with roles, data and real control.',
         result: 'A single source of truth.',
       },
       {
         name: 'Technical consulting',
+        characterAlt: 'Suited figure with a vintage radio for a head speaking at a podium microphone',
         problem: 'Technology bought without direction.',
         build: 'An honest diagnosis and an executable roadmap.',
         result: 'Decisions with technical judgment.',
       },
     ],
-  },
-  spotlight: {
-    title: 'We build things that hold.',
-    alt: 'Dark rock formation with glowing ember veins, revealed by a beam of light',
   },
   arenadesk: {
     label: 'Product',
@@ -228,6 +231,8 @@ const en: Dict = {
     hint: 'Five real commissions. Zero templates.',
     visit: 'Visit site',
     live: 'Live',
+    diskAlt: 'Vintage floppy disk with a red label — the TyT project archive',
+    construction: { title: 'In progress', note: 'Coming soon' },
     items: [
       {
         name: 'Savia',
@@ -272,6 +277,7 @@ const en: Dict = {
     label: 'Contact',
     title: 'Tell us what you need.',
     pitch: 'You talk directly with the people who build. Reply within 24 hours, no commitment, no jargon.',
+    phoneAlt: 'A suited hand offering a red vintage telephone handset with a coiled cord',
     name: 'Name',
     namePh: 'Your name',
     reach: 'Email or WhatsApp',
@@ -312,9 +318,9 @@ export const CONTACT = {
 } as const
 
 export const PROJECT_META = [
-  { url: 'https://saviasacr.com', image: '/projects/savia.png' },
-  { url: 'https://jctourscr.com', image: null },
-  { url: null, image: null },
-  { url: 'https://azinmueblescr.com', image: '/projects/az-inmuebles.png' },
-  { url: null, image: '/projects/humanamente.png' },
-] as const
+  { url: 'https://saviasacr.com', kind: 'web', image: '/projects/savia-hero-foto1.webp' },
+  { url: 'https://jctourscr.com', kind: 'web', image: '/projects/jc-hero-foto1.webp' },
+  { url: null, kind: 'panel', image: null },
+  { url: 'https://azinmueblescr.com', kind: 'web', image: '/projects/az-hero-foto1.webp' },
+  { url: null, kind: 'construction', image: null },
+] as const satisfies readonly { url: string | null; kind: 'web' | 'panel' | 'construction'; image: string | null }[]

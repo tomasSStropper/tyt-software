@@ -124,7 +124,7 @@ export function Avatar() {
 
       <div ref={boxRef} className="relative aspect-square">
         <img
-          src={failed ? PLACEHOLDER : '/tyt-avatar.webp'}
+          src={failed ? PLACEHOLDER : '/characters/tyt-avatar.webp'}
           onError={() => setFailed(true)}
           alt={t.hero.avatarAlt}
           width={500}
