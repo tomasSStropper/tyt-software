@@ -5,19 +5,25 @@ import { Reveal } from './Reveal'
 
 /**
  * Opacidad del patrón de circuito de fondo (0–1).
- * Susurro técnico: si dudas, más tenue.
+ * Presente y con identidad, sin pelear con la lectura.
  */
-const CIRCUIT_OPACITY = 0.05
+const CIRCUIT_OPACITY = 0.16
 
-/** Tile de trazas de circuito — líneas oscuras con pads, estático */
+/** Tile de trazas de circuito — pistas oscuras con pads y acentos rojos, estático */
 const CIRCUIT_TILE =
   'data:image/svg+xml;utf8,' +
-  encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="260" height="260" fill="none" stroke="#222120" stroke-width="1">
-  <path d="M20 40h70v60h50"/><circle cx="20" cy="40" r="3"/><circle cx="140" cy="100" r="3"/>
-  <path d="M240 20v70l-40 40"/><circle cx="240" cy="20" r="3"/><circle cx="200" cy="130" r="3"/>
-  <path d="M40 220h60l30-30v-40"/><circle cx="40" cy="220" r="3"/><circle cx="130" cy="150" r="3"/>
-  <path d="M180 240v-40h50"/><circle cx="180" cy="240" r="3"/><circle cx="230" cy="200" r="3"/>
-  <path d="M60 120v40"/><circle cx="60" cy="120" r="2"/><circle cx="60" cy="160" r="2"/>
+  encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="320" height="320" fill="none" stroke="#222120" stroke-width="1.5">
+  <path d="M12 36h86l32 32v54h58"/><circle cx="12" cy="36" r="4"/><circle cx="188" cy="122" r="4"/>
+  <path d="M308 62h-58l-28 28v46"/><circle cx="308" cy="62" r="4"/><circle cx="222" cy="136" r="4"/>
+  <path d="M40 306v-64l30-30h56"/><circle cx="40" cy="306" r="4"/><circle cx="126" cy="212" r="4"/>
+  <path d="M302 300v-76l-42-42"/><circle cx="302" cy="300" r="4"/><circle cx="260" cy="182" r="4"/>
+  <path d="M152 14v44"/><circle cx="152" cy="14" r="3"/><circle cx="152" cy="58" r="3"/>
+  <path d="M84 118v54l-38 38"/><circle cx="84" cy="118" r="3"/><circle cx="46" cy="210" r="3"/>
+  <rect x="196" y="216" width="44" height="44"/>
+  <path d="M196 228h-22M196 248h-22M240 228h22M240 248h22"/>
+  <circle cx="188" cy="122" r="4" fill="#e10600" stroke="none"/>
+  <circle cx="46" cy="210" r="3.5" fill="#e10600" stroke="none"/>
+  <circle cx="302" cy="300" r="4" fill="#e10600" stroke="none"/>
 </svg>`)
 
 /** Personaje de cada servicio — flotan sin marco sobre el papel */
@@ -39,12 +45,12 @@ export function Services() {
         aria-hidden="true"
         style={{
           backgroundImage: `url("${CIRCUIT_TILE}")`,
-          backgroundSize: '260px 260px',
+          backgroundSize: '320px 320px',
           opacity: CIRCUIT_OPACITY,
           maskImage:
-            'linear-gradient(to right, black 0%, rgba(0,0,0,0.25) 28%, rgba(0,0,0,0.25) 72%, black 100%)',
+            'linear-gradient(to right, black 0%, rgba(0,0,0,0.45) 30%, rgba(0,0,0,0.45) 70%, black 100%)',
           WebkitMaskImage:
-            'linear-gradient(to right, black 0%, rgba(0,0,0,0.25) 28%, rgba(0,0,0,0.25) 72%, black 100%)',
+            'linear-gradient(to right, black 0%, rgba(0,0,0,0.45) 30%, rgba(0,0,0,0.45) 70%, black 100%)',
         }}
       />
 
