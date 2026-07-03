@@ -37,7 +37,11 @@ export function Services() {
                 </div>
                 <div className="flex items-start gap-2">
                   <dt className="sr-only">{t.services.resultLabel}</dt>
-                  <ArrowRight size={18} className="mt-0.5 shrink-0 text-red" aria-hidden="true" />
+                  <ArrowRight
+                    size={18}
+                    className="mt-0.5 shrink-0 text-red transition-transform duration-250 group-hover:translate-x-1"
+                    aria-hidden="true"
+                  />
                   <dd className="font-medium text-ink">{item.result}</dd>
                 </div>
               </dl>

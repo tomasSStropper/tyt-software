@@ -72,7 +72,7 @@ export function Nav() {
             <li key={key}>
               <a
                 href={href}
-                className="mono-label text-ink-soft transition-colors duration-200 hover:text-red"
+                className="mono-label nav-link text-ink-soft transition-colors duration-200 hover:text-red"
               >
                 {t.nav[key]}
               </a>
