@@ -14,10 +14,12 @@ Deploy: Vercel conectado a `main` (`vercel.json` define build y `dist`).
 
 ## Assets
 
-- `public/characters/tyt-avatar.webp` — personaje transparente del héroe (1:1; `tyt-avatar.png` es el original).
-
+- `public/characters/` — personajes transparentes (webp servidos, png originales).
+- `public/projects/` — capturas reales de los proyectos.
 - Las pupilas se afinan en las constantes `EYES` de `src/components/hero/Avatar.tsx`;
-  el haz del spotlight, en `SPOT` de `src/components/Spotlight.tsx`.
+  el haz de proyectos, en `SPOT` de `src/components/Projects.tsx`.
+- Textura calibrable en `:root` de `src/index.css`: `--grain-opacity`,
+  `--grain-center`, `--vignette-strength`.
 
 ## Formulario de leads
 
