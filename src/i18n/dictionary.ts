@@ -15,7 +15,7 @@ const es = {
   hero: {
     status: 'TyT SOFTWARE & SOLUTIONS',
     title: 'Construimos sitios, sistemas y automatización a la medida.',
-    typed: 'Contanos qué necesita tu empresa. Lo demás lo resolvemos nosotros.',
+    typed: 'Contanos qué necesita tu empresa. Lo demás lo resolvemos juntos.',
     avatarAlt:
       'Asistente de TyT: figura de traje con un monitor vintage por cabeza y dos ojos rojos brillantes en la pantalla',
     pills: {
@@ -218,7 +218,7 @@ const en: Dict = {
   hero: {
     status: 'TyT SOFTWARE & SOLUTIONS',
     title: 'We build custom websites, systems and automation.',
-    typed: 'Tell us what your business needs. We take care of the rest.',
+    typed: 'Tell us what your business needs. The rest, we solve together.',
     avatarAlt:
       'TyT assistant: a suited figure with a vintage monitor for a head and two glowing red eyes on the screen',
     pills: {
