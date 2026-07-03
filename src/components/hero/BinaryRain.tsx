@@ -9,16 +9,16 @@ export const RAIN = {
   /** tamaño del dígito, px */
   fontSize: 14,
   /** separación horizontal entre columnas, px */
-  columnGap: 30,
+  columnGap: 24,
   /** dígitos simultáneos por columna (densidad) */
-  glyphsPerColumn: 3,
+  glyphsPerColumn: 4,
   /** velocidad de caída, px/s (min–max por columna) */
   minSpeed: 14,
   maxSpeed: 34,
   /** opacidad de los dígitos carbón (~texto fantasma) */
-  inkOpacity: 0.12,
+  inkOpacity: 0.22,
   /** opacidad de los acentos rojos */
-  redOpacity: 0.28,
+  redOpacity: 0.45,
   /** proporción de dígitos en rojo (~1 de cada 9) */
   redRatio: 0.11,
   /** cadencia de redibujado, cuadros por segundo (calma) */
