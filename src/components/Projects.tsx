@@ -170,11 +170,12 @@ function ProjectRow(props: RowProps) {
     </>
   )
 
-  const rowClass =
-    'group relative block border-t border-ink/25 py-7 transition-colors duration-200 last:border-b sm:py-9'
+  const rowClass = `relative block border-t border-ink/25 py-7 transition-colors duration-200 last:border-b sm:py-9 ${
+    spotlightOn ? '' : 'sm:pr-72'
+  }`
 
   const content = (
-    <div ref={rowRef} className="relative">
+    <div ref={rowRef} className="group relative">
       {url ? (
         <a
           href={url}
