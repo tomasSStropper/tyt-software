@@ -41,12 +41,12 @@ export function Services() {
               </div>
               <span className="mono-label text-red-ink">0{i + 1}</span>
               <h3 className="display mt-3 text-2xl text-ink sm:text-3xl">{item.name}</h3>
-              <p className="mt-4 text-lg text-ink-soft">
+              <p className="mt-4 text-lg text-ink">
                 <span className="strike-wrap">{item.problem}</span>
               </p>
               <dl className="mt-5 space-y-3">
                 <div>
-                  <dt className="mono-label text-mist">{t.services.buildLabel}</dt>
+                  <dt className="mono-label text-ink-soft">{t.services.buildLabel}</dt>
                   <dd className="mt-1 text-ink">{item.build}</dd>
                 </div>
                 <div className="flex items-start gap-2">
