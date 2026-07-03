@@ -14,7 +14,7 @@ Deploy: Vercel conectado a `main` (`vercel.json` define build y `dist`).
 
 ## Imagen del héroe
 
-Colocar la imagen del personaje en `public/tyt-avatar-hero.jpg` (relación 4:5).
+La imagen del personaje vive en `public/hero-computer.jpg` (1:1).
 Si falta, el sitio usa un placeholder con la misma proporción. La posición de
 los ojos se ajusta en las constantes `EYES` de `src/components/hero/Avatar.tsx`.
 

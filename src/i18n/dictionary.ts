@@ -16,7 +16,7 @@ const es = {
     status: 'EN LÍNEA — SAN VITO, COSTA RICA',
     title: 'Hola, humano.',
     typed:
-      'Soy la interfaz de TyT Software. Construimos sitios, sistemas y automatización para empresas que quieren operar en serio. Dime qué necesitas — o empieza por aquí.',
+      'Soy la interfaz de TyT. Detrás de mí hay personas reales que construyen sitios, sistemas y automatización para empresas como la tuya. Dime qué necesitas — o empieza por aquí.',
     avatarAlt:
       'Asistente de TyT: figura de traje con un monitor vintage por cabeza y dos ojos rojos brillantes en la pantalla',
     pills: {
@@ -70,7 +70,7 @@ const es = {
   projects: {
     label: 'Proyectos',
     title: 'Trabajo real, en producción.',
-    hint: 'Pasa el cursor sobre cada proyecto.',
+    hint: 'Cinco encargos reales. Cero plantillas.',
     visit: 'Visitar sitio',
     live: 'En línea',
     items: [
@@ -104,6 +104,7 @@ const es = {
   process: {
     label: 'Proceso',
     title: 'Así trabajamos.',
+    manifesto: 'No somos proveedores. Somos el aliado que se queda.',
     steps: [
       { name: 'Escuchar', desc: 'Entendemos tu negocio antes de proponer nada.' },
       { name: 'Diagnosticar', desc: 'Encontramos dónde se pierde tiempo y dinero.' },
@@ -115,11 +116,11 @@ const es = {
   contact: {
     label: 'Contacto',
     title: 'Cuéntanos qué necesitas.',
-    pitch: 'Respondemos en menos de 24 horas. Sin compromiso y sin jerga.',
+    pitch: 'Hablas directo con quien construye. Respuesta en menos de 24 horas, sin compromiso y sin jerga.',
     name: 'Nombre',
     namePh: 'Tu nombre',
     reach: 'Email o WhatsApp',
-    reachPh: 'como-contactarte@ejemplo.com',
+    reachPh: 'nombre@empresa.com',
     message: 'Mensaje',
     messagePh: 'Qué quieres construir, mejorar o automatizar',
     send: 'Enviar',
@@ -134,7 +135,6 @@ const es = {
   footer: {
     tagline: 'Software a la medida, hecho en San Vito, Costa Rica.',
     location: 'San Vito, Costa Rica',
-    coords: '8.8203° N, 82.9708° W',
     localTime: 'Hora local',
     nav: 'Índice',
     reach: 'Contacto',
@@ -163,7 +163,7 @@ const en: Dict = {
     status: 'ONLINE — SAN VITO, COSTA RICA',
     title: 'Hello, human.',
     typed:
-      "I'm the interface of TyT Software. We build websites, systems and automation for companies that mean business. Tell me what you need — or start here.",
+      "I'm TyT's interface. Behind me there are real people building websites, systems and automation for companies like yours. Tell me what you need — or start here.",
     avatarAlt:
       'TyT assistant: a suited figure with a vintage monitor for a head and two glowing red eyes on the screen',
     pills: {
@@ -217,7 +217,7 @@ const en: Dict = {
   projects: {
     label: 'Work',
     title: 'Real work, in production.',
-    hint: 'Hover over each project.',
+    hint: 'Five real commissions. Zero templates.',
     visit: 'Visit site',
     live: 'Live',
     items: [
@@ -251,6 +251,7 @@ const en: Dict = {
   process: {
     label: 'Process',
     title: 'How we work.',
+    manifesto: "We are not vendors. We are the ally that stays.",
     steps: [
       { name: 'Listen', desc: 'We understand your business before proposing anything.' },
       { name: 'Diagnose', desc: 'We find where time and money leak.' },
@@ -262,11 +263,11 @@ const en: Dict = {
   contact: {
     label: 'Contact',
     title: 'Tell us what you need.',
-    pitch: 'We reply within 24 hours. No commitment, no jargon.',
+    pitch: 'You talk directly with the people who build. Reply within 24 hours, no commitment, no jargon.',
     name: 'Name',
     namePh: 'Your name',
     reach: 'Email or WhatsApp',
-    reachPh: 'how-to-reach-you@example.com',
+    reachPh: 'name@company.com',
     message: 'Message',
     messagePh: 'What you want to build, improve or automate',
     send: 'Send',
@@ -281,7 +282,6 @@ const en: Dict = {
   footer: {
     tagline: 'Custom software, made in San Vito, Costa Rica.',
     location: 'San Vito, Costa Rica',
-    coords: '8.8203° N, 82.9708° W',
     localTime: 'Local time',
     nav: 'Index',
     reach: 'Contact',

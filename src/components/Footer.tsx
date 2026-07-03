@@ -38,8 +38,6 @@ export function Footer() {
             </p>
             <p className="mt-3 max-w-xs text-sm text-coal-text/70">{t.footer.tagline}</p>
             <p className="mono-label mt-6 text-coal-text/70">
-              {t.footer.coords}
-              <span className="mx-2" aria-hidden="true">·</span>
               {t.footer.localTime}: <span className="text-red-soft">{time}</span>
             </p>
           </div>
@@ -100,7 +98,7 @@ export function Footer() {
           <p className="text-xs text-coal-text/70">
             © {new Date().getFullYear()} TyT Software & Solutions. {t.footer.rights}
           </p>
-          <p className="mono-label text-coal-text/60">TyT/OS v2.0 — {t.footer.location}</p>
+          <p className="mono-label text-coal-text/60">{t.footer.location}</p>
         </div>
       </div>
     </footer>

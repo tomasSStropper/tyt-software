@@ -20,7 +20,9 @@ export function SectionHeading({ index, label, title, intro, dark = false }: Sec
       <h2
         className={`display mt-4 max-w-[16ch] text-4xl sm:text-5xl lg:text-6xl ${dark ? 'text-paper' : 'text-ink'}`}
       >
-        {title}
+        <span className="mask-line">
+          <span>{title}</span>
+        </span>
       </h2>
       {intro && (
         <p className={`mt-5 max-w-md text-base ${dark ? 'text-coal-text/80' : 'text-ink-soft'}`}>

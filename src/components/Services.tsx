@@ -20,12 +20,7 @@ export function Services() {
           <Reveal key={item.name} delay={i * 80}>
             {/* group: al pasar el cursor, la pluma roja tacha el problema */}
             <article className="group border-t-2 border-ink/70 pt-5">
-              <div className="mono-label flex items-baseline justify-between text-mist">
-                <span>
-                  S.<span className="text-red">0{i + 1}</span>
-                </span>
-                <span aria-hidden="true">{'/'.repeat(i + 1)}</span>
-              </div>
+              <span className="mono-label text-red">0{i + 1}</span>
               <h3 className="display mt-3 text-2xl text-ink sm:text-3xl">{item.name}</h3>
               <p className="mt-4 text-lg text-ink-soft">
                 <span className="strike-wrap">{item.problem}</span>
@@ -37,7 +32,11 @@ export function Services() {
                 </div>
                 <div className="flex items-start gap-2">
                   <dt className="sr-only">{t.services.resultLabel}</dt>
-                  <ArrowRight size={18} className="mt-0.5 shrink-0 text-red" aria-hidden="true" />
+                  <ArrowRight
+                    size={18}
+                    className="mt-0.5 shrink-0 text-red transition-transform duration-250 group-hover:translate-x-1"
+                    aria-hidden="true"
+                  />
                   <dd className="font-medium text-ink">{item.result}</dd>
                 </div>
               </dl>

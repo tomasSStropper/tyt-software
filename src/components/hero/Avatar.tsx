@@ -3,35 +3,35 @@ import { useLang } from '../../i18n/LanguageContext'
 import { useReducedMotion } from '../../hooks/useReducedMotion'
 
 /**
- * Constantes de ajuste fino de los ojos — % relativos a la caja de la imagen.
- * Ajustar tras el preview si la pantalla del monitor no coincide.
+ * Constantes de ajuste fino de las pupilas — % relativos a la caja de la imagen.
+ * La imagen (public/hero-computer.jpg, 1:1) ya trae el resplandor de los ojos;
+ * aquí solo se dibujan las pupilas móviles sobre ese resplandor.
  */
 export const EYES = {
-  left: { x: 41.5, y: 29.0 },
-  right: { x: 58.5, y: 29.0 },
-  /** diámetro del ojo, % del ancho de la caja */
-  size: 6.5,
+  left: { x: 43.7, y: 15.0 },
+  right: { x: 53.3, y: 14.9 },
+  /** diámetro de la pupila, % del ancho de la caja */
+  size: 3.2,
   /** desplazamiento máximo hacia el cursor, % del ancho de la caja */
-  travel: 1.9,
+  travel: 0.9,
   /** suavizado del lerp por frame (0–1) */
   ease: 0.09,
 } as const
 
-/** Placeholder con la misma relación de aspecto (4:5) por si falta la imagen real. */
+/** Placeholder con la misma relación de aspecto (1:1) por si falta la imagen real. */
 const PLACEHOLDER =
   'data:image/svg+xml;utf8,' +
-  encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500">
-  <rect width="400" height="500" fill="#ddd3bd"/>
-  <g fill="none" stroke="#2a251e" stroke-opacity=".08"><path d="M0 40h400M0 460h400"/></g>
-  <path d="M110 500V400c0-60 40-95 90-95s90 35 90 95v100z" fill="#2a251e"/>
-  <path d="M178 310h44l-10 60h-24z" fill="#e8e0cd"/>
-  <path d="M196 318h8l6 44-10 14-10-14z" fill="#b3372a"/>
-  <rect x="186" y="270" width="28" height="46" fill="#cfc4aa"/>
-  <rect x="112" y="58" width="176" height="150" rx="14" fill="#c9bda1"/>
-  <rect x="112" y="58" width="176" height="150" rx="14" fill="none" stroke="#2a251e" stroke-opacity=".25" stroke-width="2"/>
-  <rect x="134" y="82" width="132" height="98" rx="6" fill="#1e1a14"/>
-  <g stroke="#eae4d6" stroke-opacity=".05"><path d="M134 96h132M134 112h132M134 128h132M134 144h132M134 160h132"/></g>
-  <rect x="150" y="216" width="100" height="10" rx="5" fill="#b5a98c"/>
+  encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <rect width="400" height="400" fill="#ddd3bd"/>
+  <path d="M120 400v-60c0-45 35-75 80-75s80 30 80 75v60z" fill="#4a443a"/>
+  <path d="M185 268h30l-7 40h-16z" fill="#e8e0cd"/>
+  <path d="M198 272h6l4 30-7 10-7-10z" fill="#5c544a"/>
+  <rect x="140" y="18" width="120" height="105" rx="10" fill="#c9bda1"/>
+  <rect x="152" y="30" width="96" height="68" rx="5" fill="#2b2620"/>
+  <rect x="160" y="108" width="60" height="6" rx="3" fill="#b5a98c"/>
+  <circle cx="174.8" cy="60" r="9" fill="#e8b088" opacity=".55"/>
+  <circle cx="213.2" cy="59.6" r="9" fill="#e8b088" opacity=".55"/>
+  <rect x="188" y="123" width="24" height="22" fill="#cfc4aa"/>
 </svg>`)
 
 export function Avatar() {
@@ -117,36 +117,21 @@ export function Avatar() {
 
       <div
         ref={boxRef}
-        className="relative aspect-4/5 overflow-hidden border border-ink/25 bg-paper-deep shadow-[0_2px_0_rgba(42,37,30,0.25),0_24px_60px_-24px_rgba(42,37,30,0.45)]"
+        className="relative aspect-square overflow-hidden border border-ink/25 bg-paper-deep shadow-[0_2px_0_rgba(42,37,30,0.25),0_24px_60px_-24px_rgba(42,37,30,0.45)]"
       >
         <img
-          src={failed ? PLACEHOLDER : '/tyt-avatar-hero.jpg'}
+          src={failed ? PLACEHOLDER : '/hero-computer.jpg'}
           onError={() => setFailed(true)}
           alt={t.hero.avatarAlt}
+          width={1024}
+          height={1024}
           className="h-full w-full object-cover"
-          style={{ filter: 'sepia(0.14) saturate(0.9) contrast(1.02)' }}
           fetchPriority="high"
         />
-        {/* capa de ojos — siguen el cursor dentro de la pantalla */}
-        <div
-          ref={leftRef}
-          className="eye"
-          style={eyeStyle(EYES.left)}
-          aria-hidden="true"
-        />
-        <div
-          ref={rightRef}
-          className="eye"
-          style={eyeStyle(EYES.right)}
-          aria-hidden="true"
-        />
+        {/* pupilas — se mueven dentro del resplandor impreso en la imagen */}
+        <div ref={leftRef} className="eye" style={eyeStyle(EYES.left)} aria-hidden="true" />
+        <div ref={rightRef} className="eye" style={eyeStyle(EYES.right)} aria-hidden="true" />
       </div>
-
-      {/* placa de museo */}
-      <figcaption className="mono-label mt-3 flex items-center justify-between text-mist">
-        <span>FIG. 01 — TyT/OS</span>
-        <span aria-hidden="true">EST. 2024 · CR</span>
-      </figcaption>
     </figure>
   )
 }

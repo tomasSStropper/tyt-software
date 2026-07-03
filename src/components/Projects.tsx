@@ -20,7 +20,7 @@ function ProjectRow({ index, name, tag, outcome, url, image, visitLabel, liveLab
     <>
       <div className="flex items-baseline gap-4 sm:gap-6">
         <span className="mono-label w-7 shrink-0 text-red">0{index + 1}</span>
-        <h3 className="display text-2xl text-ink transition-colors duration-200 group-hover:text-red sm:text-4xl">
+        <h3 className="display text-2xl text-ink transition-[color,translate] duration-250 group-hover:translate-x-2 group-hover:text-red sm:text-4xl">
           {name}
         </h3>
         <span className="mono-label ml-auto hidden shrink-0 text-mist sm:inline">{tag}</span>

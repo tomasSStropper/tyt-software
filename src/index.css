@@ -125,6 +125,39 @@ body {
   transform: none;
 }
 
+/* Titulares: la línea sube desde una máscara, como impresión saliendo de prensa */
+.mask-line {
+  display: block;
+  overflow: hidden;
+}
+.mask-line > span {
+  display: block;
+  transform: translateY(112%);
+  transition: transform 0.75s var(--ease-out-soft);
+}
+.reveal.in .mask-line > span {
+  transform: none;
+}
+
+/* Enlaces del nav: subrayado rojo que corre de izquierda a derecha */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: -5px;
+  height: 1px;
+  background: var(--color-red);
+  transition: right 0.25s var(--ease-out-soft);
+}
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+  right: 0;
+}
+
 /* Caret del typewriter */
 .caret {
   display: inline-block;
@@ -219,12 +252,12 @@ body {
   mask-image: radial-gradient(circle at 50% 42%, black 0%, transparent 68%);
 }
 
-/* Ojos del avatar */
+/* Pupilas del avatar — brillan sobre el resplandor impreso en la imagen */
 .eye {
   position: absolute;
   border-radius: 9999px;
-  background: radial-gradient(circle, #ffd9c9 0%, var(--color-red-bright) 38%, rgba(224, 62, 45, 0) 72%);
-  filter: drop-shadow(0 0 6px rgba(224, 62, 45, 0.9));
+  background: radial-gradient(circle, #fff6e8 0%, #ffc490 34%, rgba(224, 62, 45, 0.55) 58%, rgba(224, 62, 45, 0) 78%);
+  filter: drop-shadow(0 0 5px rgba(255, 180, 120, 0.85));
   will-change: transform;
 }
 /* Foco visible — accesibilidad AA */
@@ -257,6 +290,7 @@ body {
   html { scroll-behavior: auto; }
   .grain::after { animation: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
+  .mask-line > span { transform: none; transition: none; }
   .blur-in { animation: none; opacity: 1; }
   .pill-in { animation: none; opacity: 1; transform: none; }
   .caret { animation: none; }
