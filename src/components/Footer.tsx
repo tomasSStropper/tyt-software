@@ -40,7 +40,7 @@ export function Footer() {
             <p className="mono-label mt-6 text-coal-text/70">
               {t.footer.coords}
               <span className="mx-2" aria-hidden="true">·</span>
-              {t.footer.localTime}: <span className="text-red-bright">{time}</span>
+              {t.footer.localTime}: <span className="text-red-soft">{time}</span>
             </p>
           </div>
 

@@ -6,7 +6,7 @@ import { useReducedMotion } from './useReducedMotion'
  * el texto aparece completo de inmediato. Se reinicia si `text` cambia
  * (por ejemplo, al cambiar de idioma).
  */
-export function useTypewriter(text: string, speed = 35, startDelay = 400) {
+export function useTypewriter(text: string, speed = 35, startDelay = 250) {
   const reduced = useReducedMotion()
   const [count, setCount] = useState(0)
 

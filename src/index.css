@@ -1,5 +1,31 @@
 @import "tailwindcss";
 
+/* Fuentes self-hosted (subset latin) — sin dependencia de Google Fonts */
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/fonts/bricolage-grotesque.woff2") format("woff2");
+  font-weight: 200 800;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Archivo";
+  src: url("/fonts/archivo.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("/fonts/ibm-plex-mono-400.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("/fonts/ibm-plex-mono-500.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+}
+
 @theme {
   /* Papel envejecido — base cálida, nunca blanco frío */
   --color-paper: #eae4d6;
@@ -12,6 +38,8 @@
   /* Rojo: signo de puntuación, no decoración */
   --color-red: #b3372a;
   --color-red-bright: #e03e2d;
+  /* rojo legible en texto pequeño sobre carbón (AA) */
+  --color-red-soft: #ff7f6b;
   /* Superficie oscura (ArenaDesk, tiles) — carbón cálido */
   --color-coal: #211d17;
   --color-coal-lift: #2c2720;
@@ -47,22 +75,13 @@ body {
 .grain::after {
   content: "";
   position: fixed;
-  inset: -50%;
+  inset: 0;
   z-index: 80;
   pointer-events: none;
   opacity: 0.28;
   mix-blend-mode: multiply;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 240'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.16 0 0 0 0 0.14 0 0 0 0 0.11 0 0 0 0.5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
   background-size: 240px 240px;
-  animation: grain-shift 1.4s steps(4) infinite;
-}
-
-@keyframes grain-shift {
-  0% { transform: translate(0, 0); }
-  25% { transform: translate(-2%, 1.5%); }
-  50% { transform: translate(1.5%, -2%); }
-  75% { transform: translate(-1%, -1%); }
-  100% { transform: translate(0, 0); }
 }
 
 /* Viñeta suave — desgaste de impresión en los bordes */
@@ -208,14 +227,6 @@ body {
   filter: drop-shadow(0 0 6px rgba(224, 62, 45, 0.9));
   will-change: transform;
 }
-.eye-idle {
-  animation: eye-breathe 3.4s ease-in-out infinite;
-}
-@keyframes eye-breathe {
-  0%, 100% { opacity: 0.85; }
-  50% { opacity: 1; }
-}
-
 /* Foco visible — accesibilidad AA */
 :focus-visible {
   outline: 2px solid var(--color-red);
@@ -249,7 +260,6 @@ body {
   .blur-in { animation: none; opacity: 1; }
   .pill-in { animation: none; opacity: 1; transform: none; }
   .caret { animation: none; }
-  .eye-idle { animation: none; }
   .stamp-pop { animation: none; opacity: 1; }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

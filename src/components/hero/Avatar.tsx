@@ -52,10 +52,17 @@ export function Avatar() {
     const cursor = { x: -1, y: -1 }
     const current = { x: 0, y: 0 }
     let raf = 0
+    let running = false
 
+    // el bucle arranca con el primer movimiento y se apaga al converger:
+    // sin cursor no hay trabajo por frame
     const onMove = (e: PointerEvent) => {
       cursor.x = e.clientX
       cursor.y = e.clientY
+      if (!running) {
+        running = true
+        raf = requestAnimationFrame(tick)
+      }
     }
 
     const tick = () => {
@@ -81,11 +88,14 @@ export function Avatar() {
       const transform = `translate(calc(-50% + ${current.x.toFixed(2)}px), calc(-50% + ${current.y.toFixed(2)}px))`
       if (leftRef.current) leftRef.current.style.transform = transform
       if (rightRef.current) rightRef.current.style.transform = transform
+      if (Math.abs(tx - current.x) < 0.05 && Math.abs(ty - current.y) < 0.05) {
+        running = false
+        return
+      }
       raf = requestAnimationFrame(tick)
     }
 
     window.addEventListener('pointermove', onMove, { passive: true })
-    raf = requestAnimationFrame(tick)
     return () => {
       window.removeEventListener('pointermove', onMove)
       cancelAnimationFrame(raf)
@@ -120,13 +130,13 @@ export function Avatar() {
         {/* capa de ojos — siguen el cursor dentro de la pantalla */}
         <div
           ref={leftRef}
-          className={`eye ${reduced ? '' : 'eye-idle'}`}
+          className="eye"
           style={eyeStyle(EYES.left)}
           aria-hidden="true"
         />
         <div
           ref={rightRef}
-          className={`eye ${reduced ? '' : 'eye-idle'}`}
+          className="eye"
           style={eyeStyle(EYES.right)}
           aria-hidden="true"
         />

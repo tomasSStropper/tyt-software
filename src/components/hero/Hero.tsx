@@ -23,10 +23,10 @@ export function Hero() {
         {/* Bloque conversacional */}
         <div>
           <p className="mono-label blur-in flex items-center gap-2.5 text-ink-soft">
-            <span className="relative flex h-2 w-2" aria-hidden="true">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-bright opacity-60 motion-reduce:animate-none" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-red-bright" />
-            </span>
+            <span
+              className="inline-flex h-2 w-2 rounded-full bg-red-bright shadow-[0_0_8px_rgba(224,62,45,0.8)]"
+              aria-hidden="true"
+            />
             {t.hero.status}
           </p>
 
@@ -35,13 +35,14 @@ export function Hero() {
           </h1>
 
           {/* El span invisible reserva el alto final: cero layout shift al tipear */}
-          <p className="relative mt-6 max-w-lg text-lg leading-relaxed text-ink-soft" aria-label={t.hero.typed}>
-            <span className="invisible" aria-hidden="true">
-              {t.hero.typed}
-            </span>
-            <span className="absolute inset-0" aria-hidden="true">
-              {text}
-              {!done && <span className="caret" />}
+          <p className="relative mt-6 max-w-lg text-lg leading-relaxed text-ink-soft">
+            <span className="sr-only">{t.hero.typed}</span>
+            <span aria-hidden="true">
+              <span className="invisible">{t.hero.typed}</span>
+              <span className="absolute inset-0">
+                {text}
+                {!done && <span className="caret" />}
+              </span>
             </span>
           </p>
 
