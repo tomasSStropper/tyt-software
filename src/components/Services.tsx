@@ -1,7 +1,9 @@
-import { ArrowRight } from 'lucide-react'
+import { useState } from 'react'
+import { ArrowRight, Plus } from 'lucide-react'
 import { useLang } from '../i18n/LanguageContext'
 import { SectionHeading } from './SectionHeading'
 import { Reveal } from './Reveal'
+import { ServiceModal } from './ServiceModal'
 
 /**
  * Opacidad del patrón de circuito de fondo (0–1).
@@ -36,6 +38,7 @@ const CHARACTERS = [
 
 export function Services() {
   const { t } = useLang()
+  const [openIdx, setOpenIdx] = useState<number | null>(null)
 
   return (
     <section id="servicios" className="relative isolate overflow-hidden py-24 lg:py-32">
@@ -98,6 +101,20 @@ export function Services() {
                   <dd className="font-medium text-ink">{item.result}</dd>
                 </div>
               </dl>
+              <button
+                type="button"
+                onClick={() => setOpenIdx(i)}
+                className="mono-label mt-5 inline-flex cursor-pointer items-center gap-1.5 text-red-ink transition-colors duration-200 hover:text-red"
+              >
+                <Plus size={13} aria-hidden="true" />
+                {t.services.detailCta}
+              </button>
+              <ServiceModal
+                open={openIdx === i}
+                onClose={() => setOpenIdx(null)}
+                index={i}
+                service={item}
+              />
             </article>
           </Reveal>
         ))}
