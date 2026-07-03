@@ -36,24 +36,28 @@ const es = {
     items: [
       {
         name: 'Desarrollo web',
+        characterAlt: 'Monitor vintage mostrando el esqueleto de un sitio web en rojo, con manos tecleando',
         problem: 'Tu web actual no genera nada.',
         build: 'Un sitio rápido, claro y hecho para convertir.',
         result: 'Consultas que llegan solas.',
       },
       {
         name: 'Automatización',
+        characterAlt: 'Robot de hojalata sellando documentos en un escritorio, con el sello encendido en rojo',
         problem: 'Tu equipo pierde horas en tareas repetitivas.',
         build: 'Flujos que conectan tus herramientas y trabajan solos.',
         result: 'Horas recuperadas cada semana.',
       },
       {
         name: 'Sistemas internos',
+        characterAlt: 'Archivador de madera con decenas de gavetas y una sola gaveta abierta brillando en rojo',
         problem: 'Tu operación vive en hojas de cálculo.',
         build: 'Plataformas con roles, datos y control de verdad.',
         result: 'Una sola fuente de verdad.',
       },
       {
         name: 'Consultoría técnica',
+        characterAlt: 'Figura de traje con una radio vintage por cabeza hablando ante un micrófono de podio',
         problem: 'Tecnología comprada sin rumbo.',
         build: 'Un diagnóstico honesto y una hoja de ruta ejecutable.',
         result: 'Decisiones con criterio técnico.',
@@ -185,24 +189,28 @@ const en: Dict = {
     items: [
       {
         name: 'Web development',
+        characterAlt: 'Vintage monitor showing a website skeleton in red, with hands typing',
         problem: "Your current site generates nothing.",
         build: 'A fast, clear site built to convert.',
         result: 'Inquiries that arrive on their own.',
       },
       {
         name: 'Automation',
+        characterAlt: 'Tin robot stamping documents at a desk, its stamp glowing red',
         problem: 'Your team loses hours to repetitive tasks.',
         build: 'Flows that connect your tools and work alone.',
         result: 'Hours recovered every week.',
       },
       {
         name: 'Internal systems',
+        characterAlt: 'Wooden card cabinet with dozens of drawers, a single open drawer glowing red',
         problem: 'Your operation lives in spreadsheets.',
         build: 'Platforms with roles, data and real control.',
         result: 'A single source of truth.',
       },
       {
         name: 'Technical consulting',
+        characterAlt: 'Suited figure with a vintage radio for a head speaking at a podium microphone',
         problem: 'Technology bought without direction.',
         build: 'An honest diagnosis and an executable roadmap.',
         result: 'Decisions with technical judgment.',
