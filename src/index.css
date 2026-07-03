@@ -1,0 +1,258 @@
+@import "tailwindcss";
+
+@theme {
+  /* Papel envejecido — base cálida, nunca blanco frío */
+  --color-paper: #eae4d6;
+  --color-paper-deep: #e0d8c5;
+  --color-paper-lift: #f2ede1;
+  --color-ink: #2a251e;
+  --color-ink-soft: #554d42;
+  --color-mist: #6d6352;
+  --color-line: #cbc1ab;
+  /* Rojo: signo de puntuación, no decoración */
+  --color-red: #b3372a;
+  --color-red-bright: #e03e2d;
+  /* Superficie oscura (ArenaDesk, tiles) — carbón cálido */
+  --color-coal: #211d17;
+  --color-coal-lift: #2c2720;
+  --color-coal-line: #3d372d;
+  --color-coal-text: #d8d0bf;
+
+  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-body: "Archivo", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+::selection {
+  background: var(--color-red);
+  color: var(--color-paper);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-paper);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ── Textura: grano de película en todo el sitio ───────────── */
+.grain::after {
+  content: "";
+  position: fixed;
+  inset: -50%;
+  z-index: 80;
+  pointer-events: none;
+  opacity: 0.28;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 240'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.16 0 0 0 0 0.14 0 0 0 0 0.11 0 0 0 0.5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+  background-size: 240px 240px;
+  animation: grain-shift 1.4s steps(4) infinite;
+}
+
+@keyframes grain-shift {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-2%, 1.5%); }
+  50% { transform: translate(1.5%, -2%); }
+  75% { transform: translate(-1%, -1%); }
+  100% { transform: translate(0, 0); }
+}
+
+/* Viñeta suave — desgaste de impresión en los bordes */
+.vignette::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 79;
+  pointer-events: none;
+  background:
+    radial-gradient(120% 120% at 50% 45%, transparent 62%, rgba(42, 37, 30, 0.1) 100%);
+}
+
+/* ── Tipografía editorial ──────────────────────────────────── */
+.display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  text-wrap: balance;
+}
+
+.mono-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* ── Reveal on scroll ──────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.6s var(--ease-out-soft),
+    transform 0.6s var(--ease-out-soft);
+}
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Caret del typewriter */
+.caret {
+  display: inline-block;
+  width: 0.55em;
+  height: 1.05em;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  background: var(--color-red-bright);
+  animation: caret-blink 1.06s steps(1) infinite;
+}
+@keyframes caret-blink {
+  50% { opacity: 0; }
+}
+
+/* Línea de intro difuminada que enfoca */
+.blur-in {
+  animation: blur-in 0.9s var(--ease-out-soft) both;
+}
+@keyframes blur-in {
+  from { opacity: 0; filter: blur(10px); }
+  to { opacity: 1; filter: blur(0); }
+}
+
+/* Pills del hero */
+.pill-in {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: pill-in 0.5s var(--ease-out-soft) forwards;
+}
+@keyframes pill-in {
+  to { opacity: 1; transform: none; }
+}
+
+/* Tachado a pluma roja (Servicios) */
+.strike-wrap { position: relative; }
+.strike-wrap::after {
+  content: "";
+  position: absolute;
+  left: -2px;
+  right: calc(100% + 2px);
+  top: 55%;
+  height: 2px;
+  background: var(--color-red);
+  transform: rotate(-1.2deg);
+  transition: right 0.35s var(--ease-out-soft);
+}
+.group:hover .strike-wrap::after,
+.group:focus-within .strike-wrap::after {
+  right: -4px;
+}
+
+/* Sello de goma (Contact success, Projects) */
+.stamp {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-red);
+  border: 2px solid var(--color-red);
+  padding: 0.3rem 0.8rem;
+  transform: rotate(-4deg);
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 40'%3E%3Cfilter id='r'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.35' numOctaves='2'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1.4 -0.15'/%3E%3CfeComposite operator='in' in2='SourceGraphic'/%3E%3C/filter%3E%3Crect width='120' height='40' filter='url(%23r)'/%3E%3C/svg%3E");
+  mask-size: cover;
+}
+
+.stamp-pop {
+  animation: stamp-pop 0.4s var(--ease-out-soft) both;
+}
+@keyframes stamp-pop {
+  0% { opacity: 0; transform: rotate(-4deg) scale(1.6); }
+  100% { opacity: 1; transform: rotate(-4deg) scale(1); }
+}
+
+/* Numerales del proceso — contorno que se llena de tinta roja */
+.numeral {
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--color-ink-soft);
+  transition: color 0.45s var(--ease-out-soft), -webkit-text-stroke-color 0.45s var(--ease-out-soft);
+}
+.numeral.inked {
+  color: var(--color-red);
+  -webkit-text-stroke-color: var(--color-red);
+}
+
+/* Halftone: anillos de semitono tras el avatar */
+.halftone {
+  background-image: radial-gradient(rgba(42, 37, 30, 0.22) 1px, transparent 1.5px);
+  background-size: 9px 9px;
+  mask-image: radial-gradient(circle at 50% 42%, black 0%, transparent 68%);
+}
+
+/* Ojos del avatar */
+.eye {
+  position: absolute;
+  border-radius: 9999px;
+  background: radial-gradient(circle, #ffd9c9 0%, var(--color-red-bright) 38%, rgba(224, 62, 45, 0) 72%);
+  filter: drop-shadow(0 0 6px rgba(224, 62, 45, 0.9));
+  will-change: transform;
+}
+.eye-idle {
+  animation: eye-breathe 3.4s ease-in-out infinite;
+}
+@keyframes eye-breathe {
+  0%, 100% { opacity: 0.85; }
+  50% { opacity: 1; }
+}
+
+/* Foco visible — accesibilidad AA */
+:focus-visible {
+  outline: 2px solid var(--color-red);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Inputs del formulario */
+.field {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--color-line);
+  padding: 0.6rem 0;
+  font-size: 1rem;
+  color: var(--color-ink);
+  border-radius: 0;
+  transition: border-color 0.2s ease;
+}
+.field::placeholder { color: var(--color-mist); }
+.field:focus {
+  outline: none;
+  border-bottom-color: var(--color-red);
+}
+
+/* ── prefers-reduced-motion: todo instantáneo ─────────────── */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .grain::after { animation: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .blur-in { animation: none; opacity: 1; }
+  .pill-in { animation: none; opacity: 1; transform: none; }
+  .caret { animation: none; }
+  .eye-idle { animation: none; }
+  .stamp-pop { animation: none; opacity: 1; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
