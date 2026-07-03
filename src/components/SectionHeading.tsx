@@ -23,10 +23,12 @@ export function SectionHeading({
       <p
         className={`mono-label flex items-baseline gap-3 ${center ? 'justify-center' : ''} ${dark ? 'text-coal-text/60' : 'text-mist'}`}
       >
-        <span className="text-red">{index}</span>
+        <span className="text-red-ink">{index}</span>
         <span aria-hidden="true">/</span>
         {label}
       </p>
+      {/* marcador de sección: un golpe de bermellón */}
+      <span className={`mt-3 block h-0.5 w-10 bg-red ${center ? 'mx-auto' : ''}`} aria-hidden="true" />
       <h2
         className={`display mt-4 max-w-[16ch] text-4xl sm:text-5xl lg:text-6xl ${center ? 'mx-auto' : ''} ${dark ? 'text-paper' : 'text-ink'}`}
       >

@@ -153,7 +153,7 @@ function ProjectRow(props: RowProps) {
   const inner = (
     <>
       <div className="flex items-baseline gap-4 sm:gap-6">
-        <span className="mono-label w-7 shrink-0 text-red">0{index + 1}</span>
+        <span className="mono-label w-7 shrink-0 text-red-ink">0{index + 1}</span>
         <h3 className="display text-2xl text-ink transition-[color,translate] duration-250 group-hover:translate-x-2 group-hover:text-red sm:text-4xl">
           {name}
         </h3>
@@ -170,7 +170,7 @@ function ProjectRow(props: RowProps) {
         {outcome}
         {url && <span className="stamp ml-4 hidden py-0.5 text-[0.6rem] md:inline-block">{liveLabel}</span>}
         {url ? (
-          <span className="mono-label ml-4 inline-flex items-center gap-1 text-red transition-opacity duration-200 md:opacity-0 md:group-hover:opacity-100 md:group-focus-within:opacity-100">
+          <span className="mono-label ml-4 inline-flex items-center gap-1 text-red-ink transition-opacity duration-200 md:opacity-0 md:group-hover:opacity-100 md:group-focus-within:opacity-100">
             <span aria-hidden="true">→</span> {visitLabel}
           </span>
         ) : (

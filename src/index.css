@@ -35,10 +35,16 @@
   --color-ink-soft: #52493a;
   --color-mist: #5f5545;
   --color-line: #c2b28e;
-  /* Rojo: signo de puntuación, no decoración */
-  --color-red: #a33125;
+  /* Rojo de marca: bermellón vivo. Jerarquía AA:
+     red      #d32f2f → gráficos, fondos de CTA, texto grande (≥3:1 sobre papel)
+     red-ink  #a33125 → texto rojo pequeño sobre papel (4.97:1)
+     on-red   #fff6e6 → texto sobre rellenos rojos (4.64:1)
+     red-soft #ff7f6b → texto rojo pequeño sobre carbón (6.78:1)
+     red-bright        → brillos (ojos, caret) */
+  --color-red: #d32f2f;
+  --color-red-ink: #a33125;
+  --color-on-red: #fff6e6;
   --color-red-bright: #e03e2d;
-  /* rojo legible en texto pequeño sobre carbón (AA) */
   --color-red-soft: #ff7f6b;
   /* Superficie oscura (ArenaDesk, tiles) — carbón cálido */
   --color-coal: #211d17;
@@ -55,7 +61,7 @@
 
 ::selection {
   background: var(--color-red);
-  color: var(--color-paper);
+  color: var(--color-on-red);
 }
 
 html {
@@ -157,7 +163,8 @@ body {
   transition: right 0.25s var(--ease-out-soft);
 }
 .nav-link:hover::after,
-.nav-link:focus-visible::after {
+.nav-link:focus-visible::after,
+.nav-link-active::after {
   right: 0;
 }
 
@@ -218,8 +225,8 @@ body {
   font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--color-red);
-  border: 2px solid var(--color-red);
+  color: var(--color-red-ink);
+  border: 2px solid var(--color-red-ink);
   padding: 0.3rem 0.8rem;
   transform: rotate(-4deg);
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 40'%3E%3Cfilter id='r'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.35' numOctaves='2'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1.4 -0.15'/%3E%3CfeComposite operator='in' in2='SourceGraphic'/%3E%3C/filter%3E%3Crect width='120' height='40' filter='url(%23r)'/%3E%3C/svg%3E");

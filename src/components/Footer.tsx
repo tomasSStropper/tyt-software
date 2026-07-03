@@ -50,7 +50,7 @@ export function Footer() {
                 <li key={l.href}>
                   <Link
                     to={l.href}
-                    className="text-sm text-coal-text/80 transition-colors duration-200 hover:text-red-bright"
+                    className="text-sm text-coal-text/80 transition-colors duration-200 hover:text-red-soft"
                   >
                     {l.label}
                   </Link>
@@ -65,7 +65,7 @@ export function Footer() {
               <li>
                 <a
                   href={`mailto:${CONTACT.email}`}
-                  className="text-coal-text/80 transition-colors duration-200 hover:text-red-bright"
+                  className="text-coal-text/80 transition-colors duration-200 hover:text-red-soft"
                 >
                   {CONTACT.email}
                 </a>
@@ -75,7 +75,7 @@ export function Footer() {
                   href={CONTACT.whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-coal-text/80 transition-colors duration-200 hover:text-red-bright"
+                  className="text-coal-text/80 transition-colors duration-200 hover:text-red-soft"
                 >
                   {CONTACT.whatsapp}
                 </a>
@@ -85,7 +85,7 @@ export function Footer() {
                   href={CONTACT.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-coal-text/80 transition-colors duration-200 hover:text-red-bright"
+                  className="text-coal-text/80 transition-colors duration-200 hover:text-red-soft"
                 >
                   {CONTACT.instagramHandle}
                 </a>

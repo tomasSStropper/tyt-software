@@ -25,7 +25,7 @@ function DemoCta({ label }: { label: string }) {
   return (
     <Link
       to="/#contacto"
-      className="group mono-label inline-flex items-center gap-2 border border-red bg-red px-6 py-3.5 text-paper-lift transition-colors duration-200 hover:border-red-bright hover:bg-red-bright"
+      className="group mono-label inline-flex items-center gap-2 border border-red bg-red px-6 py-3.5 text-on-red transition-colors duration-200 hover:border-red-bright hover:bg-red-bright"
     >
       {label}
       <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true" />
@@ -92,7 +92,7 @@ export function ArenaDeskPage() {
           {p.pillars.map((pillar, i) => (
             <Reveal key={pillar.name} delay={i * 90}>
               <article className="border-t-2 border-ink/70 pt-5">
-                <span className="mono-label text-red">0{i + 1}</span>
+                <span className="mono-label text-red-ink">0{i + 1}</span>
                 <h3 className="display mt-3 text-2xl text-ink">{pillar.name}</h3>
                 <p className="mt-3 text-ink-soft">{pillar.desc}</p>
               </article>
@@ -138,7 +138,7 @@ export function ArenaDeskPage() {
               {p.sports.map((s) => (
                 <li
                   key={s}
-                  className="mono-label border border-ink/40 px-4 py-2 text-ink transition-colors duration-200 hover:border-red hover:text-red"
+                  className="mono-label border border-ink/40 px-4 py-2 text-ink transition-colors duration-200 hover:border-red hover:text-red-ink"
                 >
                   {s}
                 </li>

@@ -27,7 +27,7 @@ export function Services() {
         {t.services.items.map((item, i) => (
           <Reveal key={item.name} delay={i * 80}>
             {/* group: al pasar el cursor, la pluma roja tacha el problema */}
-            <article className="group border-t-2 border-ink/70 pt-5">
+            <article className="group border-t-2 border-ink/70 pt-5 transition-colors duration-300 hover:border-red">
               <div className="flex h-44 items-end justify-center overflow-visible pb-2 sm:h-52">
                 <img
                   src={CHARACTERS[i].src}
@@ -39,7 +39,7 @@ export function Services() {
                   className="max-h-full w-auto max-w-full drop-shadow-[0_14px_22px_rgba(42,36,27,0.3)] transition-transform duration-300 group-hover:-translate-y-1.5"
                 />
               </div>
-              <span className="mono-label text-red">0{i + 1}</span>
+              <span className="mono-label text-red-ink">0{i + 1}</span>
               <h3 className="display mt-3 text-2xl text-ink sm:text-3xl">{item.name}</h3>
               <p className="mt-4 text-lg text-ink-soft">
                 <span className="strike-wrap">{item.problem}</span>

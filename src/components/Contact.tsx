@@ -65,7 +65,7 @@ export function Contact() {
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
           <a
             href={`mailto:${CONTACT.email}`}
-            className="mono-label inline-flex items-center gap-2.5 border border-red bg-red px-6 py-3.5 text-paper-lift transition-all duration-200 hover:-translate-y-0.5 hover:border-red-bright hover:bg-red-bright"
+            className="mono-label inline-flex items-center gap-2.5 border border-red bg-red px-6 py-3.5 text-on-red transition-all duration-200 hover:-translate-y-0.5 hover:border-red-bright hover:bg-red-bright"
           >
             <Mail size={15} aria-hidden="true" />
             {CONTACT.email}
@@ -138,7 +138,7 @@ export function Contact() {
                 <button
                   type="submit"
                   disabled={status === 'sending'}
-                  className="mono-label cursor-pointer border border-red bg-red px-7 py-3.5 text-paper-lift transition-colors duration-200 hover:border-red-bright hover:bg-red-bright disabled:cursor-wait disabled:opacity-60"
+                  className="mono-label cursor-pointer border border-red bg-red px-7 py-3.5 text-on-red transition-colors duration-200 hover:border-red-bright hover:bg-red-bright disabled:cursor-wait disabled:opacity-60"
                 >
                   {status === 'sending' ? t.contact.sending : t.contact.send}
                 </button>
@@ -148,7 +148,7 @@ export function Contact() {
                   </p>
                 )}
                 {status === 'error' && (
-                  <p className="text-sm text-red" role="alert">
+                  <p className="text-sm text-red-ink" role="alert">
                     {t.contact.error}{' '}
                     <a href={`mailto:${CONTACT.email}`} className="underline">
                       {CONTACT.email}

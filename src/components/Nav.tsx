@@ -24,7 +24,7 @@ function LangToggle() {
             onClick={() => setLang(l)}
             aria-pressed={lang === l}
             className={`cursor-pointer px-1 py-1 uppercase transition-colors duration-200 ${
-              lang === l ? 'text-red' : 'text-mist hover:text-ink'
+              lang === l ? 'text-red-ink' : 'text-mist hover:text-ink'
             }`}
           >
             {l}
@@ -96,8 +96,8 @@ export function Nav() {
               <Link
                 to={href}
                 aria-current={active === href ? 'true' : undefined}
-                className={`mono-label nav-link transition-colors duration-200 hover:text-red ${
-                  active === href ? 'text-red' : 'text-ink-soft'
+                className={`mono-label nav-link transition-colors duration-200 hover:text-red-ink ${
+                  active === href ? 'nav-link-active text-red-ink' : 'text-ink-soft'
                 }`}
               >
                 {t.nav[key]}
@@ -136,7 +136,7 @@ export function Nav() {
                   onClick={() => setOpen(false)}
                   className="display flex items-baseline gap-4 py-4 text-2xl text-ink transition-colors duration-200 hover:text-red"
                 >
-                  <span className="mono-label text-red">0{i + 1}</span>
+                  <span className="mono-label text-red-ink">0{i + 1}</span>
                   {t.nav[key]}
                 </Link>
               </li>
