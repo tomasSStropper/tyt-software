@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { useLang } from '../i18n/LanguageContext'
 import { CONTACT } from '../i18n/dictionary'
 
@@ -21,11 +22,11 @@ export function Footer() {
   const time = useCostaRicaTime(lang === 'es' ? 'es-CR' : 'en-US')
 
   const links = [
-    { href: '#servicios', label: t.nav.services },
-    { href: '#arenadesk', label: t.nav.arenadesk },
-    { href: '#proyectos', label: t.nav.projects },
-    { href: '#proceso', label: t.nav.process },
-    { href: '#contacto', label: t.nav.contact },
+    { href: '/#servicios', label: t.nav.services },
+    { href: '/arenadesk', label: 'ArenaDesk' },
+    { href: '/#proyectos', label: t.nav.projects },
+    { href: '/#proceso', label: t.nav.process },
+    { href: '/#contacto', label: t.nav.contact },
   ]
 
   return (
@@ -47,12 +48,12 @@ export function Footer() {
             <ul className="mt-4 space-y-2.5">
               {links.map((l) => (
                 <li key={l.href}>
-                  <a
-                    href={l.href}
+                  <Link
+                    to={l.href}
                     className="text-sm text-coal-text/80 transition-colors duration-200 hover:text-red-bright"
                   >
                     {l.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

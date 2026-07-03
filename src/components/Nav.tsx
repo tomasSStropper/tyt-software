@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 import { useLang } from '../i18n/LanguageContext'
 import type { Lang } from '../i18n/dictionary'
 
 const LINKS = [
-  { href: '#servicios', key: 'services' },
-  { href: '#arenadesk', key: 'arenadesk' },
-  { href: '#proyectos', key: 'projects' },
-  { href: '#proceso', key: 'process' },
-  { href: '#contacto', key: 'contact' },
+  { href: '/#servicios', key: 'services' },
+  { href: '/#arenadesk', key: 'arenadesk' },
+  { href: '/#proyectos', key: 'projects' },
+  { href: '/#proceso', key: 'process' },
+  { href: '/#contacto', key: 'contact' },
 ] as const
 
 function LangToggle() {
@@ -36,6 +37,7 @@ function LangToggle() {
 
 export function Nav() {
   const { t } = useLang()
+  const { pathname } = useLocation()
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
   const [active, setActive] = useState('')
@@ -49,13 +51,13 @@ export function Nav() {
 
   // scroll-spy: la sección visible marca su enlace en rojo
   useEffect(() => {
-    const sections = LINKS.map(({ href }) => document.getElementById(href.slice(1))).filter(
+    const sections = LINKS.map(({ href }) => document.getElementById(href.split('#')[1])).filter(
       (el): el is HTMLElement => el !== null,
     )
     const obs = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
-          if (entry.isIntersecting) setActive(`#${entry.target.id}`)
+          if (entry.isIntersecting) setActive(`/#${entry.target.id}`)
         }
       },
       { rootMargin: '-35% 0px -55% 0px' },
@@ -71,44 +73,47 @@ export function Nav() {
     }
   }, [open])
 
+  // fuera del home el hero es oscuro: el nav va siempre sólido
+  const solid = scrolled || pathname !== '/'
+
   return (
     <header
       className={`fixed inset-x-0 top-0 z-90 transition-all duration-300 ${
-        scrolled ? 'border-b border-line/70 bg-paper/85 backdrop-blur-md' : 'bg-transparent'
+        solid ? 'border-b border-line/70 bg-paper' : 'bg-transparent'
       }`}
     >
       <nav
         className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8"
         aria-label="principal"
       >
-        <a href="#inicio" className="display text-xl text-ink" onClick={() => setOpen(false)}>
+        <Link to="/" className="display text-xl text-ink" onClick={() => setOpen(false)}>
           TyT<span className="text-red">.</span>
-        </a>
+        </Link>
 
         <ul className="hidden items-center gap-7 lg:flex">
           {LINKS.map(({ href, key }) => (
             <li key={key}>
-              <a
-                href={href}
+              <Link
+                to={href}
                 aria-current={active === href ? 'true' : undefined}
                 className={`mono-label nav-link transition-colors duration-200 hover:text-red ${
                   active === href ? 'text-red' : 'text-ink-soft'
                 }`}
               >
                 {t.nav[key]}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
 
         <div className="flex items-center gap-4">
           <LangToggle />
-          <a
-            href="#contacto"
+          <Link
+            to="/#contacto"
             className="mono-label hidden border border-ink px-4 py-2 text-ink transition-colors duration-200 hover:border-red hover:bg-red hover:text-paper-lift lg:inline-block"
           >
             {t.nav.cta}
-          </a>
+          </Link>
           <button
             type="button"
             className="cursor-pointer p-1 text-ink lg:hidden"
@@ -126,14 +131,14 @@ export function Nav() {
           <ul className="flex flex-col px-5 py-4">
             {LINKS.map(({ href, key }, i) => (
               <li key={key} className="border-b border-line/60 last:border-0">
-                <a
-                  href={href}
+                <Link
+                  to={href}
                   onClick={() => setOpen(false)}
                   className="display flex items-baseline gap-4 py-4 text-2xl text-ink transition-colors duration-200 hover:text-red"
                 >
                   <span className="mono-label text-red">0{i + 1}</span>
                   {t.nav[key]}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
