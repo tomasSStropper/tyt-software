@@ -144,8 +144,11 @@ interface RowProps {
 }
 
 function ProjectRow(props: RowProps) {
-  const { index, name, tag, outcome, url, spotlightOn, visitLabel, liveLabel } = props
+  const { index, name, tag, outcome, url, kind, spotlightOn, visitLabel, liveLabel, construction } =
+    props
   const rowRef = useRowSpotlight<HTMLDivElement>(spotlightOn)
+  // affordance para filas sin enlace: su estado en vez de un destino
+  const statusLabel = kind === 'construction' ? construction.note : tag
 
   const inner = (
     <>
@@ -166,6 +169,15 @@ function ProjectRow(props: RowProps) {
       <p className="mt-2 pl-11 text-ink-soft sm:pl-13">
         {outcome}
         {url && <span className="stamp ml-4 hidden py-0.5 text-[0.6rem] md:inline-block">{liveLabel}</span>}
+        {url ? (
+          <span className="mono-label ml-4 inline-flex items-center gap-1 text-red transition-opacity duration-200 md:opacity-0 md:group-hover:opacity-100 md:group-focus-within:opacity-100">
+            <span aria-hidden="true">→</span> {visitLabel}
+          </span>
+        ) : (
+          <span className="mono-label ml-4 text-mist transition-opacity duration-200 md:opacity-0 md:group-hover:opacity-100">
+            {statusLabel}
+          </span>
+        )}
       </p>
     </>
   )
