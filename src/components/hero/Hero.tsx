@@ -2,6 +2,7 @@ import { useLang } from '../../i18n/LanguageContext'
 import { useTypewriter } from '../../hooks/useTypewriter'
 import { CONTACT } from '../../i18n/dictionary'
 import { Avatar } from './Avatar'
+import { BinaryRain } from './BinaryRain'
 
 const PILL_BASE_DELAY = 700
 const PILL_STAGGER = 90
@@ -18,8 +19,11 @@ export function Hero() {
   ]
 
   return (
-    <section id="inicio" className="relative flex min-h-dvh items-center pt-24 pb-14">
-      <div className="mx-auto grid w-full max-w-6xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+    <section id="inicio" className="relative flex min-h-dvh items-center overflow-hidden pt-24 pb-14">
+      {/* lluvia binaria: capa atmosférica detrás de todo el contenido */}
+      <BinaryRain />
+
+      <div className="relative z-10 mx-auto grid w-full max-w-6xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
         {/* Bloque conversacional */}
         <div>
           <p className="mono-label blur-in flex items-center gap-2.5 text-ink-soft">
@@ -78,7 +82,7 @@ export function Hero() {
       </div>
 
       <p
-        className="mono-label absolute bottom-5 left-1/2 hidden -translate-x-1/2 items-center gap-2 text-mist md:flex"
+        className="mono-label absolute bottom-5 left-1/2 z-10 hidden -translate-x-1/2 items-center gap-2 text-mist md:flex"
         aria-hidden="true"
       >
         <span className="block h-8 w-px bg-mist/60" />
