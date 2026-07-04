@@ -11,7 +11,7 @@ export const EYES = {
   left: { x: 43.6, y: 13.8 },
   right: { x: 53.2, y: 13.9 },
   /** diámetro de la pupila, % del ancho de la caja */
-  size: 3.4,
+  size: 4.2,
   /** desplazamiento máximo hacia el cursor, % del ancho de la caja */
   travel: 0.9,
   /** suavizado del lerp por frame (0–1) */
