@@ -11,14 +11,23 @@ export function ArenaDesk() {
   return (
     <section id="arenadesk" className="bg-coal py-24 lg:py-32">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <div className="grid items-end gap-10 lg:grid-cols-[1fr_auto]">
+        <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end lg:gap-16">
           <SectionHeading index="02" label={t.arenadesk.label} title={t.arenadesk.title} dark />
           <Reveal delay={100}>
-            <div className="max-w-sm lg:pb-2 lg:text-right">
+            <div className="max-w-md lg:pb-2">
               <p className="text-coal-text/80">{t.arenadesk.copy}</p>
+              {/* los tres pilares del producto, condensados */}
+              <ul className="mt-6 space-y-2.5">
+                {t.arenadesk.bullets.map((b) => (
+                  <li key={b} className="flex items-center gap-2.5">
+                    <ArrowRight size={14} className="shrink-0 text-red-soft" aria-hidden="true" />
+                    <span className="text-sm text-coal-text">{b}</span>
+                  </li>
+                ))}
+              </ul>
               <Link
                 to="/arenadesk"
-                className="group mono-label mt-5 inline-flex items-center gap-2 border border-red bg-red px-5 py-3 text-on-red transition-colors duration-200 hover:border-red-bright hover:bg-red-bright"
+                className="group mono-label mt-7 inline-flex items-center gap-2 border border-red bg-red px-5 py-3 text-on-red transition-colors duration-200 hover:border-red-bright hover:bg-red-bright"
               >
                 {t.arenadesk.learnMore}
                 <ArrowRight
