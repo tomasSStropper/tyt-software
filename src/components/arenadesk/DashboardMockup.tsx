@@ -128,11 +128,12 @@ export function DashboardMockup({ ariaLabel }: { ariaLabel: string }) {
                 <div className="col-span-3 rounded-md border border-coal-line bg-coal-lift p-4">
                   <p className="mono-label text-coal-text/70">Asistencia esta semana</p>
                   <div className="mt-4 flex h-36 items-end gap-3">
+                    {/* altura en px: un % contra columna auto colapsa a cero */}
                     {WEEK.map((d) => (
-                      <div key={d.day} className="flex flex-1 flex-col items-center gap-2">
+                      <div key={d.day} className="flex flex-1 flex-col items-center justify-end gap-2">
                         <div
                           className={`w-full rounded-sm ${d.v >= 90 ? 'bg-red-bright' : 'bg-coal-text/30'}`}
-                          style={{ height: `${d.v}%` }}
+                          style={{ height: `${Math.round(d.v * 1.1)}px` }}
                         />
                         <span className="mono-label text-coal-text/65">{d.day}</span>
                       </div>

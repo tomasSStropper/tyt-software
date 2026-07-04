@@ -85,12 +85,13 @@ const es = {
     ],
   },
   arenadesk: {
-    label: 'Producto',
-    title: 'ArenaDesk. Tu gimnasio, bajo control.',
-    copy: 'Miembros, pagos, asistencia y clases en un solo panel. Marca blanca, listo para operar desde el día uno.',
+    label: 'Producto propio',
+    title: 'ArenaDesk. La plataforma donde tu academia manda.',
+    copy: 'Gestión white-label para gimnasios y academias deportivas, con IA integrada. Todo bajo tu marca: miembros, pagos, asistencia y clases.',
+    bullets: ['Tu academia manda', 'Una IA que trabaja para el dueño', 'Tu marca en todo'],
     cta: 'Solicitar una demo',
     learnMore: 'Conocer el producto',
-    note: 'Software propio de TyT',
+    note: 'En producción con academias reales.',
   },
   arenadeskPage: {
     back: 'Volver',
@@ -144,7 +145,7 @@ const es = {
   projects: {
     label: 'Proyectos',
     title: 'Trabajo real, en producción.',
-    hint: 'Cinco encargos reales. Cero plantillas.',
+    hint: 'Cuatro encargos reales. Cero plantillas.',
     visit: 'Visitar sitio',
     live: 'En línea',
     diskAlt: 'Disquete vintage con etiqueta roja — el archivo de proyectos de TyT',
@@ -159,11 +160,6 @@ const es = {
         name: 'JC Tours',
         tag: 'Turismo',
         outcome: 'Catálogo de tours con reservas directas, sin intermediarios.',
-      },
-      {
-        name: 'BIONIC Centro de Acopio',
-        tag: 'Sistema interno',
-        outcome: 'Control operativo digital para un centro de reciclaje.',
       },
       {
         name: 'AZ Inmuebles',
@@ -309,12 +305,13 @@ const en: Dict = {
     ],
   },
   arenadesk: {
-    label: 'Product',
-    title: 'ArenaDesk. Your gym, under control.',
-    copy: 'Members, payments, attendance and classes in one panel. White label, ready to operate from day one.',
+    label: 'Own product',
+    title: 'ArenaDesk. The platform where your academy calls the shots.',
+    copy: 'White-label management for gyms and sports academies, with built-in AI. Everything under your brand: members, payments, attendance and classes.',
+    bullets: ['Your academy calls the shots', 'An AI that works for the owner', 'Your brand on everything'],
     cta: 'Request a demo',
     learnMore: 'See the product',
-    note: "TyT's own software",
+    note: 'In production with real academies.',
   },
   arenadeskPage: {
     back: 'Back',
@@ -368,7 +365,7 @@ const en: Dict = {
   projects: {
     label: 'Work',
     title: 'Real work, in production.',
-    hint: 'Five real commissions. Zero templates.',
+    hint: 'Four real commissions. Zero templates.',
     visit: 'Visit site',
     live: 'Live',
     diskAlt: 'Vintage floppy disk with a red label — the TyT project archive',
@@ -383,11 +380,6 @@ const en: Dict = {
         name: 'JC Tours',
         tag: 'Tourism',
         outcome: 'Tour catalog with direct bookings, no middlemen.',
-      },
-      {
-        name: 'BIONIC Centro de Acopio',
-        tag: 'Internal system',
-        outcome: 'Digital operations control for a recycling center.',
       },
       {
         name: 'AZ Inmuebles',
@@ -460,7 +452,6 @@ export const CONTACT = {
 export const PROJECT_META = [
   { url: 'https://saviasacr.com', kind: 'web', image: '/projects/savia-hero-foto1.webp' },
   { url: 'https://jctourscr.com', kind: 'web', image: '/projects/jc-hero-foto1.webp' },
-  { url: null, kind: 'panel', image: null },
-  { url: 'https://azinmueblescr.com', kind: 'web', image: '/projects/az-hero-foto1.webp' },
+  { url: null, kind: 'construction', image: null },
   { url: null, kind: 'construction', image: null },
 ] as const satisfies readonly { url: string | null; kind: 'web' | 'panel' | 'construction'; image: string | null }[]
