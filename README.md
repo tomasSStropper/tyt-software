@@ -49,3 +49,10 @@ create policy "leads: insert publico" on public.leads
 
 Español primario, inglés secundario. Todo el copy vive en
 `src/i18n/dictionary.ts` con claves tipadas; el toggle está en el nav.
+
+## Páginas legales
+
+`/privacidad-agenda` y `/condiciones-agenda` renderizan `src/content/legal/*.md` con un
+markdown mínimo propio (`src/lib/markdown.tsx`, sin dependencias ni innerHTML).
+La **fuente** de esos textos es el repo `agendatyt` (`docs/legal/`): se edita allá y se
+copia aquí. Se publican solo en español; en inglés la página lo avisa.

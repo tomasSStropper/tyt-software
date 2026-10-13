@@ -216,6 +216,13 @@ const es = {
   a11y: {
     skip: 'Saltar al contenido',
   },
+  legal: {
+    back: 'Volver al inicio',
+    label: 'Legal',
+    spanishOnly: '',
+    privacyAgenda: 'Privacidad de TyT Agenda',
+    termsAgenda: 'Condiciones de TyT Agenda',
+  },
 }
 
 export type Dict = typeof es
@@ -435,6 +442,13 @@ const en: Dict = {
   },
   a11y: {
     skip: 'Skip to content',
+  },
+  legal: {
+    back: 'Back to home',
+    label: 'Legal',
+    spanishOnly: 'This document is available in Spanish only. The Spanish version is the one that applies.',
+    privacyAgenda: 'TyT Agenda privacy policy',
+    termsAgenda: 'TyT Agenda terms of service',
   },
 }
 

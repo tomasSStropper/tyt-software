@@ -99,6 +99,14 @@ export function Footer() {
           <p className="text-xs text-coal-text/70">
             © {new Date().getFullYear()} TyT Software & Solutions. {t.footer.rights}
           </p>
+          <nav aria-label={t.legal.label} className="flex flex-wrap gap-x-5 gap-y-2 text-xs">
+            <Link to="/privacidad-agenda" className="text-coal-text/70 transition-colors duration-200 hover:text-red-soft">
+              {t.legal.privacyAgenda}
+            </Link>
+            <Link to="/condiciones-agenda" className="text-coal-text/70 transition-colors duration-200 hover:text-red-soft">
+              {t.legal.termsAgenda}
+            </Link>
+          </nav>
           <p className="mono-label text-coal-text/60">{t.footer.location}</p>
         </div>
       </div>
