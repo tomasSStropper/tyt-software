@@ -7,7 +7,7 @@ const es = {
     projects: 'Proyectos',
     process: 'Proceso',
     contact: 'Contacto',
-    cta: 'Hablemos',
+    cta: 'Agendar reunión',
     menuOpen: 'Abrir menú',
     menuClose: 'Cerrar menú',
     langLabel: 'Cambiar idioma',
@@ -188,6 +188,7 @@ const es = {
   contact: {
     label: 'Contacto',
     title: 'Cuéntanos qué necesitas.',
+    agenda: 'Agendar una reunión',
     pitch: 'Hablas directo con quien construye. Respuesta en menos de 24 horas, sin compromiso y sin jerga.',
     phoneAlt: 'Mano en traje ofreciendo un auricular de teléfono rojo vintage con cable en espiral',
     name: 'Nombre',
@@ -234,7 +235,7 @@ const en: Dict = {
     projects: 'Work',
     process: 'Process',
     contact: 'Contact',
-    cta: "Let's talk",
+    cta: 'Book a meeting',
     menuOpen: 'Open menu',
     menuClose: 'Close menu',
     langLabel: 'Switch language',
@@ -415,6 +416,7 @@ const en: Dict = {
   contact: {
     label: 'Contact',
     title: 'Tell us what you need.',
+    agenda: 'Book a meeting',
     pitch: 'You talk directly with the people who build. Reply within 24 hours, no commitment, no jargon.',
     phoneAlt: 'A suited hand offering a red vintage telephone handset with a coiled cord',
     name: 'Name',
@@ -461,6 +463,8 @@ export const CONTACT = {
   whatsappUrl: 'https://wa.me/50670427226',
   instagram: 'https://www.instagram.com/tytsoftware/',
   instagramHandle: '@tytsoftware',
+  /** Agenda pública (proyecto aparte: agendatyt). El utm dice desde dónde llegó la persona. */
+  agendaUrl: (from: 'nav' | 'contact') => `https://agenda.tytsoftware.com/?utm_source=tytsoftware&utm_medium=${from}`,
 } as const
 
 export const PROJECT_META = [
