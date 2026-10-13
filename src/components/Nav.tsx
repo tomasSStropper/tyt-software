@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, X } from 'lucide-react'
+import { CalendarDays, Menu, X } from 'lucide-react'
 import { useLang } from '../i18n/LanguageContext'
-import type { Lang } from '../i18n/dictionary'
+import { CONTACT, type Lang } from '../i18n/dictionary'
 
 const LINKS = [
   { href: '/#servicios', key: 'services' },
@@ -108,12 +108,13 @@ export function Nav() {
 
         <div className="flex items-center gap-4">
           <LangToggle />
-          <Link
-            to="/#contacto"
-            className="mono-label hidden border border-ink px-4 py-2 text-ink transition-colors duration-200 hover:border-red hover:bg-red hover:text-paper-lift lg:inline-block"
+          <a
+            href={CONTACT.agendaUrl('nav')}
+            className="mono-label hidden items-center gap-2 border border-ink px-4 py-2 text-ink transition-colors duration-200 hover:border-red hover:bg-red hover:text-paper-lift lg:inline-flex"
           >
+            <CalendarDays size={14} aria-hidden="true" />
             {t.nav.cta}
-          </Link>
+          </a>
           <button
             type="button"
             className="cursor-pointer p-1 text-ink lg:hidden"
@@ -142,6 +143,15 @@ export function Nav() {
               </li>
             ))}
           </ul>
+          <div className="px-5 pb-6">
+            <a
+              href={CONTACT.agendaUrl('nav')}
+              className="mono-label flex items-center justify-center gap-2.5 border border-red bg-red px-6 py-4 text-on-red transition-colors duration-200 hover:border-red-bright hover:bg-red-bright"
+            >
+              <CalendarDays size={16} aria-hidden="true" />
+              {t.nav.cta}
+            </a>
+          </div>
         </div>
       )}
     </header>

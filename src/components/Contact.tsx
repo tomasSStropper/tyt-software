@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from 'react'
-import { Mail, MessageCircle } from 'lucide-react'
+import { CalendarDays, Mail, MessageCircle } from 'lucide-react'
 import { useLang } from '../i18n/LanguageContext'
 import { CONTACT } from '../i18n/dictionary'
 import { submitLead } from '../lib/submitLead'
@@ -63,9 +63,17 @@ export function Contact() {
         </div>
 
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+          {/* La vía más directa: elegir un horario en la agenda */}
+          <a
+            href={CONTACT.agendaUrl('contact')}
+            className="mono-label inline-flex items-center gap-2.5 border border-red bg-red px-6 py-3.5 text-on-red transition-all duration-200 hover:-translate-y-0.5 hover:border-red-bright hover:bg-red-bright"
+          >
+            <CalendarDays size={15} aria-hidden="true" />
+            {t.contact.agenda}
+          </a>
           <a
             href={`mailto:${CONTACT.email}`}
-            className="mono-label inline-flex items-center gap-2.5 border border-red bg-red px-6 py-3.5 text-on-red transition-all duration-200 hover:-translate-y-0.5 hover:border-red-bright hover:bg-red-bright"
+            className="mono-label inline-flex items-center gap-2.5 border border-ink px-6 py-3.5 text-ink transition-all duration-200 hover:-translate-y-0.5 hover:bg-ink hover:text-paper"
           >
             <Mail size={15} aria-hidden="true" />
             {CONTACT.email}
