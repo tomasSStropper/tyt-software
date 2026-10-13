@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { LanguageProvider, useLang } from './i18n/LanguageContext'
 import { ScrollManager } from './lib/ScrollManager'
@@ -5,6 +6,9 @@ import { Nav } from './components/Nav'
 import { Footer } from './components/Footer'
 import { Home } from './pages/Home'
 import { ArenaDeskPage } from './pages/ArenaDeskPage'
+
+// Los textos legales se cargan aparte: no pesan en la portada.
+const LegalPage = lazy(() => import('./pages/LegalPage').then((m) => ({ default: m.LegalPage })))
 
 function Shell() {
   const { t } = useLang()
@@ -19,11 +23,15 @@ function Shell() {
       <ScrollManager />
       <Nav />
       <main id="main">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/arenadesk" element={<ArenaDeskPage />} />
-          <Route path="*" element={<Home />} />
-        </Routes>
+        <Suspense fallback={<div className="min-h-screen" />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/arenadesk" element={<ArenaDeskPage />} />
+            <Route path="/privacidad-agenda" element={<LegalPage doc="privacidad-agenda" />} />
+            <Route path="/condiciones-agenda" element={<LegalPage doc="condiciones-agenda" />} />
+            <Route path="*" element={<Home />} />
+          </Routes>
+        </Suspense>
       </main>
       <Footer />
     </div>
