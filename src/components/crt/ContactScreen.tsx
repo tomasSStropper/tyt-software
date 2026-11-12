@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { CONTACT } from '../../i18n/dictionary'
 import { useLang } from '../../i18n/LanguageContext'
+import niches from '../../content/niches.json'
 
 /** Carita en círculo punteado: el guiño humano al final del recorrido. */
 function Smiley() {
@@ -56,7 +57,13 @@ export function ContactScreen({ onForm, onBack }: { onForm: () => void; onBack: 
       </button>
 
       <footer className="mono contact__legal">
-        <span style={{ display: 'flex', gap: '0.9rem' }}>
+        <span style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem 0.9rem' }}>
+          {/* Enlaces a las páginas de nicho: sin esto solo el sitemap las anuncia. */}
+          {niches.map((niche) => (
+            <Link key={niche.path} to={niche.path}>
+              {niche.footerLabel}
+            </Link>
+          ))}
           <Link to="/privacidad-agenda">{h.privacy}</Link>
           <Link to="/condiciones-agenda">{h.terms}</Link>
         </span>
