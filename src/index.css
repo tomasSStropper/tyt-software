@@ -60,6 +60,8 @@
 
 html {
   background: #050505;
+  /* el <body> solo no basta en móviles: el recorte tiene que estar en la raíz */
+  overflow-x: clip;
 }
 
 body {
@@ -67,7 +69,7 @@ body {
   background-color: var(--color-paper);
   color: var(--color-ink);
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 /* ── Tipografía ────────────────────────────────────────────── */
@@ -296,6 +298,10 @@ button {
   /* sin z-index a propósito: un contexto de apilamiento aquí aislaría el
      mix-blend-mode de los textos y dejarían de mezclarse con el lienzo */
   position: relative;
+  /* nada del recorrido puede ensanchar la página (el halo de los bloques de
+     texto se salía 26 px). "clip" recorta sin crear contenedor de scroll ni
+     contexto de apilamiento, así que no rompe el blend. */
+  overflow-x: clip;
 }
 .journey__anchor {
   position: absolute;
@@ -305,9 +311,13 @@ button {
   pointer-events: none;
 }
 
-/* Texto que flota sobre la sala blanca: en escritorio cae sobre blanco y usa
-   "difference"; en móvil cae sobre el holograma (oscuro) y va en claro. */
-@media (min-width: 768px) {
+/* Texto que flota sobre la sala blanca. El motor decide el diseño por la
+   proporción de la pantalla (vertical si ancho/alto < 0.8), así que el CSS
+   usa la misma regla y no el ancho:
+   - vertical: el holograma llena el ancho → texto claro encima.
+   - horizontal: el holograma es un monitor centrado → el texto cae sobre
+     blanco y usa "difference" para leerse. */
+@media (min-aspect-ratio: 4/5) {
   .on-scene,
   .on-scene .tblock {
     color: #cfcfcf;
@@ -333,9 +343,9 @@ button {
 .hero-copy > * {
   pointer-events: auto;
 }
-@media (min-width: 768px) {
+@media (min-aspect-ratio: 4/5) {
   .hero-copy {
-    padding: 0 2.2rem 3rem;
+    padding-bottom: clamp(1.2rem, 5vh, 3rem);
   }
 }
 
@@ -507,7 +517,8 @@ button {
 }
 .contact__title {
   margin-top: 1.1rem;
-  font-size: clamp(1.4rem, 6.3vw, 3.4rem);
+  /* min(vw, vh): en apaisado manda el alto, si no el titular no cabe */
+  font-size: clamp(1.25rem, min(6.3vw, 7.4vh), 3.4rem);
   color: #fff;
   cursor: pointer;
   transition: opacity 0.2s ease;
@@ -546,9 +557,9 @@ button {
   gap: 0.3rem 1rem;
   width: 100%;
   margin-top: 0.9rem;
-  font-size: 0.52rem;
+  font-size: 0.6rem;
   letter-spacing: 0.08em;
-  color: #5d5d5a;
+  color: #9a9894;
 }
 .contact__legal a:hover {
   color: #cfcfcc;
@@ -601,7 +612,7 @@ button {
   padding: 3.85rem 1.1rem 0.9rem;
   background: linear-gradient(rgb(6 5 5 / 0.98) 72%, rgb(6 5 5 / 0));
   font-size: 0.78rem;
-  color: #6b6966;
+  color: #8f8d89;
 }
 .sheet__meta > :last-child {
   justify-self: end;
@@ -634,7 +645,7 @@ button {
 }
 .sheet__label {
   font-size: 0.78rem;
-  color: #5f5d5a;
+  color: #8f8d89;
   margin-bottom: 0.55rem;
 }
 .sheet__text {
@@ -752,7 +763,7 @@ button {
 }
 .menu__item .mono {
   font-size: 0.78rem;
-  color: #6b6966;
+  color: #8f8d89;
 }
 .menu__list:hover .menu__item {
   opacity: 0.38;
@@ -814,7 +825,7 @@ button {
   }
 }
 .row__body dt {
-  color: #6b6966;
+  color: #8f8d89;
   margin-top: 0.7rem;
 }
 .row__body dt:first-child {
@@ -837,7 +848,7 @@ button {
 .tform label {
   display: block;
   font-size: 0.78rem;
-  color: #6b6966;
+  color: #8f8d89;
 }
 .field {
   width: 100%;
@@ -855,7 +866,7 @@ button {
   transition: border-color 0.2s ease;
 }
 .field::placeholder {
-  color: #4c4a47;
+  color: #767470;
   text-transform: uppercase;
 }
 .field:focus {
@@ -1034,5 +1045,189 @@ button {
   .contact__title {
     font-size: clamp(2.2rem, 3.6vw, 3.3rem);
     white-space: nowrap;
+  }
+}
+
+/* ── Contenido de arranque (index.html), visible hasta que monta React ── */
+.prerender {
+  max-width: 44rem;
+  padding: 5.5rem 1.1rem 3rem;
+  font-family: var(--font-mono);
+  font-weight: 900;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #8f8d89;
+}
+.prerender h1 {
+  margin: 0.6rem 0;
+  font-size: 1rem;
+  color: #ecebe7;
+}
+.prerender h2 {
+  margin: 1.4rem 0 0.4rem;
+  color: #ecebe7;
+}
+.prerender a {
+  text-decoration: underline;
+}
+
+/* Trampa anti-bots del formulario: fuera de pantalla, no display:none
+   (algunos bots saltan los campos ocultos con display:none) */
+.hp {
+  position: absolute;
+  left: -200vw;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* ── Zonas seguras (notch, isla dinámica, barra de gestos) ───
+   Con viewport-fit=cover el lienzo ocupa toda la pantalla; el contenido
+   se aparta de los recortes con env(safe-area-inset-*). */
+.crt-nav {
+  padding-top: max(1.15rem, env(safe-area-inset-top));
+  padding-left: max(1.1rem, env(safe-area-inset-left));
+  padding-right: max(1.1rem, env(safe-area-inset-right));
+}
+.hero-copy,
+.contact {
+  padding-left: max(1.1rem, env(safe-area-inset-left));
+  padding-right: max(1.1rem, env(safe-area-inset-right));
+}
+.contact {
+  padding-bottom: calc(0.9rem + env(safe-area-inset-bottom));
+}
+.tblock--abs {
+  left: max(1.1rem, env(safe-area-inset-left));
+}
+.sheet__inner {
+  padding-bottom: calc(1.6rem + env(safe-area-inset-bottom));
+  padding-left: max(1.1rem, env(safe-area-inset-left));
+  padding-right: max(1.1rem, env(safe-area-inset-right));
+}
+@media (min-width: 768px) {
+  .crt-nav {
+    padding-top: max(1.6rem, env(safe-area-inset-top));
+    padding-left: max(2.2rem, env(safe-area-inset-left));
+    padding-right: max(2.2rem, env(safe-area-inset-right));
+  }
+  .hero-copy,
+  .contact {
+    padding-left: max(2.2rem, env(safe-area-inset-left));
+    padding-right: max(2.2rem, env(safe-area-inset-right));
+  }
+  .tblock--abs {
+    left: max(8vw, env(safe-area-inset-left));
+  }
+  .sheet__inner {
+    padding-left: max(2.2rem, env(safe-area-inset-left));
+    padding-right: max(2.2rem, env(safe-area-inset-right));
+  }
+}
+
+/* ── Pantallas muy angostas (Galaxy Fold cerrado, 280–360 px) ── */
+@media (max-width: 380px) {
+  .sheet__meta {
+    grid-template-columns: auto 1fr;
+  }
+  .sheet__meta > :first-child {
+    display: none;
+  }
+}
+@media (max-width: 340px) {
+  .crt-nav {
+    font-size: 0.7rem;
+    letter-spacing: 0.02em;
+  }
+  .crt-nav__right {
+    gap: 0.8rem;
+  }
+  .tblock {
+    font-size: 0.76rem;
+  }
+  .contact__core {
+    padding-left: 1.4rem;
+    padding-right: 1.4rem;
+  }
+  .contact__links {
+    font-size: 0.7rem;
+  }
+}
+
+/* ── Poco alto: teléfono apaisado ──────────────────────────────
+   El contacto tiene que caber en una pantalla de ~360 px de alto. */
+@media (max-height: 520px) {
+  .contact {
+    padding-top: 3.1rem;
+  }
+  .contact__core {
+    width: fit-content;
+    max-width: 100%;
+    margin-top: 0;
+    padding: 0.2rem 3rem 0.5rem;
+  }
+  .contact__core svg {
+    width: 24px;
+    height: 24px;
+  }
+  .contact__cross {
+    width: 17px;
+    height: 17px;
+  }
+  .contact__cross::before {
+    top: 8px;
+  }
+  .contact__cross::after {
+    left: 8px;
+  }
+  .contact__title {
+    margin-top: 0.4rem;
+    white-space: nowrap;
+  }
+  .contact__sub {
+    margin-top: 0.35rem;
+    max-width: 30rem;
+    font-size: 0.78rem;
+  }
+  .contact__links {
+    margin-bottom: 0.5rem;
+  }
+  .contact__legal {
+    margin-top: 0.4rem;
+  }
+  .tblock {
+    font-size: 0.76rem;
+  }
+  .sheet__meta {
+    padding-top: 2.9rem;
+  }
+  .reel {
+    padding: 1rem 0 2.4rem;
+  }
+  .reel__item {
+    flex-basis: 38vw;
+  }
+}
+
+/* ── Monitores grandes: la tipografía de sistema crece un punto ── */
+@media (min-width: 1600px) {
+  .crt-nav {
+    font-size: 1.05rem;
+  }
+  .tblock {
+    max-width: 31rem;
+    font-size: 1.08rem;
+  }
+  .contact__links {
+    font-size: 1.05rem;
+  }
+  .contact__legal {
+    font-size: 0.74rem;
+  }
+  .sheet__text,
+  .row__body {
+    font-size: 1rem;
   }
 }

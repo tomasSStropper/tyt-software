@@ -9,6 +9,7 @@ import { Home } from './pages/Home'
 // Las subpáginas se cargan aparte: no pesan en la portada.
 const ArenaDeskPage = lazy(() => import('./pages/ArenaDeskPage').then((m) => ({ default: m.ArenaDeskPage })))
 const LegalPage = lazy(() => import('./pages/LegalPage').then((m) => ({ default: m.LegalPage })))
+const NotFound = lazy(() => import('./pages/NotFound').then((m) => ({ default: m.NotFound })))
 
 /** Rayas de interferencia sobre el DOM (el lienzo dibuja las suyas). */
 const DASHES = [
@@ -39,7 +40,7 @@ function Shell() {
             <Route path="/arenadesk" element={<ArenaDeskPage />} />
             <Route path="/privacidad-agenda" element={<LegalPage doc="privacidad-agenda" />} />
             <Route path="/condiciones-agenda" element={<LegalPage doc="condiciones-agenda" />} />
-            <Route path="*" element={<Home />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
       </main>

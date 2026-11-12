@@ -48,7 +48,7 @@ export function ServicesSheet({ onClose, onQuote }: { onClose: () => void; onQuo
                   <summary className="tlink">{t.sheet.details}</summary>
                   <p style={{ marginTop: '0.6rem' }}>{item.hook}</p>
                   <p style={{ marginTop: '0.6rem' }}>{plain(item.body)}</p>
-                  <p style={{ marginTop: '0.6rem', color: '#6b6966' }}>{t.sheet.how}</p>
+                  <p style={{ marginTop: '0.6rem', color: '#8f8d89' }}>{t.sheet.how}</p>
                   <p>{item.how}</p>
                 </details>
               </dd>
@@ -106,6 +106,12 @@ export function FormSheet({ onClose }: { onClose: () => void }) {
     if (status === 'sending') return
     const form = e.currentTarget
     const data = new FormData(form)
+    // Trampa para bots: un campo que las personas no ven. Si llega lleno, se
+    // responde "recibido" sin guardar nada, para no darle pistas al bot.
+    if (String(data.get('company') ?? '') !== '') {
+      setStatus('success')
+      return
+    }
     const reach = String(data.get('reach') ?? '').trim()
     const isEmail = reach.includes('@')
 
@@ -139,17 +145,21 @@ export function FormSheet({ onClose }: { onClose: () => void }) {
         </div>
       ) : (
         <form className="tform mono" onSubmit={onSubmit}>
+          <div className="hp" aria-hidden="true">
+            <label htmlFor="lead-company">Empresa (no llenar)</label>
+            <input id="lead-company" name="company" type="text" tabIndex={-1} autoComplete="off" />
+          </div>
           <div>
             <label htmlFor="lead-name">{c.name}</label>
-            <input id="lead-name" name="name" type="text" required autoComplete="name" placeholder={c.namePh} className="field" />
+            <input id="lead-name" name="name" type="text" required maxLength={120} autoComplete="name" placeholder={c.namePh} className="field" />
           </div>
           <div>
             <label htmlFor="lead-reach">{c.reach}</label>
-            <input id="lead-reach" name="reach" type="text" required autoComplete="email" placeholder={c.reachPh} className="field" />
+            <input id="lead-reach" name="reach" type="text" required maxLength={160} autoComplete="email" placeholder={c.reachPh} className="field" />
           </div>
           <div>
             <label htmlFor="lead-message">{c.message}</label>
-            <textarea id="lead-message" name="message" required rows={3} placeholder={c.messagePh} className="field" style={{ resize: 'vertical' }} />
+            <textarea id="lead-message" name="message" required maxLength={2000} rows={3} placeholder={c.messagePh} className="field" style={{ resize: 'vertical' }} />
           </div>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.8rem', alignItems: 'center' }}>
             <button type="submit" className="tbtn tbtn--red" disabled={status === 'sending'}>

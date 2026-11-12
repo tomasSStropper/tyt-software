@@ -101,7 +101,7 @@ export function ProjectSheet({
             </Link>
           )}
           {!project.url && !project.route && (
-            <span className="tlink" style={{ cursor: 'default', color: '#6b6966' }}>
+            <span className="tlink" style={{ cursor: 'default', color: '#8f8d89' }}>
               {t.sheet.soon}
             </span>
           )}

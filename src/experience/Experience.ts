@@ -134,6 +134,8 @@ export class Experience {
   private burst = 0
   private nextBurst = 3
   private layoutKey = ''
+  private paused = false
+  private pauseTimer = 0
   // calidad adaptativa: si el equipo no llega a ~30 fps se baja la resolución interna
   private quality = 1
   private frameAvg = 0.016
@@ -469,7 +471,19 @@ export class Experience {
       this.hasPointer = true
       if (e.pointerType === 'mouse') this.hover = this.pick(e.clientX, e.clientY) ?? -1
     }
-    const onVis = () => (document.hidden ? this.stop() : this.start())
+    const onVis = () => (document.hidden ? this.stop() : !this.paused && this.start())
+    // En móviles el sistema puede quitarle el contexto gráfico a una pestaña en
+    // segundo plano. preventDefault() pide que lo devuelva; three.js vuelve a
+    // subir texturas y shaders solo cuando regresa.
+    const onLost = (e: Event) => {
+      e.preventDefault()
+      this.stop()
+    }
+    const onRestored = () => {
+      if (!this.paused && !document.hidden) this.start()
+    }
+    this.canvas.addEventListener('webglcontextlost', onLost)
+    this.canvas.addEventListener('webglcontextrestored', onRestored)
     window.addEventListener('pointermove', onMove, { passive: true })
     window.addEventListener('pointerdown', onMove, { passive: true })
     window.addEventListener('resize', this.resize)
@@ -480,6 +494,8 @@ export class Experience {
       () => window.removeEventListener('pointerdown', onMove),
       () => window.removeEventListener('resize', this.resize),
       () => document.removeEventListener('visibilitychange', onVis),
+      () => this.canvas.removeEventListener('webglcontextlost', onLost),
+      () => this.canvas.removeEventListener('webglcontextrestored', onRestored),
       offUnit,
     )
   }
@@ -511,6 +527,14 @@ export class Experience {
   /** Atenúa la escena cuando hay una capa abierta encima (0..1). */
   setDim(v: number) {
     this.dimTarget = v
+  }
+
+  /** Con una capa abierta encima, tras el fundido se detiene el dibujo. */
+  setPaused(paused: boolean) {
+    this.paused = paused
+    window.clearTimeout(this.pauseTimer)
+    if (paused) this.pauseTimer = window.setTimeout(() => this.paused && this.stop(), 600)
+    else if (!document.hidden) this.start()
   }
 
   // ── Bucle ─────────────────────────────────────────────────
@@ -714,6 +738,7 @@ export class Experience {
 
   dispose() {
     this.stop()
+    window.clearTimeout(this.pauseTimer)
     this.cleanup.forEach((fn) => fn())
     this.panels.forEach((p) => {
       Object.values(p.mat.uniforms).forEach((un) => {

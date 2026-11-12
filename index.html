@@ -2,25 +2,146 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TyT Software & Solutions — San Vito, Costa Rica</title>
+    <!-- viewport-fit=cover: el lienzo llega hasta debajo del notch; el contenido respeta las zonas seguras por CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>TyT Software — Sitios web y software a la medida en Costa Rica</title>
     <meta
       name="description"
-      content="Sitios web, sistemas internos y automatización a la medida para empresas. TyT Software & Solutions — San Vito, Costa Rica."
+      content="Desarrollo web, sistemas internos y automatización a la medida para empresas en Costa Rica. Hablá directo con quien construye. San Vito, Coto Brus."
     />
+    <link rel="canonical" href="https://www.tytsoftware.com/" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="theme-color" content="#050505" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="format-detection" content="telephone=no" />
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+
     <link rel="preload" href="/fonts/doto.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/archivo.woff2" as="font" type="font/woff2" crossorigin />
-    <meta property="og:title" content="TyT Software & Solutions" />
+
+    <!-- Tarjeta al compartir el enlace (WhatsApp, Instagram, LinkedIn, X) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="TyT Software & Solutions" />
+    <meta property="og:locale" content="es_CR" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:url" content="https://www.tytsoftware.com/" />
+    <meta property="og:title" content="TyT Software — Sitios web y software a la medida en Costa Rica" />
     <meta
       property="og:description"
-      content="Sitios web, sistemas internos y automatización a la medida para empresas. San Vito, Costa Rica."
+      content="Desarrollo web, sistemas internos y automatización a la medida para empresas. Hablá directo con quien construye."
     />
-    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://www.tytsoftware.com/og.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="El asistente de TyT en modo holograma: una figura de traje con un monitor por cabeza y ojos rojos" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="TyT Software — Sitios web y software a la medida en Costa Rica" />
+    <meta
+      name="twitter:description"
+      content="Desarrollo web, sistemas internos y automatización a la medida para empresas. Hablá directo con quien construye."
+    />
+    <meta name="twitter:image" content="https://www.tytsoftware.com/og.jpg" />
+
+    <!-- Datos estructurados: le dicen a Google qué es TyT, dónde está y qué ofrece -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "ProfessionalService",
+            "@id": "https://www.tytsoftware.com/#negocio",
+            "name": "TyT Software & Solutions",
+            "alternateName": "TyT Software",
+            "url": "https://www.tytsoftware.com/",
+            "logo": "https://www.tytsoftware.com/icon-512.png",
+            "image": "https://www.tytsoftware.com/og.jpg",
+            "description": "Desarrollo web, sistemas internos, automatización y consultoría técnica a la medida para empresas en Costa Rica.",
+            "email": "tomas@tytsoftware.com",
+            "telephone": "+50670427226",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "San Vito",
+              "addressRegion": "Puntarenas",
+              "addressCountry": "CR"
+            },
+            "areaServed": { "@type": "Country", "name": "Costa Rica" },
+            "knowsLanguage": ["es", "en"],
+            "sameAs": ["https://www.instagram.com/tytsoftware/"],
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Servicios",
+              "itemListElement": [
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Desarrollo web", "description": "Landing pages, sitios corporativos y aplicaciones web a la medida." } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Automatización", "description": "Flujos entre herramientas, procesos que corren solos e integraciones." } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sistemas internos", "description": "Plataformas con roles, dashboards y bases de datos." } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Consultoría técnica", "description": "Diagnóstico, capacitación y hoja de ruta tecnológica." } }
+              ]
+            }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://www.tytsoftware.com/#sitio",
+            "url": "https://www.tytsoftware.com/",
+            "name": "TyT Software & Solutions",
+            "inLanguage": ["es", "en"],
+            "publisher": { "@id": "https://www.tytsoftware.com/#negocio" }
+          },
+          {
+            "@type": "SoftwareApplication",
+            "name": "ArenaDesk",
+            "url": "https://www.tytsoftware.com/arenadesk",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "Web",
+            "description": "Software de gestión white-label para gimnasios y academias deportivas, con inteligencia artificial integrada.",
+            "publisher": { "@id": "https://www.tytsoftware.com/#negocio" }
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!--
+        Contenido de arranque. React lo reemplaza al montar, pero sirve a quien
+        no ejecuta JavaScript: buscadores que no renderizan, vistas previas de
+        enlaces, lectores y asistentes de IA. Mantenerlo al día con el sitio.
+      -->
+      <div class="prerender">
+        <p>TyT Software &amp; Solutions — San Vito, Costa Rica</p>
+        <h1>Construimos sitios, sistemas y automatización a la medida.</h1>
+        <p>Contanos qué necesita tu empresa. Lo demás lo resolvemos juntos.</p>
+
+        <h2>Servicios</h2>
+        <ul>
+          <li>Desarrollo web: landing pages, sitios corporativos y aplicaciones web hechas para convertir.</li>
+          <li>Automatización: flujos que conectan tus herramientas y trabajan solos.</li>
+          <li>Sistemas internos: plataformas con roles, dashboards y una sola fuente de verdad.</li>
+          <li>Consultoría técnica: diagnóstico honesto y hoja de ruta ejecutable.</li>
+        </ul>
+
+        <h2>Proyectos</h2>
+        <ul>
+          <li><a href="/arenadesk">ArenaDesk</a> — gestión white-label para gimnasios y academias deportivas, con IA.</li>
+          <li><a href="https://saviasacr.com">Savia</a> — web corporativa para asesores en sostenibilidad.</li>
+          <li><a href="https://jctourscr.com">JC Tours</a> — catálogo de tours con reservas directas.</li>
+          <li>AZ Inmuebles — plataforma inmobiliaria en Coto Brus.</li>
+          <li>HumanaMente — presencia digital para un consultorio psicológico.</li>
+        </ul>
+
+        <h2>Contacto</h2>
+        <ul>
+          <li><a href="https://agenda.tytsoftware.com/">Agendar una reunión</a></li>
+          <li><a href="https://wa.me/50670427226">WhatsApp +506 7042 7226</a></li>
+          <li><a href="mailto:tomas@tytsoftware.com">tomas@tytsoftware.com</a></li>
+          <li><a href="https://www.instagram.com/tytsoftware/">Instagram @tytsoftware</a></li>
+        </ul>
+        <p><a href="/privacidad-agenda">Privacidad</a> · <a href="/condiciones-agenda">Condiciones</a></p>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

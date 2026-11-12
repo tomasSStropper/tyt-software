@@ -64,6 +64,40 @@ de los ojos y el rectángulo de la pantalla del monitor.
   con teclado y lector de pantalla.
 - Si el equipo no llega a ~30 fps, el motor baja solo su resolución interna.
 
+## SEO, seguridad y dispositivos
+
+**SEO** (dominio canónico: `https://www.tytsoftware.com`)
+
+- `index.html`: título, descripción, canonical, tarjeta social (Open Graph /
+  Twitter con `public/og.jpg`) y datos estructurados JSON-LD
+  (`ProfessionalService`, `WebSite`, `SoftwareApplication` de ArenaDesk).
+- `index.html` trae además un **contenido de arranque** dentro de `#root`
+  (titular, servicios, proyectos, contacto). React lo reemplaza al montar; sirve
+  a quien no ejecuta JavaScript. **Si cambian servicios o proyectos, actualizarlo.**
+- `src/lib/usePageMeta.ts` ajusta título, descripción y canonical por ruta; el
+  404 (`src/pages/NotFound.tsx`) va con `noindex`.
+- `public/sitemap.xml` y `public/robots.txt`. Al agregar una ruta, sumarla al sitemap.
+
+**Seguridad** (`vercel.json`)
+
+- Content-Security-Policy estricta (solo scripts propios; conexiones a Supabase),
+  `X-Frame-Options: DENY`, `nosniff`, `Referrer-Policy`, `Permissions-Policy`.
+  Si se agrega un servicio externo (analítica, mapas, fuentes), hay que
+  permitirlo en la CSP o el navegador lo bloqueará.
+- Formulario: campo trampa anti-bots (`.hp`), límites de longitud en el cliente
+  y antes de enviar. La base solo acepta `INSERT` anónimo (RLS).
+- Caché: `/assets/*` inmutable un año (llevan hash en el nombre); imágenes y
+  fuentes, 30 días.
+
+**Dispositivos**
+
+- El diseño vertical/horizontal se decide por proporción (`aspect < 0.8`), igual
+  en el motor (`Experience.layout`) y en el CSS (`min-aspect-ratio: 4/5`).
+- Zonas seguras (notch, barra de gestos) con `env(safe-area-inset-*)`.
+- Reglas propias para pantallas ≤ 380 px, poco alto (apaisado ≤ 520 px) y ≥ 1600 px.
+- Si el sistema le quita el contexto WebGL a la pestaña, el motor se detiene y
+  retoma solo; con una capa abierta encima deja de dibujar.
+
 ## Formulario de leads
 
 `submitLead()` inserta en `public.leads` de Supabase usando variables de

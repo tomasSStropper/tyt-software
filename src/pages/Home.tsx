@@ -31,10 +31,12 @@ export function Home() {
   const { t, lang } = useLang()
   const h = t.home
   usePageMeta(
-    'TyT Software & Solutions — San Vito, Costa Rica',
     lang === 'es'
-      ? 'Sitios web, sistemas internos y automatización a la medida para empresas. TyT Software & Solutions — San Vito, Costa Rica.'
-      : 'Custom websites, internal systems and automation for businesses. TyT Software & Solutions — San Vito, Costa Rica.',
+      ? 'TyT Software — Sitios web y software a la medida en Costa Rica'
+      : 'TyT Software — Custom websites and software in Costa Rica',
+    lang === 'es'
+      ? 'Desarrollo web, sistemas internos y automatización a la medida para empresas en Costa Rica. Hablá directo con quien construye. San Vito, Coto Brus.'
+      : 'Custom web development, internal systems and automation for businesses in Costa Rica. Talk directly with the people who build. San Vito, Coto Brus.',
   )
 
   const [webgl, setWebgl] = useState(canRunWebGL)
@@ -92,6 +94,8 @@ export function Home() {
   // con una capa abierta la escena se atenúa, pero sigue viva detrás
   useEffect(() => {
     expRef.current?.setDim(open ? 0.22 : 1)
+    // tapada por una capa, la escena deja de dibujarse: ahorra batería y GPU
+    expRef.current?.setPaused(Boolean(open))
   }, [open])
 
   // el menú y los enlaces usan #hash: si la página carga con uno, salta ahí
