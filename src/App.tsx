@@ -8,6 +8,7 @@ import { Home } from './pages/Home'
 
 // Las subpáginas se cargan aparte: no pesan en la portada.
 const ArenaDeskPage = lazy(() => import('./pages/ArenaDeskPage').then((m) => ({ default: m.ArenaDeskPage })))
+const TurismoPage = lazy(() => import('./pages/TurismoPage').then((m) => ({ default: m.TurismoPage })))
 const LegalPage = lazy(() => import('./pages/LegalPage').then((m) => ({ default: m.LegalPage })))
 const NotFound = lazy(() => import('./pages/NotFound').then((m) => ({ default: m.NotFound })))
 
@@ -38,6 +39,7 @@ function Shell() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/arenadesk" element={<ArenaDeskPage />} />
+            <Route path="/sitios-web-turismo" element={<TurismoPage />} />
             <Route path="/privacidad-agenda" element={<LegalPage doc="privacidad-agenda" />} />
             <Route path="/condiciones-agenda" element={<LegalPage doc="condiciones-agenda" />} />
             <Route path="*" element={<NotFound />} />

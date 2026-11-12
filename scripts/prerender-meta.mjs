@@ -29,6 +29,45 @@ function legalTitle(id) {
 // Mismos textos (en español) que cada página le pasa a usePageMeta.
 const ROUTES = [
   {
+    // Mismos textos que TURISMO_META en src/pages/TurismoPage.tsx.
+    path: '/sitios-web-turismo',
+    title: 'Sitios web para tours y hospedajes en Costa Rica | TyT',
+    description:
+      'Diseño de sitios web para tours, cabinas y hoteles en Costa Rica: rápidos en el celular, con reservas directas y contacto por WhatsApp. TyT Software & Solutions.',
+    // Texto de arranque propio: lo que lee quien no ejecuta JavaScript. Resume
+    // la página con sus mismas palabras; si la página cambia, cambia acá.
+    body: `
+        <p>TyT Software &amp; Solutions — San Vito, Costa Rica</p>
+        <h1>Sitios web para tours y hospedajes en Costa Rica.</h1>
+        <p>Un sitio propio, rápido en el celular y con reservas directas. Para que tu negocio no dependa solo de los intermediarios.</p>
+
+        <h2>Lo que más vemos en sitios de turismo</h2>
+        <ul>
+          <li>El sitio no se ve bien en el celular.</li>
+          <li>Las reservas dependen de terceros.</li>
+          <li>Las consultas se responden a mano.</li>
+        </ul>
+
+        <h2>Qué entregamos</h2>
+        <ul>
+          <li>Un sitio propio, con tu dominio y tu marca, pensado primero para el celular.</li>
+          <li>Catálogo de tours o habitaciones que podés actualizar sin depender de nadie.</li>
+          <li>Reserva o consulta directa, y un botón de WhatsApp.</li>
+          <li>Español e inglés.</li>
+        </ul>
+
+        <h2>Un proyecto nuestro</h2>
+        <p><a href="https://jctourscr.com">JC Tours</a> — catálogo de tours con reservas directas, sin intermediarios.</p>
+
+        <h2>Contacto</h2>
+        <ul>
+          <li><a href="https://agenda.tytsoftware.com/">Agendar una llamada</a></li>
+          <li><a href="https://wa.me/50670427226">WhatsApp +506 7042 7226</a></li>
+          <li><a href="/">Volver al inicio</a></li>
+        </ul>
+      `,
+  },
+  {
     path: '/arenadesk',
     title: 'ArenaDesk — Software white-label para academias | TyT',
     description:
@@ -67,7 +106,14 @@ function setAttr(html, selector, name, value) {
   return html.replace(found[0], updated)
 }
 
-function render(base, { title, description, url, noindex = false }) {
+/** Reemplaza el contenido de arranque (div.prerender) por el propio de la ruta. */
+function setBody(html, body) {
+  const block = /(<div class="prerender">)[\s\S]*?(<\/div>\s*<\/div>\s*<\/body>)/
+  if (!block.test(html)) throw new Error('No se encontró el bloque prerender en index.html.')
+  return html.replace(block, (_, open, close) => `${open}${body}${close}`)
+}
+
+function render(base, { title, description, url, body, noindex = false }) {
   let html = base.replace(/<title>[^<]*<\/title>/i, `<title>${attr(title)}</title>`)
   html = setAttr(html, 'name="description"', 'content', description)
   html = setAttr(html, 'property="og:title"', 'content', title)
@@ -79,6 +125,7 @@ function render(base, { title, description, url, noindex = false }) {
     html = setAttr(html, 'property="og:url"', 'content', url)
   }
   if (noindex) html = setAttr(html, 'name="robots"', 'content', 'noindex, follow')
+  if (body) html = setBody(html, body)
   return html
 }
 
