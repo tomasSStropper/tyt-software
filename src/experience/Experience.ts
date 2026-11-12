@@ -584,6 +584,7 @@ export class Experience {
       this.updateGallery(s, t, speed, zoom)
 
       if (s > TL.portal - 1.3) {
+        this.tunnel.camera.fov = this.tunnelFov()
         this.tunnel.camera.aspect = this.portal.w / this.portal.h
         this.tunnel.camera.updateProjectionMatrix()
         this.tunnel.update(0, t)
@@ -597,6 +598,7 @@ export class Experience {
       const c = (s - TL.tunnel) / (TL.city - TL.tunnel)
       barrel = 0.07 * smooth(TL.tunnel, TL.tunnel + 0.35, s)
       glitch += bump(s, TL.tunnel, 0.09) * 0.9 + bump(s, TL.city, 0.12) * 0.5
+      this.tunnel.camera.fov = this.tunnelFov()
       this.tunnel.camera.aspect = this.aspect
       this.tunnel.camera.updateProjectionMatrix()
       this.tunnel.update(c, t)
@@ -619,7 +621,7 @@ export class Experience {
       if (s > TL.fadeEnd) {
         // detrás del contacto el pabellón "respira": aparece y se apaga despacio
         const breath = 0.5 - 0.5 * Math.cos(t * 0.42)
-        fade = 0.26 * breath * breath * smooth(TL.contact - 0.2, TL.contact, s)
+        fade = (0.1 + 0.2 * breath * breath) * smooth(TL.fadeEnd, TL.contact - 0.05, s)
         glitch *= 0.4
       }
     }
@@ -632,6 +634,11 @@ export class Experience {
     P.uFade.value = fade * this.dim
     r.setRenderTarget(null)
     r.render(this.postScene, this.postCam)
+  }
+
+  /** en vertical el túnel abre más el ángulo para que se vean los costados */
+  private tunnelFov(): number {
+    return this.aspect < 0.8 ? 66 : 52
   }
 
   private renderCity(s: number, t: number, target: THREE.WebGLRenderTarget) {

@@ -20,9 +20,9 @@ const HERO_SPAN = 1.02
 const first = HERO_SPAN
 const portal = first + n * GAP
 const tunnel = portal + 0.75
-const TUNNEL_LEN = 3.4
+const TUNNEL_LEN = 2.5
 const city = tunnel + TUNNEL_LEN
-const CITY_LEN = 3.7
+const CITY_LEN = 3.1
 const contact = city + CITY_LEN
 
 export const TL = {
@@ -39,17 +39,17 @@ export const TL = {
   wipe: 0.55,
   city,
   /** fundido a negro: empieza justo cuando el contacto asoma por abajo… */
-  fadeStart: contact - 1.05,
+  fadeStart: contact - 0.8,
   /** …y termina antes de que su titular llegue al centro */
-  fadeEnd: contact - 0.45,
+  fadeEnd: contact - 0.3,
   contact,
   /** alto total del documento, en u */
   total: contact + 1,
 
   /** posición (top, en u) de los bloques de texto dentro del recorrido */
   blocks: {
-    services: tunnel + 0.95,
-    arenadesk: tunnel + 2.25,
+    services: tunnel + 0.9,
+    arenadesk: tunnel + 1.8,
     process: city + 0.75,
   },
 } as const
