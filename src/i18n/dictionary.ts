@@ -2,9 +2,13 @@ export type Lang = 'es' | 'en'
 
 const es = {
   nav: {
+    brand: 'TyT Software',
+    talk: 'Hablemos',
+    menu: 'Menú',
+    close: 'Cerrar',
+    projects: 'Proyectos',
     services: 'Servicios',
     arenadesk: 'ArenaDesk',
-    projects: 'Proyectos',
     process: 'Proceso',
     contact: 'Contacto',
     cta: 'Agendar reunión',
@@ -12,19 +16,54 @@ const es = {
     menuClose: 'Cerrar menú',
     langLabel: 'Cambiar idioma',
   },
-  hero: {
-    status: 'TyT SOFTWARE & SOLUTIONS',
+  home: {
+    loading: 'Cargando',
+    kicker: 'TyT Software & Solutions',
     title: 'Construimos sitios, sistemas y automatización a la medida.',
-    typed: 'Contanos qué necesita tu empresa. Lo demás lo resolvemos juntos.',
+    body: 'Contanos qué necesita tu empresa. Lo demás lo resolvemos juntos.',
+    seeWork: 'Ver proyectos',
     avatarAlt:
-      'Asistente de TyT: figura de traje con un monitor vintage por cabeza y dos ojos rojos brillantes en la pantalla',
-    pills: {
-      quote: 'Cotizar un proyecto',
-      work: 'Ver nuestro trabajo',
-      arenadesk: 'Conocer ArenaDesk',
-      talk: 'Hablar con nosotros',
+      'Asistente de TyT en modo holograma: figura de traje con un monitor vintage por cabeza y dos ojos rojos brillantes',
+    projectsHeading: 'Proyectos',
+    openProject: 'Abrir proyecto',
+    services: {
+      title: 'Qué hacemos',
+      lead: 'Sitios, sistemas internos y automatización que trabajan mientras dormís.',
+      body: 'La mayoría de las webs son folletos caros: se ven bien y no hacen nada. Nosotros construimos la otra clase.',
+      link: 'Ver servicios',
     },
-    scroll: 'desliza',
+    arenadesk: {
+      title: 'Producto propio',
+      lead: 'ArenaDesk. La plataforma donde tu academia manda.',
+      body: 'Gestión white-label para gimnasios y academias deportivas, con IA integrada. En producción con academias reales.',
+      link: 'Conocer ArenaDesk',
+    },
+    process: {
+      title: 'Cómo trabajamos',
+      lead: 'No somos proveedores. Somos el aliado que se queda.',
+      body: 'Escuchar, diagnosticar, construir, automatizar y acompañar. Entregas cortas y avances que podés ver.',
+      link: 'Ver proceso',
+    },
+    contactTitle: ['Hablemos de tu', 'próximo proyecto'],
+    contactSub: 'Llená un formulario rápido y te respondemos en menos de 24 horas',
+    links: { agenda: 'Agenda', whatsapp: 'WhatsApp', mail: 'Mail', instagram: 'Instagram' },
+    back: 'Volver arriba',
+    privacy: 'Privacidad',
+    terms: 'Condiciones',
+    rights: 'Todos los derechos reservados',
+  },
+  sheet: {
+    project: 'Proyecto',
+    close: 'Cerrar',
+    info: 'Info',
+    role: 'Rol',
+    visit: 'Visitar sitio',
+    product: 'Conocer el producto',
+    soon: 'Próximamente en línea',
+    next: 'Siguiente proyecto',
+    details: 'Ver detalles',
+    how: 'Cómo trabajamos',
+    quote: 'Cotizar un proyecto',
   },
   services: {
     label: 'Servicios',
@@ -142,37 +181,6 @@ const es = {
     trustBy: 'Un producto de TyT Software & Solutions — construido, mantenido y respaldado por nosotros.',
     finalTitle: '¿Querés verlo funcionando con tu academia?',
   },
-  projects: {
-    label: 'Proyectos',
-    title: 'Trabajo real, en producción.',
-    hint: 'Cuatro encargos reales. Cero plantillas.',
-    visit: 'Visitar sitio',
-    live: 'En línea',
-    diskAlt: 'Disquete vintage con etiqueta roja — el archivo de proyectos de TyT',
-    construction: { title: 'En construcción', note: 'Próximamente' },
-    items: [
-      {
-        name: 'Savia',
-        tag: 'Web corporativa',
-        outcome: 'Presencia digital para asesores en sostenibilidad.',
-      },
-      {
-        name: 'JC Tours',
-        tag: 'Turismo',
-        outcome: 'Catálogo de tours con reservas directas, sin intermediarios.',
-      },
-      {
-        name: 'AZ Inmuebles',
-        tag: 'Plataforma inmobiliaria',
-        outcome: 'Catálogo de propiedades autoadministrable en Coto Brus.',
-      },
-      {
-        name: 'HumanaMente',
-        tag: 'Presencia digital',
-        outcome: 'Sitio profesional para un consultorio psicológico.',
-      },
-    ],
-  },
   process: {
     label: 'Proceso',
     title: 'Así trabajamos.',
@@ -230,9 +238,13 @@ export type Dict = typeof es
 
 const en: Dict = {
   nav: {
+    brand: 'TyT Software',
+    talk: "Let's talk",
+    menu: 'Menu',
+    close: 'Close',
+    projects: 'Work',
     services: 'Services',
     arenadesk: 'ArenaDesk',
-    projects: 'Work',
     process: 'Process',
     contact: 'Contact',
     cta: 'Book a meeting',
@@ -240,19 +252,54 @@ const en: Dict = {
     menuClose: 'Close menu',
     langLabel: 'Switch language',
   },
-  hero: {
-    status: 'TyT SOFTWARE & SOLUTIONS',
+  home: {
+    loading: 'Loading',
+    kicker: 'TyT Software & Solutions',
     title: 'We build custom websites, systems and automation.',
-    typed: 'Tell us what your business needs. The rest, we solve together.',
+    body: 'Tell us what your business needs. The rest, we solve together.',
+    seeWork: 'See our work',
     avatarAlt:
-      'TyT assistant: a suited figure with a vintage monitor for a head and two glowing red eyes on the screen',
-    pills: {
-      quote: 'Get a quote',
-      work: 'See our work',
-      arenadesk: 'Meet ArenaDesk',
-      talk: 'Talk to us',
+      'TyT assistant in hologram mode: a suited figure with a vintage monitor for a head and two glowing red eyes',
+    projectsHeading: 'Work',
+    openProject: 'Open project',
+    services: {
+      title: 'What we do',
+      lead: 'Websites, internal systems and automation that work while you sleep.',
+      body: 'Most websites are expensive brochures: they look good and do nothing. We build the other kind.',
+      link: 'See services',
     },
-    scroll: 'scroll',
+    arenadesk: {
+      title: 'Our own product',
+      lead: 'ArenaDesk. The platform where your academy calls the shots.',
+      body: 'White-label management for gyms and sports academies, with built-in AI. In production with real academies.',
+      link: 'Meet ArenaDesk',
+    },
+    process: {
+      title: 'How we work',
+      lead: 'We are not vendors. We are the ally that stays.',
+      body: 'Listen, diagnose, build, automate and stay. Short deliveries and progress you can see.',
+      link: 'See process',
+    },
+    contactTitle: ["Let's talk about", 'your next project'],
+    contactSub: 'Fill a quick form and we reach out to you within 24 hours',
+    links: { agenda: 'Booking', whatsapp: 'WhatsApp', mail: 'Mail', instagram: 'Instagram' },
+    back: 'Scroll back',
+    privacy: 'Privacy',
+    terms: 'Terms',
+    rights: 'All rights reserved',
+  },
+  sheet: {
+    project: 'Project',
+    close: 'Close',
+    info: 'Info',
+    role: 'Role',
+    visit: 'Visit site',
+    product: 'See the product',
+    soon: 'Coming online soon',
+    next: 'Next project',
+    details: 'See details',
+    how: 'How we work',
+    quote: 'Get a quote',
   },
   services: {
     label: 'Services',
@@ -370,37 +417,6 @@ const en: Dict = {
     trustBy: 'A product by TyT Software & Solutions — built, maintained and backed by us.',
     finalTitle: 'Want to see it running with your academy?',
   },
-  projects: {
-    label: 'Work',
-    title: 'Real work, in production.',
-    hint: 'Four real commissions. Zero templates.',
-    visit: 'Visit site',
-    live: 'Live',
-    diskAlt: 'Vintage floppy disk with a red label — the TyT project archive',
-    construction: { title: 'In progress', note: 'Coming soon' },
-    items: [
-      {
-        name: 'Savia',
-        tag: 'Corporate site',
-        outcome: 'Digital presence for sustainability advisors.',
-      },
-      {
-        name: 'JC Tours',
-        tag: 'Tourism',
-        outcome: 'Tour catalog with direct bookings, no middlemen.',
-      },
-      {
-        name: 'AZ Inmuebles',
-        tag: 'Real estate platform',
-        outcome: 'Self-managed property catalog in Coto Brus.',
-      },
-      {
-        name: 'HumanaMente',
-        tag: 'Digital presence',
-        outcome: 'Professional site for a psychology practice.',
-      },
-    ],
-  },
   process: {
     label: 'Process',
     title: 'How we work.',
@@ -466,10 +482,3 @@ export const CONTACT = {
   /** Agenda pública (proyecto aparte: agendatyt). El utm dice desde dónde llegó la persona. */
   agendaUrl: (from: 'nav' | 'contact') => `https://agenda.tytsoftware.com/?utm_source=tytsoftware&utm_medium=${from}`,
 } as const
-
-export const PROJECT_META = [
-  { url: 'https://saviasacr.com', kind: 'web', image: '/projects/savia-hero-foto1.webp' },
-  { url: 'https://jctourscr.com', kind: 'web', image: '/projects/jc-hero-foto1.webp' },
-  { url: null, kind: 'construction', image: null },
-  { url: null, kind: 'construction', image: null },
-] as const satisfies readonly { url: string | null; kind: 'web' | 'panel' | 'construction'; image: string | null }[]

@@ -22,6 +22,14 @@ export async function submitLead(lead: Lead): Promise<SubmitResult> {
     return { ok: false, fallback: 'mailto' }
   }
 
+  // el cliente no es de fiar: se recorta aquí también, no solo en el <input>
+  lead = {
+    full_name: lead.full_name.slice(0, 120),
+    email: lead.email?.slice(0, 160) ?? null,
+    phone: lead.phone?.slice(0, 160) ?? null,
+    message: lead.message.slice(0, 2000),
+  }
+
   try {
     const res = await fetch(`${url}/rest/v1/leads`, {
       method: 'POST',

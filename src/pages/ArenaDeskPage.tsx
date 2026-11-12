@@ -66,7 +66,7 @@ export function ArenaDeskPage() {
               />
               {p.label}
             </p>
-            <h1 className="display mt-5 max-w-[18ch] text-4xl text-paper sm:text-5xl lg:text-6xl">
+            <h1 className="display mt-5 max-w-[18ch] text-4xl text-ink sm:text-5xl lg:text-6xl">
               {p.title}
             </h1>
             <p className="mt-6 max-w-xl text-lg text-coal-text/80">{p.sub}</p>
@@ -162,7 +162,7 @@ export function ArenaDeskPage() {
       <section className="bg-coal py-20 lg:py-28">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <Reveal>
-            <h2 className="display text-3xl text-paper sm:text-4xl lg:text-5xl">{p.opsTitle}</h2>
+            <h2 className="display text-3xl text-ink sm:text-4xl lg:text-5xl">{p.opsTitle}</h2>
           </Reveal>
           <ul className="mt-12 grid gap-px overflow-hidden border border-coal-line bg-coal-line sm:grid-cols-2 lg:grid-cols-3">
             {p.ops.map((item, i) => {
@@ -214,7 +214,7 @@ export function ArenaDeskPage() {
       <section className="bg-coal py-20 lg:py-28">
         <div className="mx-auto max-w-6xl px-5 text-center sm:px-8">
           <Reveal>
-            <h2 className="display mx-auto max-w-[18ch] text-3xl text-paper sm:text-4xl lg:text-5xl">
+            <h2 className="display mx-auto max-w-[18ch] text-3xl text-ink sm:text-4xl lg:text-5xl">
               {p.finalTitle}
             </h2>
             <div className="mt-8">

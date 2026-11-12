@@ -81,7 +81,7 @@ export function DashboardMockup({ ariaLabel }: { ariaLabel: string }) {
           <div className="flex bg-coal" style={{ height: DESIGN.height - 42 }}>
             {/* Sidebar */}
             <aside className="flex w-48 shrink-0 flex-col border-r border-coal-line px-4 py-5">
-              <p className="display text-lg text-paper">
+              <p className="display text-lg text-ink">
                 Arena<span className="text-red-soft">Desk</span>
               </p>
               <nav className="mt-6 space-y-1">
@@ -90,7 +90,7 @@ export function DashboardMockup({ ariaLabel }: { ariaLabel: string }) {
                     key={label}
                     className={`flex items-center gap-2.5 rounded-sm px-2.5 py-2 text-sm ${
                       active
-                        ? 'bg-coal-lift text-paper shadow-[inset_2px_0_0_0_var(--color-red-bright)]'
+                        ? 'bg-coal-lift text-ink shadow-[inset_2px_0_0_0_var(--color-red-bright)]'
                         : 'text-coal-text/70'
                     }`}
                   >
@@ -107,7 +107,7 @@ export function DashboardMockup({ ariaLabel }: { ariaLabel: string }) {
             {/* Contenido */}
             <main className="flex-1 space-y-5 overflow-hidden p-6">
               <div className="flex items-baseline justify-between">
-                <h3 className="display text-2xl text-paper">Buenos días, Andrés</h3>
+                <h3 className="display text-2xl text-ink">Buenos días, Andrés</h3>
                 <span className="mono-label text-coal-text/65">MIÉ 03 JUL — 6:14 PM</span>
               </div>
 
@@ -115,7 +115,7 @@ export function DashboardMockup({ ariaLabel }: { ariaLabel: string }) {
                 {STATS.map((s) => (
                   <div key={s.label} className="rounded-md border border-coal-line bg-coal-lift p-4">
                     <p className="mono-label text-coal-text/70">{s.label}</p>
-                    <p className={`display mt-2 text-3xl whitespace-nowrap ${s.red ? 'text-red-bright' : 'text-paper'}`}>
+                    <p className={`display mt-2 text-3xl whitespace-nowrap ${s.red ? 'text-red-bright' : 'text-ink'}`}>
                       {s.value}
                     </p>
                     <p className="mt-1 text-xs text-coal-text/70">{s.delta}</p>
@@ -147,7 +147,7 @@ export function DashboardMockup({ ariaLabel }: { ariaLabel: string }) {
                   <ul className="mt-3 divide-y divide-coal-line">
                     {MEMBERS.map((m) => (
                       <li key={m.name} className="flex items-center justify-between py-2.5 text-sm">
-                        <span className="text-paper">{m.name}</span>
+                        <span className="text-ink">{m.name}</span>
                         <span className="text-coal-text/70">{m.plan}</span>
                         <span className="mono-label text-coal-text/65">{m.time}</span>
                       </li>
