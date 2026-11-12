@@ -1,0 +1,116 @@
+[
+  {
+    "path": "/sitios-web-turismo",
+    "footerLabel": "Sitios para turismo",
+    "metaTitle": "Sitios web para tours y hospedajes en Costa Rica | TyT",
+    "metaDescription": "Diseño de sitios web para tours, cabinas y hoteles en Costa Rica: rápidos en el celular, con reservas directas y contacto por WhatsApp. TyT Software & Solutions.",
+    "label": "Turismo · Costa Rica",
+    "title": "Sitios web para tours y hospedajes en Costa Rica.",
+    "sub": "Un sitio propio, rápido en el celular y con reservas directas. Para que tu negocio no dependa solo de los intermediarios.",
+    "problemsTitle": "Lo que más vemos en sitios de turismo.",
+    "problems": [
+      {
+        "name": "El sitio no se ve bien en el celular",
+        "desc": "La mayoría de los viajeros busca desde el teléfono. Si el sitio carga lento o hay que hacer zoom para leerlo, se van antes de ver el tour."
+      },
+      {
+        "name": "Las reservas dependen de terceros",
+        "desc": "Los intermediarios traen visitas, pero la relación con el viajero queda del lado de ellos. Un sitio propio con reserva directa te devuelve ese canal."
+      },
+      {
+        "name": "Las consultas se responden a mano",
+        "desc": "Horarios, disponibilidad, cómo llegar. Las mismas preguntas todos los días. Se pueden responder solas y dejarte libre para atender."
+      }
+    ],
+    "deliverablesTitle": "Un sitio que trabaja para tu negocio.",
+    "deliverables": [
+      "Un sitio propio, con tu dominio y tu marca, pensado primero para el celular.",
+      "Catálogo de tours o habitaciones que podés actualizar sin depender de nadie.",
+      "Reserva o consulta directa, y un botón de WhatsApp que abre la conversación con el dato del tour.",
+      "Español e inglés, para el viajero que todavía no llegó al país.",
+      "Lo básico para que Google te encuentre: títulos claros, datos del negocio y un mapa del sitio."
+    ],
+    "project": {
+      "name": "JC Tours",
+      "desc": "Catálogo de tours con reservas directas, sin intermediarios. El guía es dueño de su canal de ventas y de la relación con cada viajero.",
+      "url": "https://jctourscr.com",
+      "urlLabel": "Ver jctourscr.com"
+    },
+    "faq": [
+      {
+        "q": "¿Puedo seguir usando Airbnb, Booking o Viator?",
+        "a": "Sí. El sitio propio no los reemplaza: se suma. La diferencia es que quien ya te conoce puede reservar directo con vos."
+      },
+      {
+        "q": "¿Quién actualiza el sitio después?",
+        "a": "Vos, si querés: queda listo para que cambiés tours, fotos y textos. Y si preferís no tocarlo, lo conversamos en la llamada."
+      },
+      {
+        "q": "¿Cuánto cuesta?",
+        "a": "Depende de lo que haga falta, y por eso no hay una lista de precios acá. Después de la llamada de diagnóstico recibís una propuesta con el alcance y el monto."
+      },
+      {
+        "q": "¿Trabajan con negocios fuera de la zona sur?",
+        "a": "Sí. Estamos en San Vito, Coto Brus, y trabajamos en línea con negocios de todo Costa Rica."
+      }
+    ],
+    "finalTitle": "Contanos cómo llegan hoy tus reservas."
+  },
+  {
+    "path": "/sitios-web-inmobiliarias",
+    "footerLabel": "Sitios para inmobiliarias",
+    "metaTitle": "Sitios web para inmobiliarias en Costa Rica | TyT",
+    "metaDescription": "Diseño de sitios web para inmobiliarias y corredores de bienes raíces en Costa Rica: catálogo de propiedades que vos mismo actualizás, fichas con fotos y contacto por WhatsApp.",
+    "label": "Bienes raíces · Costa Rica",
+    "title": "Sitios web para inmobiliarias en Costa Rica.",
+    "sub": "Un catálogo propio de propiedades, siempre al día y fácil de recorrer desde el celular. Para que tus publicaciones no se pierdan en el muro de una red social.",
+    "problemsTitle": "Lo que más vemos en bienes raíces.",
+    "problems": [
+      {
+        "name": "Las propiedades viven solo en redes",
+        "desc": "Una publicación baja en el muro en pocos días y nadie la vuelve a encontrar. En un sitio propio, cada propiedad tiene su dirección y se puede buscar."
+      },
+      {
+        "name": "El catálogo se desactualiza",
+        "desc": "La propiedad se vendió y el anuncio sigue arriba. Si actualizar depende de otra persona, no se actualiza. Tiene que poder hacerlo quien vende."
+      },
+      {
+        "name": "Las consultas llegan sin contexto",
+        "desc": "«¿Sigue disponible?», sin decir cuál. Cuando el mensaje sale desde la ficha de la propiedad, ya sabés de cuál te hablan."
+      }
+    ],
+    "deliverablesTitle": "Un catálogo que podés manejar vos.",
+    "deliverables": [
+      "Un sitio propio, con tu dominio y tu marca, pensado primero para el celular.",
+      "Un panel para publicar, editar y dar de baja propiedades sin depender de nadie.",
+      "Una ficha por propiedad, con fotos, ubicación y sus datos en orden.",
+      "Un botón de WhatsApp en cada ficha, que abre la conversación diciendo cuál propiedad es.",
+      "Lo básico para que Google te encuentre: títulos claros, datos del negocio y un mapa del sitio."
+    ],
+    "project": {
+      "name": "AZ Inmuebles",
+      "desc": "Catálogo de propiedades autoadministrable en Coto Brus. El dueño publica, edita y da de baja sin depender de nadie.",
+      "url": null,
+      "urlLabel": null
+    },
+    "faq": [
+      {
+        "q": "¿Puedo seguir publicando en redes y en portales?",
+        "a": "Sí. El sitio propio no los reemplaza: se suma. Cada publicación puede llevar a la ficha de esa propiedad en tu sitio."
+      },
+      {
+        "q": "¿Quién sube las propiedades?",
+        "a": "Vos, desde un panel sencillo. Esa es la idea: que el catálogo esté al día sin tener que pedírselo a nadie."
+      },
+      {
+        "q": "¿Cuánto cuesta?",
+        "a": "Depende de lo que haga falta, y por eso no hay una lista de precios acá. Después de la llamada de diagnóstico recibís una propuesta con el alcance y el monto."
+      },
+      {
+        "q": "¿Trabajan con negocios fuera de la zona sur?",
+        "a": "Sí. Estamos en San Vito, Coto Brus, y trabajamos en línea con negocios de todo Costa Rica."
+      }
+    ],
+    "finalTitle": "Contanos cómo publicás hoy tus propiedades."
+  }
+]

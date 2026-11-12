@@ -8,7 +8,8 @@
 // (usePageMeta); esto hace que el HTML inicial ya llegue bien.
 //
 // Si se agrega una ruta en src/App.tsx, se agrega acá, en vercel.json
-// (rewrites) y en public/sitemap.xml.
+// (rewrites) y en public/sitemap.xml. Las páginas de nicho solo necesitan
+// su entrada en src/content/niches.json, el rewrite y el sitemap.
 
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
@@ -26,38 +27,43 @@ function legalTitle(id) {
   return `${heading[1].trim()} | TyT`
 }
 
-// Mismos textos (en español) que cada página le pasa a usePageMeta.
-const ROUTES = [
-  {
-    // Mismos textos que TURISMO_META en src/pages/TurismoPage.tsx.
-    path: '/sitios-web-turismo',
-    title: 'Sitios web para tours y hospedajes en Costa Rica | TyT',
-    description:
-      'Diseño de sitios web para tours, cabinas y hoteles en Costa Rica: rápidos en el celular, con reservas directas y contacto por WhatsApp. TyT Software & Solutions.',
-    // Texto de arranque propio: lo que lee quien no ejecuta JavaScript. Resume
-    // la página con sus mismas palabras; si la página cambia, cambia acá.
-    body: `
-        <p>TyT Software &amp; Solutions — San Vito, Costa Rica</p>
-        <h1>Sitios web para tours y hospedajes en Costa Rica.</h1>
-        <p>Un sitio propio, rápido en el celular y con reservas directas. Para que tu negocio no dependa solo de los intermediarios.</p>
+/** Valor de un atributo HTML. */
+const attr = (text) => text.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;')
 
-        <h2>Lo que más vemos en sitios de turismo</h2>
+/** Texto para HTML: los textos de niches.json son texto plano. */
+const esc = (text) => text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+
+/**
+ * Páginas de nicho: metadatos y contenido de arranque salen de
+ * src/content/niches.json, el mismo archivo que usa la página. Lo que lee
+ * quien no ejecuta JavaScript es un resumen con sus mismas palabras.
+ */
+const NICHES = JSON.parse(readFileSync(join(root, 'src', 'content', 'niches.json'), 'utf8')).map((n) => ({
+  path: n.path,
+  title: n.metaTitle,
+  description: n.metaDescription,
+  body: `
+        <p>TyT Software &amp; Solutions — San Vito, Costa Rica</p>
+        <h1>${esc(n.title)}</h1>
+        <p>${esc(n.sub)}</p>
+
+        <h2>${esc(n.problemsTitle)}</h2>
         <ul>
-          <li>El sitio no se ve bien en el celular.</li>
-          <li>Las reservas dependen de terceros.</li>
-          <li>Las consultas se responden a mano.</li>
+${n.problems.map((p) => `          <li>${esc(p.name)}. ${esc(p.desc)}</li>`).join('\n')}
         </ul>
 
         <h2>Qué entregamos</h2>
         <ul>
-          <li>Un sitio propio, con tu dominio y tu marca, pensado primero para el celular.</li>
-          <li>Catálogo de tours o habitaciones que podés actualizar sin depender de nadie.</li>
-          <li>Reserva o consulta directa, y un botón de WhatsApp.</li>
-          <li>Español e inglés.</li>
+${n.deliverables.map((d) => `          <li>${esc(d)}</li>`).join('\n')}
         </ul>
 
         <h2>Un proyecto nuestro</h2>
-        <p><a href="https://jctourscr.com">JC Tours</a> — catálogo de tours con reservas directas, sin intermediarios.</p>
+        <p>${n.project.url ? `<a href="${attr(n.project.url)}">${esc(n.project.name)}</a>` : esc(n.project.name)} — ${esc(n.project.desc)}</p>
+
+        <h2>Preguntas frecuentes</h2>
+        <dl>
+${n.faq.map((f) => `          <dt>${esc(f.q)}</dt>\n          <dd>${esc(f.a)}</dd>`).join('\n')}
+        </dl>
 
         <h2>Contacto</h2>
         <ul>
@@ -66,7 +72,11 @@ const ROUTES = [
           <li><a href="/">Volver al inicio</a></li>
         </ul>
       `,
-  },
+}))
+
+// Mismos textos (en español) que cada página le pasa a usePageMeta.
+const ROUTES = [
+  ...NICHES,
   {
     path: '/arenadesk',
     title: 'ArenaDesk — Software white-label para academias | TyT',
@@ -91,8 +101,6 @@ const NOT_FOUND = {
   title: 'Página no encontrada | TyT',
   description: 'Esta página no existe.',
 }
-
-const attr = (text) => text.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;')
 
 /** Cambia el atributo `name` de la etiqueta que calza con `selector`. Falla si no la encuentra. */
 function setAttr(html, selector, name, value) {
