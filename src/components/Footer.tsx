@@ -32,6 +32,9 @@ export function Footer() {
           <Link to="/#contacto" className="transition-colors duration-200 hover:text-ink">
             {t.nav.contact}
           </Link>
+          <Link to="/sitios-web-turismo" className="transition-colors duration-200 hover:text-ink">
+            {lang === 'es' ? 'Sitios para turismo' : 'Websites for tourism'}
+          </Link>
           <a href={`mailto:${CONTACT.email}`} className="transition-colors duration-200 hover:text-ink">
             {CONTACT.email}
           </a>

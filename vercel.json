@@ -3,6 +3,7 @@
   "outputDirectory": "dist",
   "rewrites": [
     { "source": "/arenadesk", "destination": "/arenadesk/index.html" },
+    { "source": "/sitios-web-turismo", "destination": "/sitios-web-turismo/index.html" },
     { "source": "/privacidad-agenda", "destination": "/privacidad-agenda/index.html" },
     { "source": "/condiciones-agenda", "destination": "/condiciones-agenda/index.html" }
   ],

@@ -29,6 +29,13 @@ function legalTitle(id) {
 // Mismos textos (en español) que cada página le pasa a usePageMeta.
 const ROUTES = [
   {
+    // Mismos textos que TURISMO_META en src/pages/TurismoPage.tsx.
+    path: '/sitios-web-turismo',
+    title: 'Sitios web para tours y hospedajes en Costa Rica | TyT',
+    description:
+      'Diseño de sitios web para tours, cabinas y hoteles en Costa Rica: rápidos en el celular, con reservas directas y contacto por WhatsApp. TyT Software & Solutions.',
+  },
+  {
     path: '/arenadesk',
     title: 'ArenaDesk — Software white-label para academias | TyT',
     description:
