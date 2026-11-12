@@ -5,10 +5,11 @@ import { ScrollManager } from './lib/ScrollManager'
 import { CrtNav } from './components/crt/CrtNav'
 import { Footer } from './components/Footer'
 import { Home } from './pages/Home'
+import niches from './content/niches.json'
 
 // Las subpáginas se cargan aparte: no pesan en la portada.
 const ArenaDeskPage = lazy(() => import('./pages/ArenaDeskPage').then((m) => ({ default: m.ArenaDeskPage })))
-const TurismoPage = lazy(() => import('./pages/TurismoPage').then((m) => ({ default: m.TurismoPage })))
+const NichePage = lazy(() => import('./pages/NichePage').then((m) => ({ default: m.NichePage })))
 const LegalPage = lazy(() => import('./pages/LegalPage').then((m) => ({ default: m.LegalPage })))
 const NotFound = lazy(() => import('./pages/NotFound').then((m) => ({ default: m.NotFound })))
 
@@ -39,7 +40,9 @@ function Shell() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/arenadesk" element={<ArenaDeskPage />} />
-            <Route path="/sitios-web-turismo" element={<TurismoPage />} />
+            {niches.map((niche) => (
+              <Route key={niche.path} path={niche.path} element={<NichePage niche={niche} />} />
+            ))}
             <Route path="/privacidad-agenda" element={<LegalPage doc="privacidad-agenda" />} />
             <Route path="/condiciones-agenda" element={<LegalPage doc="condiciones-agenda" />} />
             <Route path="*" element={<NotFound />} />

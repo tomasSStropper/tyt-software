@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useLang } from '../i18n/LanguageContext'
 import { CONTACT } from '../i18n/dictionary'
+import niches from '../content/niches.json'
 
 /** Reloj con la hora local de Costa Rica, actualizado cada medio minuto. */
 function useCostaRicaTime(locale: string) {
@@ -32,9 +33,11 @@ export function Footer() {
           <Link to="/#contacto" className="transition-colors duration-200 hover:text-ink">
             {t.nav.contact}
           </Link>
-          <Link to="/sitios-web-turismo" className="transition-colors duration-200 hover:text-ink">
-            {lang === 'es' ? 'Sitios para turismo' : 'Websites for tourism'}
-          </Link>
+          {niches.map((niche) => (
+            <Link key={niche.path} to={niche.path} className="transition-colors duration-200 hover:text-ink">
+              {niche.footerLabel}
+            </Link>
+          ))}
           <a href={`mailto:${CONTACT.email}`} className="transition-colors duration-200 hover:text-ink">
             {CONTACT.email}
           </a>
