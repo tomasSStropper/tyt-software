@@ -17,98 +17,34 @@ function useCostaRicaTime(locale: string) {
   }).format(now)
 }
 
+/** Pie de las subpáginas (en la portada el pie va dentro del contacto). */
 export function Footer() {
   const { t, lang } = useLang()
   const time = useCostaRicaTime(lang === 'es' ? 'es-CR' : 'en-US')
 
-  const links = [
-    { href: '/#servicios', label: t.nav.services },
-    { href: '/arenadesk', label: 'ArenaDesk' },
-    { href: '/#proyectos', label: t.nav.projects },
-    { href: '/#proceso', label: t.nav.process },
-    { href: '/#contacto', label: t.nav.contact },
-  ]
-
   return (
-    <footer className="bg-coal text-coal-text">
-      <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8">
-        <div className="grid gap-10 md:grid-cols-[2fr_1fr_1fr]">
-          <div>
-            <p className="display text-3xl text-paper">
-              TyT<span className="text-red-bright">.</span>
-            </p>
-            <p className="mt-3 max-w-xs text-sm text-coal-text/70">{t.footer.tagline}</p>
-            <p className="mono-label mt-6 text-coal-text/70">
-              {t.footer.localTime}: <span className="text-red-soft">{time}</span>
-            </p>
-          </div>
-
-          <nav aria-label={t.footer.nav}>
-            <p className="mono-label text-coal-text/70">{t.footer.nav}</p>
-            <ul className="mt-4 space-y-2.5">
-              {links.map((l) => (
-                <li key={l.href}>
-                  <Link
-                    to={l.href}
-                    className="text-sm text-coal-text/80 transition-colors duration-200 hover:text-red-soft"
-                  >
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-
-          <div>
-            <p className="mono-label text-coal-text/70">{t.footer.reach}</p>
-            <ul className="mt-4 space-y-2.5 text-sm">
-              <li>
-                <a
-                  href={`mailto:${CONTACT.email}`}
-                  className="text-coal-text/80 transition-colors duration-200 hover:text-red-soft"
-                >
-                  {CONTACT.email}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={CONTACT.whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-coal-text/80 transition-colors duration-200 hover:text-red-soft"
-                >
-                  {CONTACT.whatsapp}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={CONTACT.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-coal-text/80 transition-colors duration-200 hover:text-red-soft"
-                >
-                  {CONTACT.instagramHandle}
-                </a>
-              </li>
-              <li className="pt-1 text-coal-text/60">{t.footer.location}</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="mt-14 flex flex-wrap items-center justify-between gap-3 border-t border-coal-line pt-6">
-          <p className="text-xs text-coal-text/70">
-            © {new Date().getFullYear()} TyT Software & Solutions. {t.footer.rights}
-          </p>
-          <nav aria-label={t.legal.label} className="flex flex-wrap gap-x-5 gap-y-2 text-xs">
-            <Link to="/privacidad-agenda" className="text-coal-text/70 transition-colors duration-200 hover:text-red-soft">
-              {t.legal.privacyAgenda}
-            </Link>
-            <Link to="/condiciones-agenda" className="text-coal-text/70 transition-colors duration-200 hover:text-red-soft">
-              {t.legal.termsAgenda}
-            </Link>
-          </nav>
-          <p className="mono-label text-coal-text/60">{t.footer.location}</p>
-        </div>
+    <footer className="border-t border-dashed border-line">
+      <div className="mono-label mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-8 gap-y-3 px-5 py-8 text-mist sm:px-8">
+        <p>
+          ©{new Date().getFullYear()} TyT Software &amp; Solutions — {t.footer.rights}
+        </p>
+        <nav aria-label={t.legal.label} className="flex flex-wrap gap-x-6 gap-y-2">
+          <Link to="/#contacto" className="transition-colors duration-200 hover:text-ink">
+            {t.nav.contact}
+          </Link>
+          <a href={`mailto:${CONTACT.email}`} className="transition-colors duration-200 hover:text-ink">
+            {CONTACT.email}
+          </a>
+          <Link to="/privacidad-agenda" className="transition-colors duration-200 hover:text-ink">
+            {t.home.privacy}
+          </Link>
+          <Link to="/condiciones-agenda" className="transition-colors duration-200 hover:text-ink">
+            {t.home.terms}
+          </Link>
+        </nav>
+        <p>
+          {t.footer.location} · {t.footer.localTime} <span className="text-red-soft">{time}</span>
+        </p>
       </div>
     </footer>
   )
