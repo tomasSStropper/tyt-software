@@ -2,6 +2,7 @@ import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { usePageMeta } from '../lib/usePageMeta'
 import { Reveal } from '../components/Reveal'
+import { CONTACT } from '../i18n/dictionary'
 import niches from '../content/niches.json'
 
 /**
@@ -43,15 +44,21 @@ const STEPS = [
   },
 ]
 
-function TalkCta() {
+/** El utm del nicho sale de la ruta: /sitios-web-turismo da niche-turismo. */
+function nicheSlug(niche: Niche) {
+  return niche.path.replace(/^\/sitios-web-/, '')
+}
+
+/** Va directo a la agenda: es la meta de la página, sin pasar por la portada. */
+function TalkCta({ niche }: { niche: Niche }) {
   return (
-    <Link
-      to="/#contacto"
+    <a
+      href={CONTACT.agendaUrl(`niche-${nicheSlug(niche)}`)}
       className="group mono-label inline-flex items-center gap-2 border border-red bg-red px-6 py-3.5 text-on-red transition-colors duration-200 hover:border-red-bright hover:bg-red-bright"
     >
       Agendar una llamada
       <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true" />
-    </Link>
+    </a>
   )
 }
 
@@ -77,7 +84,7 @@ export function NichePage({ niche }: { niche: Niche }) {
             <h1 className="display mt-5 max-w-[20ch] text-4xl text-ink sm:text-5xl lg:text-6xl">{niche.title}</h1>
             <p className="mt-6 max-w-xl text-lg text-coal-text/80">{niche.sub}</p>
             <div className="mt-8">
-              <TalkCta />
+              <TalkCta niche={niche} />
             </div>
           </Reveal>
         </div>
@@ -184,7 +191,7 @@ export function NichePage({ niche }: { niche: Niche }) {
               {niche.finalTitle}
             </h2>
             <div className="mt-8">
-              <TalkCta />
+              <TalkCta niche={niche} />
             </div>
           </Reveal>
         </div>
