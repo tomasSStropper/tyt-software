@@ -6,6 +6,8 @@ import { usePageMeta } from '../lib/usePageMeta'
 import { parseBlocks, renderBlocks, renderInline } from '../lib/markdown'
 import privacidadAgenda from '../content/legal/privacidad-agenda.md?raw'
 import condicionesAgenda from '../content/legal/condiciones-agenda.md?raw'
+import privacidadRedes from '../content/legal/privacidad-redes.md?raw'
+import condicionesRedes from '../content/legal/condiciones-redes.md?raw'
 
 /**
  * Documentos legales. El texto vive en src/content/legal/*.md (copia de
@@ -21,6 +23,16 @@ export const LEGAL_DOCS = {
     source: condicionesAgenda,
     description:
       'Condiciones del Servicio de TyT Agenda: cómo funcionan las solicitudes de reunión con TyT Software & Solutions.',
+  },
+  'privacidad-redes': {
+    source: privacidadRedes,
+    description:
+      'Política de Privacidad de TyT en redes sociales: qué datos recibe TyT por WhatsApp y sus cuentas de redes, para qué los usa y cómo borrarlos (Ley 8968).',
+  },
+  'condiciones-redes': {
+    source: condicionesRedes,
+    description:
+      'Condiciones de uso de TyT en redes sociales: cómo TyT publica en sus cuentas y responde a quien le escribe.',
   },
 } as const
 
