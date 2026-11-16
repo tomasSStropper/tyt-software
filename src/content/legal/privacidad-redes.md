@@ -53,6 +53,8 @@ No pedimos datos sensibles. Por favor, no los pongás en tus mensajes.
 
 Seguimos las reglas de WhatsApp: solo te escribimos primero si nos diste permiso, y siempre con mensajes que Meta haya aprobado antes. Pasadas 24 horas desde tu último mensaje, no te enviamos texto libre.
 
+Aparte de este sistema, una persona de TyT puede escribirle desde su celular a un negocio que publica su WhatsApp como contacto para clientes, para ofrecerle nuestros servicios. Si nos decís «no», no insistimos.
+
 **Decisiones automatizadas:** ninguna. El asistente solo prepara borradores; una persona decide.
 
 ## 5. Quién tiene acceso
