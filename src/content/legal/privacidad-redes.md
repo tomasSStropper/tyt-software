@@ -33,12 +33,12 @@ Para lo que nos dejás al pedir una reunión, rige la [Política de Privacidad d
 
 ### 3.2 De quien le escribe a TyT
 
-Solo si nos escribís primero:
+Si nos escribís, o si nos diste tu número y permiso para escribirte:
 
 | Dato | De dónde viene | Para qué lo usamos |
 |---|---|---|
-| Nombre visible | WhatsApp | Saber con quién hablamos |
-| Número de teléfono | WhatsApp | Responderte por ese medio |
+| Nombre visible | WhatsApp o el medio donde nos diste tu número | Saber con quién hablamos |
+| Número de teléfono | WhatsApp o el medio donde nos diste tu número | Responderte por ese medio |
 | Texto de tu mensaje | WhatsApp | Entender qué necesitás y responderte |
 | Fecha y hora del mensaje | WhatsApp | Responder dentro del plazo que fija WhatsApp |
 
@@ -51,7 +51,7 @@ No pedimos datos sensibles. Por favor, no los pongás en tus mensajes.
 3. **Registrarte como contacto** en TyT Heart, para darle seguimiento a tu consulta.
 4. **Cumplir la ley** y defendernos ante reclamos.
 
-Seguimos las reglas de WhatsApp: no te escribimos primero, y pasadas 24 horas desde tu último mensaje no te enviamos texto libre.
+Seguimos las reglas de WhatsApp: solo te escribimos primero si nos diste permiso, y siempre con mensajes que Meta haya aprobado antes. Pasadas 24 horas desde tu último mensaje, no te enviamos texto libre.
 
 **Decisiones automatizadas:** ninguna. El asistente solo prepara borradores; una persona decide.
 
