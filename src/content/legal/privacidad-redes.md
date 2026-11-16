@@ -19,7 +19,7 @@ Esta política se basa en la **Ley N.° 8968**, *Ley de Protección de la Person
 
 ## 2. A qué se aplica
 
-A los datos que TyT recibe por sus propias cuentas en **TikTok**, **Instagram** y **WhatsApp**, y a lo que hace con ellos en su sistema de clientes, **TyT Heart**. La app «TyT Heart» de TikTok y de Meta se usa solo con las cuentas de TyT: no se ofrece a otras personas ni a otros negocios.
+A los datos que TyT recibe por **WhatsApp**, a los datos de sus propias cuentas en **TikTok** e **Instagram**, y a lo que hace con ellos en su sistema de clientes, **TyT Heart**. La app «TyT Heart» de TikTok y de Meta se usa solo con las cuentas de TyT: no se ofrece a otras personas ni a otros negocios.
 
 Para lo que nos dejás al pedir una reunión, rige la [Política de Privacidad de TyT Agenda](https://www.tytsoftware.com/privacidad-agenda).
 
