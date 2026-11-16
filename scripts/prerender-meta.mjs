@@ -95,6 +95,18 @@ const ROUTES = [
     description:
       'Condiciones del Servicio de TyT Agenda: cómo funcionan las solicitudes de reunión con TyT Software & Solutions.',
   },
+  {
+    path: '/privacidad-redes',
+    title: legalTitle('privacidad-redes'),
+    description:
+      'Política de Privacidad de TyT en redes sociales: qué datos recibe TyT por WhatsApp y sus cuentas de redes, para qué los usa y cómo borrarlos (Ley 8968).',
+  },
+  {
+    path: '/condiciones-redes',
+    title: legalTitle('condiciones-redes'),
+    description:
+      'Condiciones de uso de TyT en redes sociales: cómo TyT publica en sus cuentas y responde a quien le escribe.',
+  },
 ]
 
 const NOT_FOUND = {

@@ -45,6 +45,8 @@ function Shell() {
             ))}
             <Route path="/privacidad-agenda" element={<LegalPage doc="privacidad-agenda" />} />
             <Route path="/condiciones-agenda" element={<LegalPage doc="condiciones-agenda" />} />
+            <Route path="/privacidad-redes" element={<LegalPage doc="privacidad-redes" />} />
+            <Route path="/condiciones-redes" element={<LegalPage doc="condiciones-redes" />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
