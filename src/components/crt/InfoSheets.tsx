@@ -189,9 +189,15 @@ export function FormSheet({ onClose }: { onClose: () => void }) {
         <a className="tlink" href={`mailto:${CONTACT.email}`}>
           {CONTACT.email}
         </a>
-        <a className="tlink" href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer">
-          WhatsApp {CONTACT.whatsapp}
-        </a>
+        {CONTACT.whatsappActivo ? (
+          <a className="tlink" href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer">
+            WhatsApp {CONTACT.whatsapp}
+          </a>
+        ) : (
+          <a className="tlink" href={CONTACT.agendaUrl('contact')}>
+            {t.contact.agenda}
+          </a>
+        )}
       </div>
     </Sheet>
   )
