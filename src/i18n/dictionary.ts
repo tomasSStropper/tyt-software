@@ -50,6 +50,8 @@ const es = {
     back: 'Volver arriba',
     privacy: 'Privacidad',
     terms: 'Condiciones',
+    privacySocial: 'Privacidad de redes',
+    termsSocial: 'Condiciones de redes',
     rights: 'Todos los derechos reservados',
   },
   sheet: {
@@ -286,6 +288,8 @@ const en: Dict = {
     back: 'Scroll back',
     privacy: 'Privacy',
     terms: 'Terms',
+    privacySocial: 'Social media privacy',
+    termsSocial: 'Social media terms',
     rights: 'All rights reserved',
   },
   sheet: {

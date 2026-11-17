@@ -47,6 +47,12 @@ export function Footer() {
           <Link to="/condiciones-agenda" className="transition-colors duration-200 hover:text-ink">
             {t.home.terms}
           </Link>
+          <Link to="/privacidad-redes" className="transition-colors duration-200 hover:text-ink">
+            {t.home.privacySocial}
+          </Link>
+          <Link to="/condiciones-redes" className="transition-colors duration-200 hover:text-ink">
+            {t.home.termsSocial}
+          </Link>
         </nav>
         <p>
           {t.footer.location} · {t.footer.localTime} <span className="text-red-soft">{time}</span>
