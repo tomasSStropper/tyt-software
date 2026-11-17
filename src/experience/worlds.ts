@@ -114,7 +114,7 @@ class Agents {
     const c = new THREE.Color()
     for (let i = 0; i < n; i++) {
       Agents.COLORS.forEach((hex, k) => this.lit!.setColorAt(i * Agents.LIT + k, c.setHex(hex)))
-      for (let k = 0; k < Agents.GLOW; k++) this.glow.setColorAt(i * Agents.GLOW + k, c.setHex(0xff2a12))
+      for (let k = 0; k < Agents.GLOW; k++) this.glow.setColorAt(i * Agents.GLOW + k, c.setHex(0x3b5bff))
     }
     this.lit.frustumCulled = this.glow.frustumCulled = false
     for (let i = 0; i < n; i++) this.pose(i, 0, 0, 0)

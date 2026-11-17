@@ -25,12 +25,12 @@
   --color-ink-soft: #b9b7b2;
   --color-mist: #8a8884;
   --color-line: #2c2c2c;
-  /* Rojo de marca TyT. red-ink es el rojo legible para texto pequeño sobre negro. */
-  --color-red: #e10600;
-  --color-red-ink: #ff5a4d;
+  /* Azul de marca TyT (D-040). red-ink es el azul legible para texto pequeño sobre negro. */
+  --color-red: #3b5bff;
+  --color-red-ink: #7d92ff;
   --color-on-red: #ffffff;
-  --color-red-bright: #ff1e0e;
-  --color-red-soft: #ff5a4d;
+  --color-red-bright: #5c76ff;
+  --color-red-soft: #7d92ff;
   --color-coal: #0e0e0e;
   --color-coal-lift: #171717;
   --color-coal-line: #2a2a2a;
