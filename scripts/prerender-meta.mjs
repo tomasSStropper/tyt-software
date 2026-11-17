@@ -184,4 +184,15 @@ for (const route of ROUTES) {
 }
 writeFileSync(join(dist, '404.html'), render(base, { ...NOT_FOUND, noindex: true }))
 
-console.log(`Metadatos por ruta: ${ROUTES.map((r) => r.path).join(', ')} y 404.html`)
+mkdirSync(join(dist, 'diagnostico'), { recursive: true })
+writeFileSync(
+  join(dist, 'diagnostico', 'index.html'),
+  render(base, {
+    title: 'Diagnóstico de tu sitio | TyT',
+    description: 'Diagnóstico privado de TyT Software & Solutions.',
+    noindex: true,
+    body: '<p>Diagnóstico privado de TyT Software &amp; Solutions. Activá JavaScript para verlo.</p>',
+  }).replace('content="noindex, follow"', 'content="noindex, nofollow, noarchive"'),
+)
+
+console.log(`Metadatos por ruta: ${ROUTES.map((r) => r.path).join(', ')}, /diagnostico y 404.html`)
