@@ -191,7 +191,7 @@ button {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 1.15rem 1.1rem;
+  padding: 0.35rem 1.1rem;
   font-family: var(--font-mono);
   font-weight: 900;
   font-size: 0.82rem;
@@ -207,6 +207,9 @@ button {
 }
 .crt-nav a,
 .crt-nav button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   color: inherit;
   cursor: pointer;
   transition: color 0.2s ease;
@@ -222,7 +225,7 @@ button {
 }
 @media (min-width: 768px) {
   .crt-nav {
-    padding: 1.6rem 2.2rem;
+    padding: 0.8rem 2.2rem;
     font-size: 0.9rem;
   }
   .crt-nav__right {
@@ -429,6 +432,15 @@ button {
 .tblock__soft {
   opacity: 0.86;
 }
+.tblock__actions {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 1.6rem;
+  margin-top: 0.6rem;
+}
+.tblock__actions .tlink {
+  margin-top: 0;
+}
 
 /* Enlace de terminal: "> ETIQUETA" */
 .tlink {
@@ -459,6 +471,11 @@ button {
 .tlink--both::after {
   content: "<";
   opacity: 0.6;
+}
+@media (pointer: coarse) {
+  .tlink {
+    min-height: 44px;
+  }
 }
 
 /* ── Pantalla de contacto ──────────────────────────────────── */
@@ -934,6 +951,8 @@ button {
   left: 50%;
   bottom: 0;
   height: min(88%, 46rem);
+  width: auto;
+  max-width: none;
   transform: translateX(-50%);
   filter: grayscale(1) sepia(1) hue-rotate(150deg) saturate(1.5) brightness(0.8) contrast(1.15);
 }

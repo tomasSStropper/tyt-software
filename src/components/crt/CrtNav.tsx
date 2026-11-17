@@ -50,9 +50,9 @@ export function CrtNav() {
           {t.nav.brand}
         </Link>
         <nav className="crt-nav__right" aria-label="principal">
-          <Link to="/#contacto" ref={talkRef}>
+          <a href={CONTACT.agendaUrl('nav')} ref={talkRef}>
             {t.nav.talk}
-          </Link>
+          </a>
           <button
             type="button"
             aria-haspopup="dialog"

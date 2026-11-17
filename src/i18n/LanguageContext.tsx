@@ -12,7 +12,7 @@ const LanguageContext = createContext<LanguageValue | null>(null)
 function initialLang(): Lang {
   const stored = localStorage.getItem('tyt-lang')
   if (stored === 'es' || stored === 'en') return stored
-  return navigator.language.startsWith('en') ? 'en' : 'es'
+  return 'es'
 }
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
