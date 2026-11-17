@@ -67,11 +67,31 @@ ${n.faq.map((f) => `          <dt>${esc(f.q)}</dt>\n          <dd>${esc(f.a)}</d
 
         <h2>Contacto</h2>
         <ul>
-          <li><a href="https://agenda.tytsoftware.com/">Agendar una llamada</a></li>
-          <li><a href="https://agenda.tytsoftware.com/?utm_source=tytsoftware&amp;utm_medium=contact">Agendar una reunión</a></li>
+          <li><a href="https://agenda.tytsoftware.com/?utm_source=tytsoftware&amp;utm_medium=nicho">Agendar una llamada</a></li>
           <li><a href="/">Volver al inicio</a></li>
         </ul>
       `,
+  ld: {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Service',
+        name: n.title.replace(/\.$/, ''),
+        description: n.metaDescription,
+        url: ORIGIN + n.path,
+        serviceType: 'Diseño y desarrollo de sitios web',
+        areaServed: { '@type': 'Country', name: 'Costa Rica' },
+        provider: { '@id': `${ORIGIN}/#negocio` },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${ORIGIN}/` },
+          { '@type': 'ListItem', position: 2, name: n.footerLabel, item: ORIGIN + n.path },
+        ],
+      },
+    ],
+  },
 }))
 
 // Mismos textos (en español) que cada página le pasa a usePageMeta.
@@ -133,7 +153,12 @@ function setBody(html, body) {
   return html.replace(block, (_, open, close) => `${open}${body}${close}`)
 }
 
-function render(base, { title, description, url, body, noindex = false }) {
+function addJsonLd(html, data) {
+  const json = JSON.stringify(data).replace(/</g, '\\u003c')
+  return html.replace('</head>', `  <script type="application/ld+json">${json}</script>\n  </head>`)
+}
+
+function render(base, { title, description, url, body, ld, noindex = false }) {
   let html = base.replace(/<title>[^<]*<\/title>/i, `<title>${attr(title)}</title>`)
   html = setAttr(html, 'name="description"', 'content', description)
   html = setAttr(html, 'property="og:title"', 'content', title)
@@ -146,6 +171,7 @@ function render(base, { title, description, url, body, noindex = false }) {
   }
   if (noindex) html = setAttr(html, 'name="robots"', 'content', 'noindex, follow')
   if (body) html = setBody(html, body)
+  if (ld) html = addJsonLd(html, ld)
   return html
 }
 

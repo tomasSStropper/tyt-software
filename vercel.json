@@ -35,6 +35,10 @@
     {
       "source": "/(fonts|stock|characters|projects)/(.*)",
       "headers": [{ "key": "Cache-Control", "value": "public, max-age=2592000, stale-while-revalidate=86400" }]
+    },
+    {
+      "source": "/(favicon\\.svg|apple-touch-icon\\.png|icon-192\\.png|icon-512\\.png|icon-512-maskable\\.png|og\\.jpg|og-azul\\.jpg|manifest\\.webmanifest)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=604800" }]
     }
   ]
 }
