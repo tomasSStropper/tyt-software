@@ -26,7 +26,7 @@ interface Palette {
 }
 
 const PALETTES: Record<PosterStyle, Palette> = {
-  dark: { bg: ['#0c0c0d', '#060606'], fg: '#f2f1ee', accent: '#e10600', accent2: '#2a2928', bar: '#151515' },
+  dark: { bg: ['#0c0c0d', '#060606'], fg: '#f2f1ee', accent: '#3b5bff', accent2: '#2a2928', bar: '#151515' },
   green: { bg: ['#0f4a34', '#051c13'], fg: '#f1ead8', accent: '#7fd6a0', accent2: '#0a3323', bar: '#082318' },
   yellow: { bg: ['#060606', '#060606'], fg: '#ffffff', accent: '#f7b500', accent2: '#1f9d4d', bar: '#000000' },
   blue: { bg: ['#0a22ff', '#19d2ff'], fg: '#ffffff', accent: '#ffffff', accent2: '#0618b8', bar: '#0a1fe6' },
