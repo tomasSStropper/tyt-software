@@ -477,6 +477,7 @@ export const CONTACT = {
   email: 'tomas@tytsoftware.com',
   whatsapp: '+506 7042 7226',
   whatsappUrl: 'https://wa.me/50670427226',
+  whatsappActivo: false,
   instagram: 'https://www.instagram.com/tytsoftware/',
   instagramHandle: '@tytsoftware',
   /** Agenda pública (proyecto aparte: agendatyt). El utm dice desde dónde llegó la persona. */

@@ -106,9 +106,11 @@ export function CrtNav() {
             <a className="tlink" href={CONTACT.agendaUrl('nav')}>
               {t.nav.cta}
             </a>
-            <a className="tlink" href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer">
-              WhatsApp
-            </a>
+            {CONTACT.whatsappActivo && (
+              <a className="tlink" href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer">
+                WhatsApp
+              </a>
+            )}
           </div>
         </Sheet>
       )}

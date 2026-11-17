@@ -41,9 +41,11 @@ export function ContactScreen({ onForm, onBack }: { onForm: () => void; onBack: 
         <a className="tlink" href={CONTACT.agendaUrl('contact')}>
           {h.links.agenda}
         </a>
-        <a className="tlink" href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer">
-          {h.links.whatsapp}
-        </a>
+        {CONTACT.whatsappActivo && (
+          <a className="tlink" href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer">
+            {h.links.whatsapp}
+          </a>
+        )}
         <a className="tlink" href={`mailto:${CONTACT.email}`}>
           {h.links.mail}
         </a>
