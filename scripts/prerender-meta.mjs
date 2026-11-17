@@ -7,6 +7,9 @@
 // 200 en vez de 404. React sigue corrigiendo los metadatos al cargar
 // (usePageMeta); esto hace que el HTML inicial ya llegue bien.
 //
+// Cada ruta sale dos veces: /ruta/index.html para Vercel (vercel.json) y
+// /ruta.html para Cloudflare Pages, que sirve /ruta sin redirigir a /ruta/.
+//
 // Si se agrega una ruta en src/App.tsx, se agrega acá, en vercel.json
 // (rewrites) y en public/sitemap.xml. Las páginas de nicho solo necesitan
 // su entrada en src/content/niches.json, el rewrite y el sitemap.
@@ -153,8 +156,10 @@ const base = readFileSync(join(dist, 'index.html'), 'utf8')
 
 for (const route of ROUTES) {
   const dir = join(dist, route.path)
+  const html = render(base, { ...route, url: ORIGIN + route.path })
   mkdirSync(dir, { recursive: true })
-  writeFileSync(join(dir, 'index.html'), render(base, { ...route, url: ORIGIN + route.path }))
+  writeFileSync(join(dir, 'index.html'), html)
+  writeFileSync(`${dir}.html`, html)
 }
 writeFileSync(join(dist, '404.html'), render(base, { ...NOT_FOUND, noindex: true }))
 
