@@ -31,10 +31,10 @@
       "Lo básico para que Google te encuentre: títulos claros, datos del negocio y un mapa del sitio."
     ],
     "project": {
-      "name": "JC Tours",
+      "name": "Un operador de tours en Monteverde",
       "desc": "Catálogo de tours con reservas directas, sin intermediarios. El guía es dueño de su canal de ventas y de la relación con cada viajero.",
-      "url": "https://jctourscr.com",
-      "urlLabel": "Ver jctourscr.com"
+      "url": null,
+      "urlLabel": null
     },
     "faq": [
       {
@@ -88,7 +88,7 @@
       "Lo básico para que Google te encuentre: títulos claros, datos del negocio y un mapa del sitio."
     ],
     "project": {
-      "name": "AZ Inmuebles",
+      "name": "Una inmobiliaria en Coto Brus",
       "desc": "Catálogo de propiedades autoadministrable en Coto Brus. El dueño publica, edita y da de baja sin depender de nadie.",
       "url": null,
       "urlLabel": null
