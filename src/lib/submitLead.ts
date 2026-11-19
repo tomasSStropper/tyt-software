@@ -27,12 +27,12 @@ export async function submitLead(lead: Lead): Promise<SubmitResult> {
   lead = {
     full_name: lead.full_name.slice(0, 120),
     email: lead.email?.slice(0, 160) ?? null,
-    phone: lead.phone?.slice(0, 160) ?? null,
+    phone: lead.phone?.slice(0, 40) ?? null,
     message: lead.message.slice(0, 2000),
   }
 
-  try {
-    const res = await fetch(`${url}/rest/v1/leads`, {
+  const send = (body: Record<string, unknown>) =>
+    fetch(`${url}/rest/v1/leads`, {
       method: 'POST',
       headers: {
         apikey: key,
@@ -40,8 +40,14 @@ export async function submitLead(lead: Lead): Promise<SubmitResult> {
         'Content-Type': 'application/json',
         Prefer: 'return=minimal',
       },
-      body: JSON.stringify({ ...lead, source: 'web', metadata: readOrigin() }),
+      body: JSON.stringify(body),
     })
+
+  try {
+    const base = { ...lead, source: 'web' }
+    const origin = readOrigin()
+    let res = await send(Object.keys(origin).length > 0 ? { ...base, metadata: origin } : base)
+    if (!res.ok && Object.keys(origin).length > 0) res = await send(base)
     if (!res.ok) return { ok: false, error: `HTTP ${res.status}` }
     return { ok: true }
   } catch (err) {
