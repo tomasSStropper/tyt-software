@@ -195,4 +195,15 @@ writeFileSync(
   }).replace('content="noindex, follow"', 'content="noindex, nofollow, noarchive"'),
 )
 
-console.log(`Metadatos por ruta: ${ROUTES.map((r) => r.path).join(', ')}, /diagnostico y 404.html`)
+mkdirSync(join(dist, 'propuesta'), { recursive: true })
+writeFileSync(
+  join(dist, 'propuesta', 'index.html'),
+  render(base, {
+    title: 'Tu propuesta | TyT',
+    description: 'Propuesta privada de TyT Software & Solutions.',
+    noindex: true,
+    body: '<p>Propuesta privada de TyT Software &amp; Solutions. Activá JavaScript para verla.</p>',
+  }).replace('content="noindex, follow"', 'content="noindex, nofollow, noarchive"'),
+)
+
+console.log(`Metadatos por ruta: ${ROUTES.map((r) => r.path).join(', ')}, /diagnostico, /propuesta y 404.html`)

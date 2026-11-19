@@ -9,7 +9,8 @@
     { "source": "/condiciones-agenda", "destination": "/condiciones-agenda/index.html" },
     { "source": "/privacidad-redes", "destination": "/privacidad-redes/index.html" },
     { "source": "/condiciones-redes", "destination": "/condiciones-redes/index.html" },
-    { "source": "/diagnostico/:token", "destination": "/diagnostico/index.html" }
+    { "source": "/diagnostico/:token", "destination": "/diagnostico/index.html" },
+    { "source": "/propuesta/:token", "destination": "/propuesta/index.html" }
   ],
   "headers": [
     {
@@ -31,6 +32,14 @@
     },
     {
       "source": "/diagnostico/(.*)",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive" },
+        { "key": "Referrer-Policy", "value": "no-referrer" },
+        { "key": "Cache-Control", "value": "no-store" }
+      ]
+    },
+    {
+      "source": "/propuesta/(.*)",
       "headers": [
         { "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive" },
         { "key": "Referrer-Policy", "value": "no-referrer" },
