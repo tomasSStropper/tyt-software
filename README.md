@@ -17,6 +17,33 @@ npm run build    # typecheck + build a dist/
 Deploy: Vercel conectado a `main` (`vercel.json` define build y `dist`). Cada
 rama genera su propio preview.
 
+### Cloudflare Pages (preparado, todavía sin usar)
+
+El repo ya sirve igual en Cloudflare Pages. Vercel sigue siendo producción
+hasta que se decida el cambio (ver «Propuesta Cloudflare» en la bóveda).
+
+| Ajuste en Pages | Valor |
+| --- | --- |
+| Framework | Ninguno |
+| Comando de build | `npm run build` |
+| Carpeta de salida | `dist` |
+| Carpeta raíz | la raíz del repo |
+| Rama de producción | `main` |
+| Node | `.node-version` (24) |
+| Variables | `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY` en Production y Preview |
+
+- `public/_headers` es la copia de las cabeceras de `vercel.json` para Pages,
+  sin las fuentes de la barra de Vercel (`vercel.live`). Si cambia una, se
+  cambia la otra.
+- Pages no lee los `rewrites` de `vercel.json`. Por eso
+  `scripts/prerender-meta.mjs` escribe cada ruta también como `/ruta.html`:
+  Pages la sirve en `/ruta` sin redirigir a `/ruta/`.
+- Sin catch-all: como existe `404.html`, Pages responde 404 en rutas que no
+  existen, igual que hoy.
+- La redirección de `tytsoftware.com` a `www` no la hace Pages: va como regla
+  de redirección en la zona de Cloudflare.
+- Probar local: `npm run build` y `npx wrangler pages dev dist`.
+
 ## Mapa del código
 
 | Qué | Dónde |
