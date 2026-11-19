@@ -111,7 +111,10 @@ const INLINE =
 
 const LINK = 'text-red-ink underline decoration-red/40 underline-offset-3 transition-colors duration-200 hover:decoration-red'
 
+const SAFE_HREF = /^(https?:|mailto:|tel:|\/|#)/i
+
 function link(href: string, children: ReactNode, key: string) {
+  if (!SAFE_HREF.test(href)) return <span key={key}>{children}</span>
   // Las páginas de tytsoftware.com se abren en la misma pestaña.
   const external = /^https?:/.test(href) && !/^https:\/\/(www\.)?tytsoftware\.com(\/|$)/.test(href)
   return (
