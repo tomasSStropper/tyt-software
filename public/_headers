@@ -20,3 +20,21 @@
 
 /projects/*
   Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
+/diagnostico/*
+
+  X-Robots-Tag: noindex, nofollow, noarchive
+
+  Referrer-Policy: no-referrer
+
+  Cache-Control: no-store
+
+
+
+/propuesta/*
+
+  X-Robots-Tag: noindex, nofollow, noarchive
+
+  Referrer-Policy: no-referrer
+
+  Cache-Control: no-store
