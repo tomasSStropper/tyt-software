@@ -11,6 +11,8 @@ import niches from './content/niches.json'
 const ArenaDeskPage = lazy(() => import('./pages/ArenaDeskPage').then((m) => ({ default: m.ArenaDeskPage })))
 const NichePage = lazy(() => import('./pages/NichePage').then((m) => ({ default: m.NichePage })))
 const LegalPage = lazy(() => import('./pages/LegalPage').then((m) => ({ default: m.LegalPage })))
+const DiagnosisPage = lazy(() => import('./pages/DiagnosisPage').then((m) => ({ default: m.DiagnosisPage })))
+const ProposalPage = lazy(() => import('./pages/ProposalPage').then((m) => ({ default: m.ProposalPage })))
 const NotFound = lazy(() => import('./pages/NotFound').then((m) => ({ default: m.NotFound })))
 
 /** Rayas de interferencia sobre el DOM (el lienzo dibuja las suyas). */
@@ -25,6 +27,17 @@ function Shell() {
   const { t } = useLang()
   const { pathname } = useLocation()
   const isHome = pathname === '/'
+  if (pathname.startsWith('/diagnostico/') || pathname.startsWith('/propuesta/')) {
+    return (
+      <Suspense fallback={<div className="min-h-screen bg-slate-50" />}>
+        <Routes>
+          <Route path="/diagnostico/:token" element={<DiagnosisPage />} />
+          <Route path="/propuesta/:token" element={<ProposalPage />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Suspense>
+    )
+  }
   return (
     <>
       <a

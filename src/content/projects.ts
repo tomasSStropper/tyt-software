@@ -76,9 +76,9 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'jctours',
-    name: 'JC Tours',
+    name: 'Operador de tours',
     style: 'yellow',
-    url: 'https://jctourscr.com',
+    url: null,
     tag: { es: 'Turismo', en: 'Tourism' },
     info: {
       es: 'Catálogo de tours con reservas directas, sin intermediarios. El guía es dueño de su canal de ventas y de la relación con cada viajero.',
@@ -91,7 +91,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'az-inmuebles',
-    name: 'AZ Inmuebles',
+    name: 'Inmobiliaria en Coto Brus',
     style: 'blue',
     url: null,
     tag: { es: 'Plataforma inmobiliaria', en: 'Real estate platform' },

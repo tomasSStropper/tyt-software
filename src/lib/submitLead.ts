@@ -1,4 +1,5 @@
 import { CONTACT } from '../i18n/dictionary'
+import { readOrigin } from './utm'
 
 export interface Lead {
   full_name: string
@@ -39,7 +40,7 @@ export async function submitLead(lead: Lead): Promise<SubmitResult> {
         'Content-Type': 'application/json',
         Prefer: 'return=minimal',
       },
-      body: JSON.stringify({ ...lead, source: 'web' }),
+      body: JSON.stringify({ ...lead, source: 'web', metadata: readOrigin() }),
     })
     if (!res.ok) return { ok: false, error: `HTTP ${res.status}` }
     return { ok: true }

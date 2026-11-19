@@ -8,7 +8,9 @@
     { "source": "/privacidad-agenda", "destination": "/privacidad-agenda/index.html" },
     { "source": "/condiciones-agenda", "destination": "/condiciones-agenda/index.html" },
     { "source": "/privacidad-redes", "destination": "/privacidad-redes/index.html" },
-    { "source": "/condiciones-redes", "destination": "/condiciones-redes/index.html" }
+    { "source": "/condiciones-redes", "destination": "/condiciones-redes/index.html" },
+    { "source": "/diagnostico/:token", "destination": "/diagnostico/index.html" },
+    { "source": "/propuesta/:token", "destination": "/propuesta/index.html" }
   ],
   "headers": [
     {
@@ -29,12 +31,32 @@
       ]
     },
     {
+      "source": "/diagnostico/(.*)",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive" },
+        { "key": "Referrer-Policy", "value": "no-referrer" },
+        { "key": "Cache-Control", "value": "no-store" }
+      ]
+    },
+    {
+      "source": "/propuesta/(.*)",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive" },
+        { "key": "Referrer-Policy", "value": "no-referrer" },
+        { "key": "Cache-Control", "value": "no-store" }
+      ]
+    },
+    {
       "source": "/assets/(.*)",
       "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
     },
     {
       "source": "/(fonts|stock|characters|projects)/(.*)",
       "headers": [{ "key": "Cache-Control", "value": "public, max-age=2592000, stale-while-revalidate=86400" }]
+    },
+    {
+      "source": "/(favicon\\.svg|apple-touch-icon\\.png|icon-192\\.png|icon-512\\.png|icon-512-maskable\\.png|og\\.jpg|og-azul\\.jpg|manifest\\.webmanifest)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=604800" }]
     }
   ]
 }
