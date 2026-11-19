@@ -1,3 +1,5 @@
+import { campaignParam } from '../lib/utm'
+
 export type Lang = 'es' | 'en'
 
 const es = {
@@ -483,5 +485,5 @@ export const CONTACT = {
   instagram: 'https://www.instagram.com/tytsoftware/',
   instagramHandle: '@tytsoftware',
   /** Agenda pública (proyecto aparte: agendatyt). El utm dice desde dónde llegó la persona. */
-  agendaUrl: (from: 'nav' | 'contact' | 'hero' | 'nicho' | 'proyecto' | 'arenadesk') => `https://agenda.tytsoftware.com/?utm_source=tytsoftware&utm_medium=${from}`,
+  agendaUrl: (from: 'nav' | 'contact' | 'hero' | 'nicho' | 'proyecto' | 'arenadesk') => `https://agenda.tytsoftware.com/?utm_source=tytsoftware&utm_medium=${from}${campaignParam()}`,
 } as const
