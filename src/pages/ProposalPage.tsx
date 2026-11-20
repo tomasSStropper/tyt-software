@@ -26,18 +26,7 @@ function money(amount: number, currency: Proposal['currency']): string {
 }
 
 function Logo() {
-  return (
-    <svg viewBox="0 0 512 512" className="h-9 w-9 shrink-0 rounded-lg" aria-hidden="true">
-      <rect width="512" height="512" fill="#050505" />
-      <g fill="none" stroke="#f0f0ed" strokeWidth="38" strokeLinejoin="miter" strokeMiterlimit="10">
-        <path d="M92 162 H202 L256 250 L310 162 H420" />
-        <path d="M147 162 V364" />
-        <path d="M365 162 V364" />
-        <path d="M256 250 V364" />
-      </g>
-      <circle cx="256" cy="250" r="27" fill="#3b5bff" />
-    </svg>
-  )
+  return <img src="/icon-192.png" alt="" width="36" height="36" className="h-9 w-9 shrink-0 rounded-lg" />
 }
 
 function Header() {
