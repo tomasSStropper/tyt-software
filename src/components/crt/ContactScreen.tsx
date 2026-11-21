@@ -68,6 +68,8 @@ export function ContactScreen({ onForm, onBack }: { onForm: () => void; onBack: 
           ))}
           <Link to="/privacidad-agenda">{h.privacy}</Link>
           <Link to="/condiciones-agenda">{h.terms}</Link>
+          <Link to="/privacidad-redes">{h.privacySocial}</Link>
+          <Link to="/condiciones-redes">{h.termsSocial}</Link>
         </span>
         <span>
           TyT Software &amp; Solutions — {h.rights}
