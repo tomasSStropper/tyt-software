@@ -96,8 +96,12 @@ de los ojos y el rectángulo de la pantalla del monitor.
 **SEO** (dominio canónico: `https://www.tytsoftware.com`)
 
 - `index.html`: título, descripción, canonical, tarjeta social (Open Graph /
-  Twitter con `public/og.jpg`) y datos estructurados JSON-LD
+  Twitter con `public/og-azul.jpg`) y datos estructurados JSON-LD
   (`ProfessionalService`, `WebSite`, `SoftwareApplication` de ArenaDesk).
+- `public/og-azul.jpg` sale de `scripts/og.html`. Para regenerarla: abrir ese
+  HTML con Edge o Chrome sin perfil y capturarlo a 1200×630
+  (`msedge --headless=new --user-data-dir=<carpeta temporal> --allow-file-access-from-files --window-size=1200,630 --virtual-time-budget=5000 --screenshot=og.png scripts/og.html`),
+  y pasar el PNG a JPG calidad 90 con el mismo nombre.
 - `index.html` trae además un **contenido de arranque** dentro de `#root`
   (titular, servicios, proyectos, contacto). React lo reemplaza al montar; sirve
   a quien no ejecuta JavaScript. **Si cambian servicios o proyectos, actualizarlo.**
