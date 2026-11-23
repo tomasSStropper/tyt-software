@@ -53,7 +53,7 @@ hd() { curl -sI -m 20 "$1" | tr -d '
 ' | grep -iE '^(content-security|x-content|x-frame|referrer|cross-origin|permissions|x-robots|cache-control)' | tr 'A-Z' 'a-z' | sed 's# https://vercel.live##g;s# https://vercel.com##g;s# https://assets.vercel.com##g;s# wss://ws-us3.pusher.com##g' | sort; }
 for p in / /diagnostico/abc /favicon.png; do if diff <(hd "$A$p") <(hd "$B$p") >/dev/null; then echo "$p cabeceras iguales"; else echo "$p cabeceras DIFIEREN"; diffs=$((diffs+1)); fi; done
 echo "--- el paquete trae la direccion de la base (la variable se lee al compilar)"
-for b in "$A" "$B"; do js=$(curl -s -m 30 "$b/" | grep -oE '/assets/index-[A-Za-z0-9_-]+\.js' | head -1); n=$(curl -s -m 30 "$b$js" | grep -o 'supabase\.co' | wc -l | tr -d ' '); echo "$b: apariciones de supabase.co en el paquete = $n"; [ "$b" = "$A" ] && na=$n; [ "$b" = "$B" ] && nb=$n; done
+for b in "$A" "$B"; do js=$(curl -s -m 30 "$b/" | grep -oE '/assets/index-[A-Za-z0-9_-]+\.js' | head -1); curl -s -m 30 "$b$js" -o "$W/idx.js"; n=$(grep -o 'supabase\.co' "$W/idx.js" | wc -l | tr -d ' ')-$(grep -o 'eyJhbGciOi' "$W/idx.js" | wc -l | tr -d ' '); echo "$b: supabase.co y llave publica (formato JWT) en el paquete = $n"; [ "$b" = "$A" ] && na=$n; [ "$b" = "$B" ] && nb=$n; done
 if [ "$na" != "$nb" ]; then echo "FALTAN VARIABLES VITE_SUPABASE_URL y VITE_SUPABASE_ANON_KEY en el sitio B (o hay que volver a desplegar)"; diffs=$((diffs+1)); fi
 echo "--- total $total rutas, $diffs diferencias"
 [ "$diffs" -eq 0 ]
