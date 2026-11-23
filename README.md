@@ -43,6 +43,8 @@ hasta que se decida el cambio (ver «Propuesta Cloudflare» en la bóveda).
 - La redirección de `tytsoftware.com` a `www` no la hace Pages: va como regla
   de redirección en la zona de Cloudflare.
 - Probar local: `npm run build` y `npx wrangler pages dev dist`.
+- Las variables `VITE_*` se leen al compilar: después de cargarlas hay que volver a desplegar. Sin ellas el sitio abre, pero el formulario degrada a correo.
+- Comparar dos direcciones: `bash scripts/comparar-sitio.sh https://www.tytsoftware.com https://tyt-software.pages.dev`. Revisa rutas, cabeceras y que el paquete traiga la dirección de la base. Diferencias esperadas: `/index.html` y `/404.html` (Pages las redirige).
 
 ## Mapa del código
 
