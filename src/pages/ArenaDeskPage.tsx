@@ -13,6 +13,7 @@ import {
   Users,
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { CONTACT } from '../i18n/dictionary'
 import { useLang } from '../i18n/LanguageContext'
 import { usePageMeta } from '../lib/usePageMeta'
 import { Reveal } from '../components/Reveal'
@@ -23,13 +24,13 @@ const CR_ICONS = [Banknote, Languages, Headphones]
 
 function DemoCta({ label }: { label: string }) {
   return (
-    <Link
-      to="/#contacto"
-      className="group mono-label inline-flex items-center gap-2 border border-red bg-red px-6 py-3.5 text-on-red transition-colors duration-200 hover:border-red-bright hover:bg-red-bright"
+    <a
+      href={CONTACT.agendaUrl('arenadesk')}
+      className="group mono-label inline-flex min-h-11 items-center gap-2 border border-red bg-red px-6 py-3.5 text-on-red transition-colors duration-200 hover:border-red-bright hover:bg-red-bright"
     >
       {label}
       <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true" />
-    </Link>
+    </a>
   )
 }
 

@@ -9,6 +9,7 @@ import { TextBlock } from '../components/crt/TextBlock'
 import type { Experience } from '../experience/Experience'
 import { ANCHORS, TL, type AnchorId } from '../experience/timeline'
 import { getUnit, installUnit } from '../experience/unit'
+import { CONTACT } from '../i18n/dictionary'
 import { useLang } from '../i18n/LanguageContext'
 import { usePageMeta } from '../lib/usePageMeta'
 
@@ -17,6 +18,10 @@ type Open = { type: 'project'; index: number } | { type: 'services' } | { type: 
 /** ¿Puede este navegador correr la experiencia 3D? Si no, se sirve la versión estática. */
 function canRunWebGL(): boolean {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return false
+  const device = navigator as Navigator & { connection?: { saveData?: boolean }; deviceMemory?: number }
+  if (device.connection?.saveData) return false
+  if ((device.deviceMemory ?? 8) < 4) return false
+  if ((navigator.hardwareConcurrency || 8) < 4) return false
   try {
     const c = document.createElement('canvas')
     return Boolean(c.getContext('webgl2') || c.getContext('webgl'))
@@ -145,9 +150,14 @@ export function Home() {
       id="hero-title"
       title={h.kicker}
       action={
-        <Link className="tlink" to="/#proyectos">
-          {h.seeWork}
-        </Link>
+        <div className="tblock__actions">
+          <a className="tlink" href={CONTACT.agendaUrl('hero')}>
+            {h.book}
+          </a>
+          <Link className="tlink" to="/#proyectos">
+            {h.seeWork}
+          </Link>
+        </div>
       }
     >
       <p>{h.title}</p>

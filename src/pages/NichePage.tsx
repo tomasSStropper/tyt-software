@@ -1,5 +1,6 @@
 import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { CONTACT } from '../i18n/dictionary'
 import { usePageMeta } from '../lib/usePageMeta'
 import { Reveal } from '../components/Reveal'
 import niches from '../content/niches.json'
@@ -45,13 +46,13 @@ const STEPS = [
 
 function TalkCta() {
   return (
-    <Link
-      to="/#contacto"
-      className="group mono-label inline-flex items-center gap-2 border border-red bg-red px-6 py-3.5 text-on-red transition-colors duration-200 hover:border-red-bright hover:bg-red-bright"
+    <a
+      href={CONTACT.agendaUrl('nicho')}
+      className="group mono-label inline-flex min-h-11 items-center gap-2 border border-red bg-red px-6 py-3.5 text-on-red transition-colors duration-200 hover:border-red-bright hover:bg-red-bright"
     >
       Agendar una llamada
       <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true" />
-    </Link>
+    </a>
   )
 }
 
@@ -66,7 +67,7 @@ export function NichePage({ niche }: { niche: Niche }) {
           <Reveal>
             <Link
               to="/"
-              className="mono-label inline-flex items-center gap-2 text-coal-text/70 transition-colors duration-200 hover:text-red-soft"
+              className="mono-label inline-flex min-h-11 items-center gap-2 text-coal-text/70 transition-colors duration-200 hover:text-red-soft"
             >
               <ArrowLeft size={14} aria-hidden="true" />
               Volver al inicio
@@ -165,16 +166,16 @@ export function NichePage({ niche }: { niche: Niche }) {
         <Reveal>
           <h2 className="display text-3xl text-ink sm:text-4xl">Preguntas frecuentes.</h2>
         </Reveal>
-        <dl className="mt-10 space-y-8">
+        <div className="mt-10 space-y-8">
           {niche.faq.map((item, i) => (
             <Reveal key={item.q} delay={i * 60}>
-              <div className="border-t border-ink/25 pt-5">
+              <dl className="border-t border-ink/25 pt-5">
                 <dt className="display text-xl text-ink">{item.q}</dt>
                 <dd className="mt-3 text-ink-soft">{item.a}</dd>
-              </div>
+              </dl>
             </Reveal>
           ))}
-        </dl>
+        </div>
       </section>
 
       <section className="bg-coal py-20 lg:py-28">

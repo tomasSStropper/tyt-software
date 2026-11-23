@@ -7,6 +7,9 @@
 // 200 en vez de 404. React sigue corrigiendo los metadatos al cargar
 // (usePageMeta); esto hace que el HTML inicial ya llegue bien.
 //
+// Cada ruta sale dos veces: /ruta/index.html para Vercel (vercel.json) y
+// /ruta.html para Cloudflare Pages, que sirve /ruta sin redirigir a /ruta/.
+//
 // Si se agrega una ruta en src/App.tsx, se agrega acá, en vercel.json
 // (rewrites) y en public/sitemap.xml. Las páginas de nicho solo necesitan
 // su entrada en src/content/niches.json, el rewrite y el sitemap.
@@ -67,11 +70,31 @@ ${n.faq.map((f) => `          <dt>${esc(f.q)}</dt>\n          <dd>${esc(f.a)}</d
 
         <h2>Contacto</h2>
         <ul>
-          <li><a href="https://agenda.tytsoftware.com/">Agendar una llamada</a></li>
-          <li><a href="https://wa.me/50670427226">WhatsApp +506 7042 7226</a></li>
+          <li><a href="https://agenda.tytsoftware.com/?utm_source=tytsoftware&amp;utm_medium=nicho">Agendar una llamada</a></li>
           <li><a href="/">Volver al inicio</a></li>
         </ul>
       `,
+  ld: {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Service',
+        name: n.title.replace(/\.$/, ''),
+        description: n.metaDescription,
+        url: ORIGIN + n.path,
+        serviceType: 'Diseño y desarrollo de sitios web',
+        areaServed: { '@type': 'Country', name: 'Costa Rica' },
+        provider: { '@id': `${ORIGIN}/#negocio` },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${ORIGIN}/` },
+          { '@type': 'ListItem', position: 2, name: n.footerLabel, item: ORIGIN + n.path },
+        ],
+      },
+    ],
+  },
 }))
 
 // Mismos textos (en español) que cada página le pasa a usePageMeta.
@@ -133,7 +156,12 @@ function setBody(html, body) {
   return html.replace(block, (_, open, close) => `${open}${body}${close}`)
 }
 
-function render(base, { title, description, url, body, noindex = false }) {
+function addJsonLd(html, data) {
+  const json = JSON.stringify(data).replace(/</g, '\\u003c')
+  return html.replace('</head>', `  <script type="application/ld+json">${json}</script>\n  </head>`)
+}
+
+function render(base, { title, description, url, body, ld, noindex = false }) {
   let html = base.replace(/<title>[^<]*<\/title>/i, `<title>${attr(title)}</title>`)
   html = setAttr(html, 'name="description"', 'content', description)
   html = setAttr(html, 'property="og:title"', 'content', title)
@@ -146,6 +174,7 @@ function render(base, { title, description, url, body, noindex = false }) {
   }
   if (noindex) html = setAttr(html, 'name="robots"', 'content', 'noindex, follow')
   if (body) html = setBody(html, body)
+  if (ld) html = addJsonLd(html, ld)
   return html
 }
 
@@ -153,9 +182,33 @@ const base = readFileSync(join(dist, 'index.html'), 'utf8')
 
 for (const route of ROUTES) {
   const dir = join(dist, route.path)
+  const html = render(base, { ...route, url: ORIGIN + route.path })
   mkdirSync(dir, { recursive: true })
-  writeFileSync(join(dir, 'index.html'), render(base, { ...route, url: ORIGIN + route.path }))
+  writeFileSync(join(dir, 'index.html'), html)
+  writeFileSync(`${dir}.html`, html)
 }
 writeFileSync(join(dist, '404.html'), render(base, { ...NOT_FOUND, noindex: true }))
 
-console.log(`Metadatos por ruta: ${ROUTES.map((r) => r.path).join(', ')} y 404.html`)
+mkdirSync(join(dist, 'diagnostico'), { recursive: true })
+writeFileSync(
+  join(dist, 'diagnostico', 'index.html'),
+  render(base, {
+    title: 'Diagnóstico de tu sitio | TyT',
+    description: 'Diagnóstico privado de TyT Software & Solutions.',
+    noindex: true,
+    body: '<p>Diagnóstico privado de TyT Software &amp; Solutions. Activá JavaScript para verlo.</p>',
+  }).replace('content="noindex, follow"', 'content="noindex, nofollow, noarchive"'),
+)
+
+mkdirSync(join(dist, 'propuesta'), { recursive: true })
+writeFileSync(
+  join(dist, 'propuesta', 'index.html'),
+  render(base, {
+    title: 'Tu propuesta | TyT',
+    description: 'Propuesta privada de TyT Software & Solutions.',
+    noindex: true,
+    body: '<p>Propuesta privada de TyT Software &amp; Solutions. Activá JavaScript para verla.</p>',
+  }).replace('content="noindex, follow"', 'content="noindex, nofollow, noarchive"'),
+)
+
+console.log(`Metadatos por ruta: ${ROUTES.map((r) => r.path).join(', ')}, /diagnostico, /propuesta y 404.html`)

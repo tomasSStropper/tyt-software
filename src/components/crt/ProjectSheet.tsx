@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { PROJECTS } from '../../content/projects'
+import { CONTACT } from '../../i18n/dictionary'
 import { useLang } from '../../i18n/LanguageContext'
 import { PosterCanvas } from './PosterCanvas'
 import { Sheet } from './Sheet'
@@ -105,6 +106,9 @@ export function ProjectSheet({
               {t.sheet.soon}
             </span>
           )}
+          <a className="tlink" href={CONTACT.agendaUrl('proyecto')}>
+            {t.home.book}
+          </a>
           <button type="button" className="tlink" onClick={() => onOpen(next)}>
             {t.sheet.next}
           </button>

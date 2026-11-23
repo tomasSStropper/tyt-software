@@ -50,9 +50,9 @@ export function CrtNav() {
           {t.nav.brand}
         </Link>
         <nav className="crt-nav__right" aria-label="principal">
-          <Link to="/#contacto" ref={talkRef}>
+          <a href={CONTACT.agendaUrl('nav')} ref={talkRef}>
             {t.nav.talk}
-          </Link>
+          </a>
           <button
             type="button"
             aria-haspopup="dialog"
@@ -106,9 +106,11 @@ export function CrtNav() {
             <a className="tlink" href={CONTACT.agendaUrl('nav')}>
               {t.nav.cta}
             </a>
-            <a className="tlink" href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer">
-              WhatsApp
-            </a>
+            {CONTACT.whatsappActivo && (
+              <a className="tlink" href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer">
+                WhatsApp
+              </a>
+            )}
           </div>
         </Sheet>
       )}

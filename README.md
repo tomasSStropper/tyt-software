@@ -17,6 +17,33 @@ npm run build    # typecheck + build a dist/
 Deploy: Vercel conectado a `main` (`vercel.json` define build y `dist`). Cada
 rama genera su propio preview.
 
+### Cloudflare Pages (preparado, todavía sin usar)
+
+El repo ya sirve igual en Cloudflare Pages. Vercel sigue siendo producción
+hasta que se decida el cambio (ver «Propuesta Cloudflare» en la bóveda).
+
+| Ajuste en Pages | Valor |
+| --- | --- |
+| Framework | Ninguno |
+| Comando de build | `npm run build` |
+| Carpeta de salida | `dist` |
+| Carpeta raíz | la raíz del repo |
+| Rama de producción | `main` |
+| Node | `.node-version` (24) |
+| Variables | `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY` en Production y Preview |
+
+- `public/_headers` es la copia de las cabeceras de `vercel.json` para Pages,
+  sin las fuentes de la barra de Vercel (`vercel.live`). Si cambia una, se
+  cambia la otra.
+- Pages no lee los `rewrites` de `vercel.json`. Por eso
+  `scripts/prerender-meta.mjs` escribe cada ruta también como `/ruta.html`:
+  Pages la sirve en `/ruta` sin redirigir a `/ruta/`.
+- Sin catch-all: como existe `404.html`, Pages responde 404 en rutas que no
+  existen, igual que hoy.
+- La redirección de `tytsoftware.com` a `www` no la hace Pages: va como regla
+  de redirección en la zona de Cloudflare.
+- Probar local: `npm run build` y `npx wrangler pages dev dist`.
+
 ## Mapa del código
 
 | Qué | Dónde |
@@ -69,8 +96,12 @@ de los ojos y el rectángulo de la pantalla del monitor.
 **SEO** (dominio canónico: `https://www.tytsoftware.com`)
 
 - `index.html`: título, descripción, canonical, tarjeta social (Open Graph /
-  Twitter con `public/og.jpg`) y datos estructurados JSON-LD
+  Twitter con `public/og-azul.jpg`) y datos estructurados JSON-LD
   (`ProfessionalService`, `WebSite`, `SoftwareApplication` de ArenaDesk).
+- `public/og-azul.jpg` sale de `scripts/og.html`. Para regenerarla: abrir ese
+  HTML con Edge o Chrome sin perfil y capturarlo a 1200×630
+  (`msedge --headless=new --user-data-dir=<carpeta temporal> --allow-file-access-from-files --window-size=1200,630 --virtual-time-budget=5000 --screenshot=og.png scripts/og.html`),
+  y pasar el PNG a JPG calidad 90 con el mismo nombre.
 - `index.html` trae además un **contenido de arranque** dentro de `#root`
   (titular, servicios, proyectos, contacto). React lo reemplaza al montar; sirve
   a quien no ejecuta JavaScript. **Si cambian servicios o proyectos, actualizarlo.**

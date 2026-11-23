@@ -1,9 +1,11 @@
+import { campaignParam } from '../lib/utm'
+
 export type Lang = 'es' | 'en'
 
 const es = {
   nav: {
     brand: 'TyT Software',
-    talk: 'Hablemos',
+    talk: 'Agendar',
     menu: 'Menú',
     close: 'Cerrar',
     projects: 'Proyectos',
@@ -22,6 +24,7 @@ const es = {
     title: 'Construimos sitios, sistemas y automatización a la medida.',
     body: 'Contanos qué necesita tu empresa. Lo demás lo resolvemos juntos.',
     seeWork: 'Ver proyectos',
+    book: 'Agendar una reunión',
     avatarAlt:
       'Asistente de TyT en modo holograma: figura de traje con un monitor vintage por cabeza y dos ojos rojos brillantes',
     projectsHeading: 'Proyectos',
@@ -46,7 +49,7 @@ const es = {
     },
     contactTitle: ['Hablemos de tu', 'próximo proyecto'],
     contactSub: 'Llená un formulario rápido y te respondemos en menos de 24 horas',
-    links: { agenda: 'Agenda', whatsapp: 'WhatsApp', mail: 'Mail', instagram: 'Instagram' },
+    links: { agenda: 'Agendar una reunión', whatsapp: 'WhatsApp', mail: 'Mail', instagram: 'Instagram' },
     back: 'Volver arriba',
     privacy: 'Privacidad',
     terms: 'Condiciones',
@@ -190,30 +193,30 @@ const es = {
     steps: [
       { name: 'Escuchar', desc: 'Entendemos tu negocio antes de proponer nada.' },
       { name: 'Diagnosticar', desc: 'Encontramos dónde se pierde tiempo y dinero.' },
-      { name: 'Construir', desc: 'Entregas cortas. Avances que puedes ver.' },
+      { name: 'Construir', desc: 'Entregas cortas. Avances que podés ver.' },
       { name: 'Automatizar', desc: 'Lo repetitivo lo hacen las máquinas.' },
       { name: 'Acompañar', desc: 'Nos quedamos después del lanzamiento.' },
     ],
   },
   contact: {
     label: 'Contacto',
-    title: 'Cuéntanos qué necesitas.',
+    title: 'Contanos qué necesitás.',
     agenda: 'Agendar una reunión',
-    pitch: 'Hablas directo con quien construye. Respuesta en menos de 24 horas, sin compromiso y sin jerga.',
+    pitch: 'Hablás directo con quien construye. Respuesta en menos de 24 horas, sin compromiso y sin jerga.',
     phoneAlt: 'Mano en traje ofreciendo un auricular de teléfono rojo vintage con cable en espiral',
     name: 'Nombre',
     namePh: 'Tu nombre',
     reach: 'Email o WhatsApp',
     reachPh: 'nombre@empresa.com',
     message: 'Mensaje',
-    messagePh: 'Qué quieres construir, mejorar o automatizar',
+    messagePh: 'Qué querés construir, mejorar o automatizar',
     send: 'Enviar',
     sending: 'Enviando…',
     success: 'Recibido',
     successNote: 'Gracias. Te escribimos en menos de 24 horas.',
     mailtoNote: 'Se abrió tu cliente de correo para enviarnos el mensaje directo.',
-    error: 'No se pudo enviar. Escríbenos directo:',
-    required: 'Completa este campo',
+    error: 'No se pudo enviar. Escribinos directo:',
+    required: 'Completá este campo',
     or: 'o directo:',
   },
   footer: {
@@ -241,7 +244,7 @@ export type Dict = typeof es
 const en: Dict = {
   nav: {
     brand: 'TyT Software',
-    talk: "Let's talk",
+    talk: 'Book a call',
     menu: 'Menu',
     close: 'Close',
     projects: 'Work',
@@ -260,6 +263,7 @@ const en: Dict = {
     title: 'We build custom websites, systems and automation.',
     body: 'Tell us what your business needs. The rest, we solve together.',
     seeWork: 'See our work',
+    book: 'Book a meeting',
     avatarAlt:
       'TyT assistant in hologram mode: a suited figure with a vintage monitor for a head and two glowing red eyes',
     projectsHeading: 'Work',
@@ -284,7 +288,7 @@ const en: Dict = {
     },
     contactTitle: ["Let's talk about", 'your next project'],
     contactSub: 'Fill a quick form and we reach out to you within 24 hours',
-    links: { agenda: 'Booking', whatsapp: 'WhatsApp', mail: 'Mail', instagram: 'Instagram' },
+    links: { agenda: 'Book a meeting', whatsapp: 'WhatsApp', mail: 'Mail', instagram: 'Instagram' },
     back: 'Scroll back',
     privacy: 'Privacy',
     terms: 'Terms',
@@ -481,8 +485,9 @@ export const CONTACT = {
   email: 'tomas@tytsoftware.com',
   whatsapp: '+506 7042 7226',
   whatsappUrl: 'https://wa.me/50670427226',
+  whatsappActivo: false,
   instagram: 'https://www.instagram.com/tytsoftware/',
   instagramHandle: '@tytsoftware',
   /** Agenda pública (proyecto aparte: agendatyt). El utm dice desde dónde llegó la persona. */
-  agendaUrl: (from: 'nav' | 'contact') => `https://agenda.tytsoftware.com/?utm_source=tytsoftware&utm_medium=${from}`,
+  agendaUrl: (from: 'nav' | 'contact' | 'hero' | 'nicho' | 'proyecto' | 'arenadesk') => `https://agenda.tytsoftware.com/?utm_source=tytsoftware&utm_medium=${from}${campaignParam()}`,
 } as const
